@@ -158,13 +158,17 @@ adminApp.post('/newsletter/send', authMiddleware, zValidator('json', z.object({
 // ===== BLOG =====
 
 // Apply auth middleware to all routes except login
+// Apply auth middleware to all routes except login and ping
 adminApp.use('/*', async (c, next) => {
     console.log(`[API] Admin Middleware: ${c.req.path}`);
-    // Check both full path and relative path ending
-    if (c.req.path === '/api/admin/login' || c.req.path.endsWith('/login')) {
-        console.log('[API] Skipping auth for login');
+    const path = c.req.path;
+
+    // Allow login and ping without auth
+    if (path.endsWith('/login') || path.endsWith('/ping') || path.includes('/api/admin/login') || path.includes('/api/admin/ping')) {
+        console.log(`[API] Skipping auth for safe path: ${path}`);
         return next();
     }
+
     return authMiddleware(c, next);
 });
 
