@@ -157,34 +157,62 @@ adminPagesApp.get('/login', (c) => {
             </div>
         </div>
         <script>
-            document.getElementById('loginForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                const errorDiv = document.getElementById('error');
-                const errorMessage = document.getElementById('errorMessage');
-                
-                try {
-                    const response = await fetch('/api/admin/login', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, password }),
-                    });
-                    const data = await response.json();
+            console.log('Login script loaded');
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                console.log('Login form found');
+                loginForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    console.log('Form submitted');
                     
-                    if (response.ok) {
-                        localStorage.setItem('admin_token', data.token);
-                        localStorage.setItem('admin_user', JSON.stringify(data.user));
-                        window.location.href = '/admin/dashboard';
-                    } else {
-                        errorMessage.textContent = data.error || 'Identifiants invalides';
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const errorDiv = document.getElementById('error');
+                    const errorMessage = document.getElementById('errorMessage');
+                    
+                    // Show loading state
+                    const btn = document.querySelector('button[type="submit"]');
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Connexion...';
+                    btn.disabled = true;
+
+                    try {
+                        console.log('Fetching /api/admin/login...');
+                        const response = await fetch('/api/admin/login', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email, password }),
+                        });
+                        console.log('Response status:', response.status);
+                        
+                        const data = await response.json();
+                        console.log('Response data:', data);
+                        
+                        if (response.ok) {
+                            alert('Connexion réussie! Redirection...');
+                            localStorage.setItem('admin_token', data.token);
+                            localStorage.setItem('admin_user', JSON.stringify(data.user));
+                            window.location.href = '/admin/dashboard';
+                        } else {
+                            const msg = data.error || 'Identifiants invalides';
+                            alert('Erreur: ' + msg);
+                            errorMessage.textContent = msg;
+                            errorDiv.classList.remove('hidden');
+                        }
+                    } catch (error) {
+                        console.error('Login error:', error);
+                        alert('Erreur réseau ou serveur: ' + error.message);
+                        errorMessage.textContent = 'Erreur de connexion: ' + error.message;
                         errorDiv.classList.remove('hidden');
+                    } finally {
+                        btn.innerText = originalText;
+                        btn.disabled = false;
                     }
-                } catch (error) {
-                    errorMessage.textContent = 'Erreur de connexion.';
-                    errorDiv.classList.remove('hidden');
-                }
-            });
+                });
+            } else {
+                console.error('Login form NOT found');
+                alert('Erreur critique: Formulaire non trouvé');
+            }
         </script>
     </body>
     </html>
