@@ -9,7 +9,8 @@ export const config = {
 const handler = handle(app);
 
 export default async (req: any, res: any) => {
-    // RAW BYPASS FOR PING
+    // RAW BYPASS REMOVED
+    /*
     if (req.url.includes('/api/admin/ping')) {
         res.status(200).json({
             pong: true,
@@ -18,6 +19,7 @@ export default async (req: any, res: any) => {
         });
         return;
     }
+    */
 
     console.log('[Vercel Entry] Request:', req.url);
     try {

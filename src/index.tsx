@@ -11,9 +11,11 @@ import { generateBlogSectionHtml, generateEventsSectionHtml, generatePopupHtml, 
 import { Bindings } from './bindings'
 
 const app = new Hono<{ Bindings: Bindings }>()
+console.log('[App] Hono instance created');
 
-// Enable CORS
-app.use('/api/*', cors())
+// Enable CORS - DISABLED FOR DEBUGGING
+// app.use('/api/*', cors())
+console.log('[App] CORS disabled for debugging');
 
 // Mount API routes
 app.route('/api/admin', adminApp)
