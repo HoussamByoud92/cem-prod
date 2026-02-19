@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
-    build(),
+    process.env.VERCEL ? [] : build(),
     devServer({
       adapter,
       entry: 'src/index.tsx'
