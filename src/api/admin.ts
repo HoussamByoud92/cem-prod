@@ -67,14 +67,19 @@ const loginSchema = z.object({
 });
 
 adminApp.post('/login', zValidator('json', loginSchema), async (c) => {
+    console.log('[API] Login request received');
     try {
         const { email, password } = c.req.valid('json');
+        console.log('[API] Validated credentials, authenticating...');
+
         const user = await authenticateAdmin(email, password);
 
         if (!user) {
+            console.log('[API] Authentication failed: User not found or invalid password');
             return c.json({ error: 'Invalid credentials' }, 401);
         }
 
+        console.log('[API] Authentication successful, generating token...');
         const token = generateToken(user);
         return c.json({ token, user });
     } catch (error) {

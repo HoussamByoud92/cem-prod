@@ -66,23 +66,43 @@ export const authenticateAdmin = async (
     email: string,
     password: string
 ): Promise<AdminUser | null> => {
+    console.log(`[Auth] Login attempt for: ${email}`);
+
     // For now, use environment variables for admin credentials
     const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@cembymazini.ma';
     const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '';
 
     if (email !== ADMIN_EMAIL) {
+        console.log('[Auth] Email mismatch');
         return null;
+    }
+
+    // Optimization: Direct check for default password to avoid bcrypt overhead if not needed
+    if (!ADMIN_PASSWORD_HASH && password === 'admin123') {
+        console.log('[Auth] Default password accepted (Direct Check)');
+        return {
+            id: '1',
+            email: ADMIN_EMAIL,
+            name: 'Admin CEM GROUP',
+        };
     }
 
     // If no hash is set, use default password "admin123" (for development only)
-    const defaultHash = await hashPassword('admin123');
-    const passwordHash = ADMIN_PASSWORD_HASH || defaultHash;
+    let passwordHash = ADMIN_PASSWORD_HASH;
+    if (!passwordHash) {
+        console.log('[Auth] Generating default hash for comparison...');
+        passwordHash = await hashPassword('admin123');
+    }
 
+    console.log('[Auth] Verifying password hash...');
     const isValid = await comparePassword(password, passwordHash);
+
     if (!isValid) {
+        console.log('[Auth] Invalid password');
         return null;
     }
 
+    console.log('[Auth] Login successful');
     return {
         id: '1',
         email: ADMIN_EMAIL,
