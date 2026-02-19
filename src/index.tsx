@@ -13,9 +13,16 @@ import { Bindings } from './bindings'
 const app = new Hono<{ Bindings: Bindings }>()
 console.log('[App] Hono instance created');
 
-// Enable CORS - DISABLED FOR DEBUGGING
-// app.use('/api/*', cors())
-console.log('[App] CORS disabled for debugging');
+// Enable robust CORS
+app.use('/api/*', cors({
+    origin: '*',
+    allowMethods: ['POST', 'GET', 'OPTIONS', 'PUT', 'DELETE'],
+    allowHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    exposeHeaders: ['Content-Length'],
+    maxAge: 600,
+    credentials: true,
+}))
+console.log('[App] CORS enabled with robust config');
 
 // Mount API routes
 app.route('/api/admin', adminApp)
