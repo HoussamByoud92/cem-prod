@@ -13,7 +13,7 @@ export default defineConfig({
   ],
   build: process.env.VERCEL ? {
     ssr: 'src/index.tsx',
-    outDir: 'dist_vercel',
+    outDir: 'dist',
     emptyOutDir: true
   } : undefined
 })
