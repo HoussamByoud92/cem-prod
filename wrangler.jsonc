@@ -1,0 +1,53 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "webapp",
+  "compatibility_date": "2026-02-05",
+  "pages_build_output_dir": "./dist",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "vars": {
+    // NOTE: For production deployment, use Cloudflare Secrets for sensitive values:
+    // wrangler secret put GAS_API_TOKEN
+    // wrangler secret put CLOUDINARY_API_SECRET
+    // wrangler secret put BREVO_API_KEY
+    // wrangler secret put JWT_SECRET
+    // wrangler secret put ADMIN_PASSWORD_HASH
+    "GAS_WEB_APP_URL": "https://script.google.com/macros/s/AKfycbxWrHR_XH9mvTayChD3lahlyDjB6BPR7nwSsvgjTJBP0IuYZY87diNiDM8NRG3Vbp0/exec", // Public URL is fine
+    "GAS_API_TOKEN": "", // Set in Dashboard
+    "CLOUDINARY_CLOUD_NAME": "dx1agy8od", // Public
+    "CLOUDINARY_API_KEY": "435635577568482", // Public
+    "CLOUDINARY_API_SECRET": "", // Set in Dashboard
+    "BREVO_API_KEY": "", // Set in Dashboard
+    "CONTACT_EMAIL": "contact@cembymazini.ma",
+    "JWT_SECRET": "", // Set in Dashboard
+    "ADMIN_EMAIL": "admin@cembymazini.ma",
+    "ADMIN_PASSWORD_HASH": "", // Set in Dashboard
+    "NODE_ENV": "production"
+  }
+  // "vars": {
+  //   "MY_VAR": "my-variable"
+  // },
+  // "kv_namespaces": [
+  //   {
+  //     "binding": "MY_KV_NAMESPACE",
+  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  //   }
+  // ],
+  // "r2_buckets": [
+  //   {
+  //     "binding": "MY_BUCKET",
+  //     "bucket_name": "my-bucket"
+  //   }
+  // ],
+  // "d1_databases": [
+  //   {
+  //     "binding": "MY_DB",
+  //     "database_name": "my-database",
+  //     "database_id": ""
+  //   }
+  // ],
+  // "ai": {
+  //   "binding": "AI"
+  // }
+}

@@ -1,0 +1,35 @@
+# robots.txt pour CEM GROUP
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://cembymazini.ma/sitemap.xml
+
+# Interdire les fichiers sensibles
+Disallow: /api/
+Disallow: /_worker.js
+Disallow: /_routes.json
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*utm_source=
+
+# Permettre les ressources publiques
+Allow: /static/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.webp
+
+# Crawl-delay (optionnel)
+# Crawl-delay: 1
+
+# User-agents spécifiques
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+.cache
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# Cloudflare
+.wrangler
+
+# Debug & temp files
+debug-events.mjs
+debug_sign.cjs
+GAS_CODE.js
+
+# Documentation (non-essential for deployment)
+ADMIN_SETUP.md
+AUDIT_RAPPORT.md
+DEPLOY_GUIDE.md
+RAPPORT_AMELIORATIONS.md
+catalogue_content.md
+
+# PM2
+ecosystem.config.cjs
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
