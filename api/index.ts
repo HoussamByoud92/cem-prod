@@ -1,5 +1,6 @@
 import { handle } from '@hono/node-server/vercel'
-import app from '../src/index'
+// @ts-ignore
+import app from '../dist/server-internal.js'
 
 export const config = {
     runtime: 'nodejs'

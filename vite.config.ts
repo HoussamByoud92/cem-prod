@@ -12,14 +12,14 @@ export default defineConfig({
     })
   ],
   build: process.env.VERCEL ? {
-    // Build a dummy placeholder to clear the server code from static output
-    lib: {
-      entry: 'src/deploy-placeholder.ts',
-      formats: ['es'],
-      fileName: 'deploy-placeholder'
-    },
+    ssr: 'src/index.tsx',
     outDir: 'dist',
     emptyOutDir: true,
-    copyPublicDir: true
+    copyPublicDir: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'server-internal.js'
+      }
+    }
   } : undefined
 })
