@@ -66,11 +66,20 @@ const loginSchema = z.object({
     password: z.string().min(6),
 });
 
-adminApp.post('/login', zValidator('json', loginSchema), async (c) => {
+adminApp.post('/login', async (c) => {
     console.log('[API] Login request received');
     try {
-        const { email, password } = c.req.valid('json');
-        console.log('[API] Validated credentials, authenticating...');
+        let body;
+        try {
+            body = await c.req.json();
+            console.log('[API] JSON body parsed');
+        } catch (e) {
+            console.error('[API] Failed to parse JSON body', e);
+            return c.json({ error: 'Invalid JSON' }, 400);
+        }
+
+        const { email, password } = body;
+        console.log(`[API] Credentials received for: ${email}`);
 
         const user = await authenticateAdmin(email, password);
 
@@ -84,7 +93,7 @@ adminApp.post('/login', zValidator('json', loginSchema), async (c) => {
         return c.json({ token, user });
     } catch (error) {
         console.error('Login error:', error);
-        return c.json({ error: 'Login failed' }, 500);
+        return c.json({ error: 'Login failed: ' + String(error) }, 500);
     }
 });
 
@@ -150,7 +159,10 @@ adminApp.post('/newsletter/send', authMiddleware, zValidator('json', z.object({
 
 // Apply auth middleware to all routes except login
 adminApp.use('/*', async (c, next) => {
-    if (c.req.path === '/api/admin/login') {
+    console.log(`[API] Admin Middleware: ${c.req.path}`);
+    // Check both full path and relative path ending
+    if (c.req.path === '/api/admin/login' || c.req.path.endsWith('/login')) {
+        console.log('[API] Skipping auth for login');
         return next();
     }
     return authMiddleware(c, next);
