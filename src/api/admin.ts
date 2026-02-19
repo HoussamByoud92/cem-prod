@@ -56,7 +56,8 @@ import { Bindings } from '../bindings';
 const adminApp = new Hono<{ Bindings: Bindings }>();
 
 // Enable CORS for admin routes
-adminApp.use('/*', cors());
+// Enable CORS handled by main app
+// adminApp.use('/*', cors());
 
 // ===== AUTHENTICATION =====
 
