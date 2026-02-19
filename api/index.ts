@@ -9,6 +9,16 @@ export const config = {
 const handler = handle(app);
 
 export default async (req: any, res: any) => {
+    // RAW BYPASS FOR PING
+    if (req.url.includes('/api/admin/ping')) {
+        res.status(200).json({
+            pong: true,
+            time: Date.now(),
+            bypass: 'raw-vercel-entry'
+        });
+        return;
+    }
+
     console.log('[Vercel Entry] Request:', req.url);
     try {
         const start = Date.now();
