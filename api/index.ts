@@ -1,6 +1,6 @@
 import { handle } from '@hono/node-server/vercel'
 // @ts-ignore
-import app from '../dist/server-internal.js'
+import rawApp from '../dist/server-internal.js'
 
 export const config = {
     runtime: 'nodejs',
@@ -8,6 +8,9 @@ export const config = {
         bodyParser: false
     }
 }
+
+// Guard against ESM to CJS transpilation throwing away default exports
+const app = rawApp?.fetch ? rawApp : (rawApp?.default || rawApp);
 
 const handler = handle(app);
 
