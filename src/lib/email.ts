@@ -6,6 +6,8 @@
 // Contact form email configuration
 const CONTACT_EMAIL = 'contact@cembymazini.ma';
 
+import fetch from 'node-fetch';
+
 export interface ContactFormData {
     name: string;
     email: string;

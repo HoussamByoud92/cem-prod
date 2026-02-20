@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import fetch from 'node-fetch';
 
 // Google Apps Script configuration
 const GAS_WEB_APP_URL = process.env.GAS_WEB_APP_URL || '';
@@ -144,7 +145,7 @@ export class SheetsService<T extends { id: string }> {
       // Vercel Hobby is max 10s, give GAS 8s before failing gracefully
       const timeoutId = setTimeout(() => controller.abort(), 8000);
 
-      const options: RequestInit = {
+      const options: any = {
         method,
         headers: {
           'Content-Type': 'application/json',
@@ -233,6 +234,11 @@ export class SheetsService<T extends { id: string }> {
   async delete(id: string, env?: any): Promise<boolean> {
     const result = await this.request('delete', { id }, 'POST', null, env);
     return result.success === true;
+  }
+
+  // Allow custom actions like subscribeNewsletter to execute complex logic in a single request
+  async customAction(action: string, data: any, env?: any): Promise<any> {
+    return await this.request(action, {}, 'POST', data, env);
   }
 }
 

@@ -111,19 +111,9 @@ publicApp.post('/newsletter/subscribe', zValidator('json', newsletterSchema), as
         const data = c.req.valid('json');
         const now = new Date().toISOString();
 
-        // Check if already subscribed
-        const existing = await newsletterService.getAll(c.env);
-        const alreadySubscribed = existing.find(s => s.email === data.email);
-
-        if (alreadySubscribed) {
-            return c.json({
-                success: false,
-                message: 'Cet email est déjà inscrit à notre newsletter'
-            }, 400);
-        }
-
-        // Add to Google Sheets
-        const subscriber = await newsletterService.create({
+        // Use atomic subscription action in GAS to bypass Vercel 10s Serverless timeout
+        // (prevents fetching all subscriber rows client-side before inserting)
+        const result = await newsletterService.customAction('subscribeNewsletter', {
             email: data.email,
             firstName: '',
             lastName: '',
@@ -133,6 +123,15 @@ publicApp.post('/newsletter/subscribe', zValidator('json', newsletterSchema), as
             tags: '',
             lastCampaignSent: '',
         }, c.env);
+
+        if (result.error || result.success === false) {
+            return c.json({
+                success: false,
+                message: result.message || result.error || 'Cet email est déjà inscrit'
+            }, 400);
+        }
+
+        const subscriber = result.subscriber || data;
 
         // Add to Brevo in the background (fire and forget) so it doesn't block the HTTP response
         if ((c.env as any)?.BREVO_API_KEY || process.env.BREVO_API_KEY) {
