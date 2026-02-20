@@ -3,7 +3,10 @@ import { handle } from '@hono/node-server/vercel'
 import app from '../dist/server-internal.js'
 
 export const config = {
-    runtime: 'nodejs'
+    runtime: 'nodejs',
+    api: {
+        bodyParser: false
+    }
 }
 
 const handler = handle(app);
