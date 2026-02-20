@@ -140,11 +140,18 @@ export class SheetsService<T extends { id: string }> {
     });
 
     try {
+      const controller = new AbortController();
+      // Vercel Hobby is max 10s, give GAS 8s before failing gracefully
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
+
       const options: RequestInit = {
         method,
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'User-Agent': 'CEM-Group-App/1.0',
         },
+        signal: controller.signal,
       };
 
       if (body) {
@@ -156,6 +163,7 @@ export class SheetsService<T extends { id: string }> {
       }
 
       const response = await fetch(url.toString(), options);
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error(`GAS Error: ${response.statusText}`);

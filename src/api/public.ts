@@ -134,20 +134,18 @@ publicApp.post('/newsletter/subscribe', zValidator('json', newsletterSchema), as
             lastCampaignSent: '',
         }, c.env);
 
-        // Add to Brevo if configured
+        // Add to Brevo in the background (fire and forget) so it doesn't block the HTTP response
         if ((c.env as any)?.BREVO_API_KEY || process.env.BREVO_API_KEY) {
-            try {
-                await addBrevoContact({
-                    email: subscriber.email,
-                    attributes: {
-                        FIRSTNAME: subscriber.firstName,
-                        LASTNAME: subscriber.lastName,
-                    },
-                }, c.env);
-            } catch (brevoError) {
-                console.error('Brevo sync error:', brevoError);
-                // Continue even if Brevo fails
-            }
+            // Do NOT await this on Vercel to preserve the 10s window for the main Sheets request
+            addBrevoContact({
+                email: subscriber.email,
+                attributes: {
+                    FIRSTNAME: subscriber.firstName,
+                    LASTNAME: subscriber.lastName,
+                },
+            }, c.env).catch(brevoError => {
+                console.error('Brevo background sync error:', brevoError);
+            });
         }
 
         return c.json({

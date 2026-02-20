@@ -34,6 +34,9 @@ export const sendContactEmail = async (data: ContactFormData, env?: any): Promis
     const htmlContent = generateContactEmailHTML(data);
 
     try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+
         const url = new URL(gasUrl);
         url.searchParams.append('action', 'sendContactEmail');
         url.searchParams.append('token', gasToken || '');
@@ -42,7 +45,10 @@ export const sendContactEmail = async (data: ContactFormData, env?: any): Promis
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'User-Agent': 'CEM-Group-App/1.0',
             },
+            signal: controller.signal,
             body: JSON.stringify({
                 subject,
                 htmlContent,
@@ -52,6 +58,7 @@ export const sendContactEmail = async (data: ContactFormData, env?: any): Promis
                 timestamp: new Date().toISOString()
             }),
         });
+        clearTimeout(timeoutId);
 
         if (!response.ok) {
             const err = await response.json().catch(() => ({}));
