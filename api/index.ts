@@ -27,6 +27,18 @@ export default async (req: any, res: any) => {
     }
     */
 
+    // Vercel auto-parses the body and consumes the stream. Hono expects the raw stream
+    // or `req.rawBody`. Injecting `rawBody` prevents Hono from hanging on `await req.json()`.
+    if (req.body && !req.rawBody) {
+        if (Buffer.isBuffer(req.body)) {
+            req.rawBody = req.body;
+        } else if (typeof req.body === 'object') {
+            req.rawBody = Buffer.from(JSON.stringify(req.body));
+        } else if (typeof req.body === 'string') {
+            req.rawBody = Buffer.from(req.body);
+        }
+    }
+
     console.log('[Vercel Entry] Request:', req.url);
     try {
         const start = Date.now();
