@@ -107,6 +107,7 @@ app.get('/', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM GROUP - Agence Marketing Digital & Formation Professionnelle Casablanca | Stratégie, IA, Audiovisuel</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM GROUP Casablanca: Expert en marketing digital, production vidéo professionnelle & formations certifiées. +500 clients depuis 2018. Transformez votre business !">
         <meta name="keywords" content="agence marketing digital casablanca, formation professionnelle maroc, production audiovisuelle, social branding, e-learning, intelligence artificielle, stratégie digitale, cem group, meryem mazini, acculturation IA">
         <meta name="author" content="CEM GROUP - Meryem Mazini">
@@ -1297,65 +1298,21 @@ app.get('/', async (c) => {
                 </div>
                 
                 <!-- Logos Clients Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center mb-16">
-                    <!-- MCMA -->
-                    <div class="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#D4AF37]">
-                        <div class="text-center">
-                            <div class="w-full h-20 flex items-center justify-center mb-3">
-                                <div class="text-4xl font-black text-white group-hover:text-[#D4AF37] transition">MCMA</div>
-                            </div>
-                            <p class="text-xs text-gray-400">Assurance</p>
-                        </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center mb-16">
+                    <div class="group bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
+                        <img src="/logos/client-logo-1.png" alt="Client 1" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" />
                     </div>
-                    
-                    <!-- IMACAB -->
-                    <div class="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#D4AF37]">
-                        <div class="text-center">
-                            <div class="w-full h-20 flex items-center justify-center mb-3">
-                                <div class="text-3xl font-black text-white group-hover:text-[#D4AF37] transition">IMACAB</div>
-                            </div>
-                            <p class="text-xs text-gray-400">Immobilier</p>
-                        </div>
+                    <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
+                        <img src="/logos/client-logo-2.png" alt="Client 2" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
                     </div>
-                    
-                    <!-- DATAPROTECT -->
-                    <div class="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#D4AF37]">
-                        <div class="text-center">
-                            <div class="w-full h-20 flex items-center justify-center mb-3">
-                                <div class="text-2xl font-black text-white group-hover:text-[#D4AF37] transition text-center">DATA<br/>PROTECT</div>
-                            </div>
-                            <p class="text-xs text-gray-400">Cybersécurité</p>
-                        </div>
+                    <div class="group bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
+                        <img src="/logos/client-logo-3.png" alt="Client 3" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" />
                     </div>
-                    
-                    <!-- ÉLÉPHANT VERT -->
-                    <div class="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#D4AF37]">
-                        <div class="text-center">
-                            <div class="w-full h-20 flex items-center justify-center mb-3">
-                                <div class="text-2xl font-black text-white group-hover:text-[#D4AF37] transition text-center">ÉLÉPHANT<br/>VERT</div>
-                            </div>
-                            <p class="text-xs text-gray-400">Recyclage</p>
-                        </div>
+                    <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
+                        <img src="/logos/client-logo-4.png" alt="Client 4" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
                     </div>
-                    
-                    <!-- 3D FLOW NEWS -->
-                    <div class="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#D4AF37]">
-                        <div class="text-center">
-                            <div class="w-full h-20 flex items-center justify-center mb-3">
-                                <div class="text-xl font-black text-white group-hover:text-[#D4AF37] transition text-center">3D FLOW<br/>NEWS</div>
-                            </div>
-                            <p class="text-xs text-gray-400">Média</p>
-                        </div>
-                    </div>
-                    
-                    <!-- ZENTEK -->
-                    <div class="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#D4AF37]">
-                        <div class="text-center">
-                            <div class="w-full h-20 flex items-center justify-center mb-3">
-                                <div class="text-3xl font-black text-white group-hover:text-[#D4AF37] transition">ZENTEK</div>
-                            </div>
-                            <p class="text-xs text-gray-400">Agriculture</p>
-                        </div>
+                    <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
+                        <img src="/logos/client-logo-5.png" alt="Client 5" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
                     </div>
                 </div>
                 
@@ -2365,6 +2322,7 @@ app.get('/services/:slug', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${service.title} - CEM GROUP</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
@@ -2655,6 +2613,7 @@ app.get('/marketing', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM MARKETING - Agence Marketing Digital Casablanca | Vidéo, Social Media & Leads B2B</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM MARKETING Casablanca: Génération de leads B2B, production vidéo professionnelle & personal branding LinkedIn. Agence digitale au Maroc. Audit !">
         <meta name="keywords" content="agence marketing digital casablanca, production vidéo maroc, social media management, leads b2b, linkedin maroc, personal branding, ghostwriting, copywriting maroc">
         <meta name="author" content="CEM GROUP - CEM Marketing">
@@ -4504,6 +4463,7 @@ app.get('/formation/:slug', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${formation.title} - CEM FORMATION</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="${formation.description}">
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
@@ -4711,6 +4671,7 @@ app.get('/innovation', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM INNOVATION - Intelligence Artificielle & Transformation Digitale | Acculturation IA Maroc</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM INNOVATION Maroc: Formations IA générative (ChatGPT, MidJourney, Gemini). 50+ entreprises formées, +85% de productivité. Démystifiez l'IA aujourd'hui !">
         <meta name="keywords" content="intelligence artificielle maroc, formation ia maroc, acculturation ia, chatgpt entreprise, transformation digitale, démystification ia, ateliers ia, consulting ia maroc, cem innovation">
         <meta name="author" content="CEM GROUP - CEM Innovation">
@@ -5526,6 +5487,7 @@ app.get('/recrutement', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rejoignez CEM GROUP - Recrutement & Carrières</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <script src="https://cdn.tailwindcss.com"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
@@ -5875,6 +5837,7 @@ app.get('/', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM FORMATION - Formation Professionnelle Digitale Maroc | LinkedIn, E-Learning, IA</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM FORMATION Maroc: 19 formations certifiées (LinkedIn, Marketing, Management, HACCP). 500+ apprenants, 95% satisfaction. Boostez vos compétences !">
         <meta name="keywords" content="formation professionnelle maroc, formation linkedin maroc, e-learning maroc, formation marketing digital, formation ia maroc, certification professionnelle, cem formation, n1 growth favikon">
         <meta name="author" content="CEM GROUP - CEM Formation">
@@ -7584,6 +7547,7 @@ app.get('/actualites', (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM ACTU - Actualités Marketing, Formation & Innovation | CEM GROUP Maroc</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM ACTU: Actualités marketing, IA & formation au Maroc. Événements, success stories, tendances digitales. Restez connectés à l'innovation !">
         <meta name="keywords" content="actualités cem group, événements marketing maroc, formation professionnelle, innovation ia, linkedin local morocco, success stories, tendances digitales">
         <meta name="author" content="CEM GROUP">
@@ -8104,6 +8068,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>10 Astuces LinkedIn pour Générer des Leads B2B au Maroc | CEM GROUP Blog</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="Découvrez les stratégies éprouvées pour transformer votre profil LinkedIn en machine à générer des opportunités commerciales qualifiées au Maroc.">
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
@@ -8397,6 +8362,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Comment l'IA Révolutionne le Marketing Digital en 2026 | CEM GROUP Blog</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="L'intelligence artificielle transforme radicalement les stratégies marketing. Explorez les outils et méthodes qui changent la donne en 2026.">
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
@@ -8684,6 +8650,7 @@ app.get('/catalogue', async (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Télécharger le Catalogue CEM GROUP | Formations, Marketing & Innovation Maroc</title>
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="Téléchargez le catalogue CEM GROUP: 19 formations professionnelles + services marketing digital & IA. Tarifs, modalités & certifications. Complet !"/>
         <meta name="keywords" content="catalogue formations, catalogue CEM, télécharger catalogue, formations digitales Maroc, marketing digital Casablanca, CEM GROUP" />
         <meta name="author" content="CEM GROUP - Catalogue" />
