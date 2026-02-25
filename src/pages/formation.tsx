@@ -624,21 +624,22 @@ formationApp.get('/', async (c) => {
                 </div>
 
                 <!-- Accordéons par Catégorie -->
-                <div class="space-y-6" x-data="{ activeCategory: null }">
+                <div class="space-y-6" x-data="{ activeCategory: window.location.hash ? window.location.hash.substring(1) : null }" @hashchange.window="activeCategory = window.location.hash ? window.location.hash.substring(1) : null">
                 ${(() => {
             const activeFormations = formations.filter((f: any) => f.status === 'active').sort((a: any, b: any) => (Number(a.order) || 0) - (Number(b.order) || 0));
-            if (activeFormations.length === 0) {
-                return '<p class="text-center text-gray-500 py-12">Les formations seront bientôt disponibles.</p>';
-            }
 
-            const categories = [...new Set(activeFormations.map((f: any) => f.category || 'Autres'))];
+            const categories = [
+                { id: 'digital-marketing', name: 'Digital Marketing' },
+                { id: 'management', name: 'Management & Leadership' },
+                { id: 'business-dev', name: 'Business Développement' },
+                { id: 'industrie-securite', name: 'Industrie & Sécurité' }
+            ];
 
             const categoryStyles = {
-                'Digitales': { bg: 'from-[#D4AF37] to-[#FFD700]', text: 'white', icon: 'fa-laptop-code' },
-                'Management': { bg: 'from-gray-900 to-black', text: 'white', icon: 'fa-users-cog' },
-                'Business': { bg: 'from-[#0077B5] to-[#00A0DC]', text: 'white', icon: 'fa-chart-line' },
-                'Industrie': { bg: 'from-green-600 to-emerald-700', text: 'white', icon: 'fa-industry' },
-                'Autres': { bg: 'from-gray-700 to-gray-800', text: 'white', icon: 'fa-graduation-cap' }
+                'Digital Marketing': { bg: 'from-[#D4AF37] to-[#FFD700]', text: 'white', icon: 'fa-laptop-code' },
+                'Management & Leadership': { bg: 'from-gray-900 to-black', text: 'white', icon: 'fa-users-cog' },
+                'Business Développement': { bg: 'from-[#0077B5] to-[#00A0DC]', text: 'white', icon: 'fa-chart-line' },
+                'Industrie & Sécurité': { bg: 'from-green-600 to-emerald-700', text: 'white', icon: 'fa-industry' }
             };
 
             const renderCard = (f: any) => {
@@ -666,16 +667,15 @@ formationApp.get('/', async (c) => {
                             </div>`;
             };
 
-            let idx = 1;
             let html = '';
-            categories.forEach(cat => {
-                const styleKey = Object.keys(categoryStyles).find(k => cat.includes(k)) || 'Autres';
-                const style = categoryStyles[styleKey as keyof typeof categoryStyles];
-                const catsFormations = activeFormations.filter((f: any) => (f.category || 'Autres') === cat);
+            categories.forEach(catObj => {
+                const cat = catObj.name;
+                const style = categoryStyles[cat as keyof typeof categoryStyles] || { bg: 'from-gray-700 to-gray-800', text: 'white', icon: 'fa-graduation-cap' };
+                const catsFormations = activeFormations.filter((f: any) => (f.category || '') === cat);
 
                 html += `
-                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-transparent hover:border-[#D4AF37] transition mb-6">
-                            <button @click="activeCategory = activeCategory === ${idx} ? null : ${idx}" 
+                        <div id="${catObj.id}" class="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-transparent hover:border-[#D4AF37] transition mb-6 scroll-mt-32">
+                            <button @click="activeCategory = activeCategory === '${catObj.id}' ? null : '${catObj.id}'" 
                                     class="w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r ${style.bg} text-${style.text} hover:opacity-90 transition">
                                 <div class="flex items-center gap-4">
                                     <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center">
@@ -686,16 +686,17 @@ formationApp.get('/', async (c) => {
                                         <p class="text-sm opacity-90">${catsFormations.length} formations disponibles</p>
                                     </div>
                                 </div>
-                                <i :class="activeCategory === ${idx} ? 'fa-chevron-up' : 'fa-chevron-down'" class="fas text-2xl transition-transform"></i>
+                                <i :class="activeCategory === '${catObj.id}' ? 'fa-chevron-up' : 'fa-chevron-down'" class="fas text-2xl transition-transform"></i>
                             </button>
                             
-                            <div x-show="activeCategory === ${idx}" x-collapse class="p-8 bg-gray-50">
-                                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    ${catsFormations.map(renderCard).join('')}
-                                </div>
+                            <div x-show="activeCategory === '${catObj.id}'" x-collapse class="p-8 bg-gray-50">
+                                ${catsFormations.length > 0
+                        ? `<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        ${catsFormations.map(renderCard).join('')}
+                                       </div>`
+                        : `<p class="text-center text-gray-500 py-8">Aucune formation dans cette catégorie pour le moment.</p>`}
                             </div>
                         </div>`;
-                idx++;
             });
             return html;
         })()}

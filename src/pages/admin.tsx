@@ -1989,7 +1989,7 @@ const formationsContent = `
                                 <div class="text-xs text-gray-500 truncate max-w-xs" x-text="f.description"></div>
                             </td>
                             <td class="px-4 py-3">
-                                <span class="px-2 py-1 text-xs rounded-full font-bold" :class="f.category === 'Digitales' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'" x-text="f.category"></span>
+                                <span class="px-2 py-1 text-xs rounded-full font-bold bg-blue-100 text-blue-800" x-text="f.category"></span>
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex flex-wrap gap-1">
@@ -2036,8 +2036,10 @@ const formationsContent = `
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Catégorie</label>
                             <select x-model="form.category" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37]">
-                                <option value="Digitales">Digitales & E-Learning</option>
-                                <option value="Management">Management & Leadership</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="Management & Leadership">Management & Leadership</option>
+                                <option value="Business Développement">Business Développement</option>
+                                <option value="Industrie & Sécurité">Industrie & Sécurité</option>
                             </select>
                         </div>
                         <div>
@@ -2184,7 +2186,7 @@ const formationsScript = `
             ],
             form: {
                 title: '', description: '', imageUrl: '', icon: 'fas fa-graduation-cap',
-                bullets: '', tags: '', category: 'Digitales', ctaText: 'Demander un devis',
+                bullets: '', tags: '', category: 'Digital Marketing', ctaText: 'Demander un devis',
                 ctaLink: '/#contact', borderColor: '#D4AF37', ctaColor: 'bg-[#D4AF37]',
                 iconColor: '#D4AF37', order: 1, status: 'active', badge: ''
             },
@@ -2218,7 +2220,7 @@ const formationsScript = `
                 this.editingId = null;
                 this.form = {
                     title: '', description: '', imageUrl: '', icon: 'fas fa-graduation-cap',
-                    bullets: '', tags: '', category: 'Digitales', ctaText: 'Demander un devis',
+                    bullets: '', tags: '', category: 'Digital Marketing', ctaText: 'Demander un devis',
                     ctaLink: '/#contact', borderColor: '#D4AF37', ctaColor: 'bg-[#D4AF37]',
                     iconColor: '#D4AF37', order: this.formations.length + 1, status: 'active', badge: ''
                 };
