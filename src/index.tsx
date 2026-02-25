@@ -1473,7 +1473,7 @@ app.get('/', async (c) => {
                       }).then(res => res.json()).then(data => { message = data.message || 'Merci !'; email = ''; }).catch(() => message = 'Erreur').finally(() => loading = false)"
                       class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
                     <div class="flex-1 flex flex-col items-start gap-2 w-full">
-                        <input type="email" x-model="email" required placeholder="Votre adresse email" 
+                        <input type="email" x-model="email" required placeholder="Votre adresse email *" 
                                class="w-full px-6 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-4 focus:ring-white/50">
                         <span x-show="message" x-text="message" class="text-white text-sm font-semibold pl-4"></span>
                     </div>
@@ -1723,16 +1723,16 @@ app.get('/', async (c) => {
                             <div>
                                 <label class="block text-gray-700 font-semibold mb-2">Service concerné *</label>
                                 <select x-model="formData.service" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition">
-                                    <option value="">Sélectionnez un service</option>
-                                    <option value="marketing">CEM Marketing</option>
-                                    <option value="formation">CEM Formation</option>
-                                    <option value="autre">Autre</option>
+                                    <option value="" class="text-gray-900">Sélectionnez un service</option>
+                                    <option value="marketing" class="text-gray-900">CEM Marketing</option>
+                                    <option value="formation" class="text-gray-900">CEM Formation</option>
+                                    <option value="autre" class="text-gray-900">Autre</option>
                                 </select>
                             </div>
                             
                             <div>
-                                <label class="block text-gray-700 font-semibold mb-2">Votre message / Vos exigences *</label>
-                                <textarea x-model="formData.message" required rows="4" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition" placeholder="Décrivez votre projet et vos exigences..."></textarea>
+                                <label class="block text-gray-700 font-semibold mb-2">Votre message / Vos exigences</label>
+                                <textarea x-model="formData.message" rows="4" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition" placeholder="Décrivez votre projet et vos exigences..."></textarea>
                             </div>
                             
                             <button type="submit" :disabled="loading" class="w-full bg-gradient-to-r from-[#D4AF37] to-[#000000] text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition">
@@ -3974,7 +3974,7 @@ app.get('/marketing', async (c) => {
                           @submit.prevent="loading = true; fetch('/api/newsletter/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) }).then(res => res.json()).then(data => { message = data.message || data.error || 'Merci !'; email = ''; }).catch(() => message = 'Erreur, veuillez réessayer').finally(() => loading = false)"
                           class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
                         <div class="flex-1 flex flex-col items-start gap-2 w-full">
-                            <input type="email" x-model="email" required placeholder="Votre adresse email" 
+                            <input type="email" x-model="email" required placeholder="Votre adresse email *" 
                                    class="w-full px-6 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-4 focus:ring-white/50">
                             <span x-show="message" x-text="message" class="text-white text-sm font-semibold pl-4"></span>
                         </div>
@@ -4006,13 +4006,13 @@ app.get('/marketing', async (c) => {
                                     email: this.formData.email,
                                     phone: this.formData.phone,
                                     service: this.formData.service,
-                                    message: '[Budget: ' + this.formData.budget + ']\\n' + this.formData.message,
+                                    message: this.formData.message,
                                     source: 'CEM Marketing - Devis'
                                 })
                             });
                             if (res.ok) {
                                 this.success = true;
-                                this.formData = { name: '', email: '', phone: '', service: '', budget: '', message: '' };
+                                this.formData = { name: '', email: '', phone: '', service: '', message: '' };
                                 this.consent = false;
                             } else { this.error = true; }
                         } catch(e) { this.error = true; } finally { this.loading = false; }
@@ -4046,9 +4046,9 @@ app.get('/marketing', async (c) => {
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-sm font-bold mb-2">
-                                <i class="fas fa-phone mr-2"></i>Téléphone *
+                                <i class="fas fa-phone mr-2"></i>Téléphone
                             </label>
-                            <input type="tel" x-model="formData.phone" required 
+                            <input type="tel" x-model="formData.phone" 
                                    class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                    placeholder="+212 6 88 94 70 98">
                         </div>
@@ -4058,46 +4058,32 @@ app.get('/marketing', async (c) => {
                             </label>
                             <select x-model="formData.service" required 
                                     class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
-                                <option value="">Choisir un service...</option>
-                                <option>Stratégie de Marque</option>
-                                <option>Gestion Réseaux Sociaux</option>
-                                <option>E-réputation</option>
-                                <option>Marketing d'Influence</option>
-                                <option>Films Institutionnels</option>
-                                <option>Motion Design</option>
-                                <option>Vidéos 3D</option>
-                                <option>Capsules Vidéo</option>
-                                <option>Stratégie Digitale</option>
-                                <option>Publicité en Ligne</option>
-                                <option>SEO & Contenu</option>
-                                <option>Identité Visuelle</option>
-                                <option>Conseil Stratégique</option>
-                                <option>Audits Marketing</option>
-                                <option>Copywriting</option>
-                                <option>Création Graphique</option>
+                                <option value="" class="bg-gray-900">Choisir un service...</option>
+                                <option class="bg-gray-900">Stratégie de Marque</option>
+                                <option class="bg-gray-900">Gestion Réseaux Sociaux</option>
+                                <option class="bg-gray-900">E-réputation</option>
+                                <option class="bg-gray-900">Marketing d'Influence</option>
+                                <option class="bg-gray-900">Films Institutionnels</option>
+                                <option class="bg-gray-900">Motion Design</option>
+                                <option class="bg-gray-900">Vidéos 3D</option>
+                                <option class="bg-gray-900">Capsules Vidéo</option>
+                                <option class="bg-gray-900">Stratégie Digitale</option>
+                                <option class="bg-gray-900">Publicité en Ligne</option>
+                                <option class="bg-gray-900">SEO & Contenu</option>
+                                <option class="bg-gray-900">Identité Visuelle</option>
+                                <option class="bg-gray-900">Conseil Stratégique</option>
+                                <option class="bg-gray-900">Audits Marketing</option>
+                                <option class="bg-gray-900">Copywriting</option>
+                                <option class="bg-gray-900">Création Graphique</option>
                             </select>
                         </div>
                     </div>
                     
                     <div>
                         <label class="block text-sm font-bold mb-2">
-                            <i class="fas fa-dollar-sign mr-2"></i>Budget estimé
+                            <i class="fas fa-comment-dots mr-2"></i>Décrivez votre projet
                         </label>
-                        <select x-model="formData.budget" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
-                            <option value="">Choisir un budget...</option>
-                            <option>Moins de 10 000 MAD</option>
-                            <option>10 000 - 25 000 MAD</option>
-                            <option>25 000 - 50 000 MAD</option>
-                            <option>50 000 - 100 000 MAD</option>
-                            <option>Plus de 100 000 MAD</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-bold mb-2">
-                            <i class="fas fa-comment-dots mr-2"></i>Décrivez votre projet *
-                        </label>
-                        <textarea x-model="formData.message" rows="6" required 
+                        <textarea x-model="formData.message" rows="6" 
                                   class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                   placeholder="Parlez-nous de votre projet, vos objectifs, vos délais..."></textarea>
                     </div>
@@ -5805,9 +5791,9 @@ app.get('/innovation', async (c) => {
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-sm font-bold mb-2">
-                                <i class="fas fa-phone mr-2"></i>Téléphone *
+                                <i class="fas fa-phone mr-2"></i>Téléphone
                             </label>
-                            <input type="tel" x-model="formData.phone" required 
+                            <input type="tel" x-model="formData.phone" 
                                    class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                    placeholder="+212 6 88 94 70 98">
                         </div>
@@ -5828,15 +5814,15 @@ app.get('/innovation', async (c) => {
                             </label>
                             <select x-model="formData.service" required 
                                     class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
-                                <option value="">Choisir un service...</option>
-                                <option>Acculturation IA</option>
-                                <option>Démystification IA</option>
-                                <option>Formation ChatGPT</option>
-                                <option>Formation MidJourney</option>
-                                <option>Formation Gemini</option>
-                                <option>Automatisation Processus</option>
-                                <option>Audit IA Complet</option>
-                                <option>Accompagnement IA sur mesure</option>
+                                <option value="" class="bg-gray-900">Choisir un service...</option>
+                                <option class="bg-gray-900">Acculturation IA</option>
+                                <option class="bg-gray-900">Démystification IA</option>
+                                <option class="bg-gray-900">Formation ChatGPT</option>
+                                <option class="bg-gray-900">Formation MidJourney</option>
+                                <option class="bg-gray-900">Formation Gemini</option>
+                                <option class="bg-gray-900">Automatisation Processus</option>
+                                <option class="bg-gray-900">Audit IA Complet</option>
+                                <option class="bg-gray-900">Accompagnement IA sur mesure</option>
                             </select>
                         </div>
                         <div>
@@ -5844,21 +5830,21 @@ app.get('/innovation', async (c) => {
                                 <i class="fas fa-users mr-2"></i>Nombre de collaborateurs
                             </label>
                             <select x-model="formData.collaborateurs" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
-                                <option value="">Choisir...</option>
-                                <option>1-10 collaborateurs</option>
-                                <option>11-50 collaborateurs</option>
-                                <option>51-100 collaborateurs</option>
-                                <option>101-500 collaborateurs</option>
-                                <option>Plus de 500 collaborateurs</option>
+                                <option value="" class="bg-gray-900">Choisir...</option>
+                                <option class="bg-gray-900">1-10 collaborateurs</option>
+                                <option class="bg-gray-900">11-50 collaborateurs</option>
+                                <option class="bg-gray-900">51-100 collaborateurs</option>
+                                <option class="bg-gray-900">101-500 collaborateurs</option>
+                                <option class="bg-gray-900">Plus de 500 collaborateurs</option>
                             </select>
                         </div>
                     </div>
                     
                     <div>
                         <label class="block text-sm font-bold mb-2">
-                            <i class="fas fa-comment-dots mr-2"></i>Décrivez vos besoins en IA *
+                            <i class="fas fa-comment-dots mr-2"></i>Décrivez vos besoins en IA
                         </label>
-                        <textarea x-model="formData.message" rows="6" required 
+                        <textarea x-model="formData.message" rows="6" 
                                   class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                   placeholder="Parlez-nous de vos objectifs d'adoption de l'IA, défis à relever, départements concernés..."></textarea>
                     </div>
@@ -6290,8 +6276,8 @@ app.get('/recrutement', (c) => {
                                 <input type="email" x-model="email" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition">
                             </div>
                             <div>
-                                <label class="block text-gray-700 font-semibold mb-2">T\u00e9l\u00e9phone *</label>
-                                <input type="tel" x-model="phone" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition">
+                                <label class="block text-gray-700 font-semibold mb-2">T\u00e9l\u00e9phone</label>
+                                <input type="tel" x-model="phone" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition">
                             </div>
                         </div>
                         
@@ -6311,8 +6297,8 @@ app.get('/recrutement', (c) => {
                         </div>
                         
                         <div>
-                            <label class="block text-gray-700 font-semibold mb-2">Lettre de Motivation *</label>
-                            <textarea x-model="coverLetter" required rows="6" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition" placeholder="Parlez-nous de vous et de vos motivations..."></textarea>
+                            <label class="block text-gray-700 font-semibold mb-2">Lettre de Motivation</label>
+                            <textarea x-model="coverLetter" rows="6" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition" placeholder="Parlez-nous de vous et de vos motivations..."></textarea>
                         </div>
                         
                         <div>
@@ -7973,7 +7959,7 @@ app.get('/', async (c) => {
                           @submit.prevent="loading = true; fetch('/api/newsletter/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) }).then(res => res.json()).then(data => { message = data.message || data.error || 'Merci !'; email = ''; }).catch(() => message = 'Erreur, veuillez réessayer').finally(() => loading = false)"
                           class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
                         <div class="flex-1 flex flex-col items-start gap-2 w-full">
-                            <input type="email" x-model="email" required placeholder="Votre adresse email" 
+                            <input type="email" x-model="email" required placeholder="Votre adresse email *" 
                                    class="w-full px-6 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-4 focus:ring-white/50">
                             <span x-show="message" x-text="message" class="text-white text-sm font-semibold pl-4"></span>
                         </div>
@@ -8045,9 +8031,9 @@ app.get('/', async (c) => {
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-sm font-bold mb-2">
-                                <i class="fas fa-phone mr-2"></i>Téléphone *
+                                <i class="fas fa-phone mr-2"></i>Téléphone
                             </label>
-                            <input type="tel" x-model="formData.phone" required 
+                            <input type="tel" x-model="formData.phone" 
                                    class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                    placeholder="+212 6 88 94 70 98">
                         </div>
@@ -8057,25 +8043,25 @@ app.get('/', async (c) => {
                             </label>
                             <select x-model="formData.service" required 
                                     class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
-                                <option value="">Choisir une formation...</option>
-                                <optgroup label="Formations Digitales">
-                                    <option>E-Learning Digital</option>
-                                    <option>LinkedIn Formation One-to-One</option>
-                                    <option>LinkedIn Accompagnement Team</option>
-                                    <option>Marketing Digital</option>
-                                    <option>Création de Contenu</option>
-                                    <option>IA & Innovation</option>
+                                <option value="" class="bg-gray-900">Choisir une formation...</option>
+                                <optgroup label="Formations Digitales" class="bg-gray-900">
+                                    <option class="bg-gray-900">E-Learning Digital</option>
+                                    <option class="bg-gray-900">LinkedIn Formation One-to-One</option>
+                                    <option class="bg-gray-900">LinkedIn Accompagnement Team</option>
+                                    <option class="bg-gray-900">Marketing Digital</option>
+                                    <option class="bg-gray-900">Création de Contenu</option>
+                                    <option class="bg-gray-900">IA & Innovation</option>
                                 </optgroup>
-                                <optgroup label="Management & Leadership">
-                                    <option>Leadership & Management</option>
-                                    <option>Formation en Communication</option>
-                                    <option>Bien-être au Travail</option>
-                                    <option>Coaching Dirigeants</option>
-                                    <option>Force de Vente & Négociation</option>
-                                    <option>Management d'Équipe Virtuelle</option>
-                                    <option>Gestion du Changement</option>
-                                    <option>Intelligence Émotionnelle</option>
-                                    <option>Prise de Décision Stratégique</option>
+                                <optgroup label="Management & Leadership" class="bg-gray-900">
+                                    <option class="bg-gray-900">Leadership & Management</option>
+                                    <option class="bg-gray-900">Formation en Communication</option>
+                                    <option class="bg-gray-900">Bien-être au Travail</option>
+                                    <option class="bg-gray-900">Coaching Dirigeants</option>
+                                    <option class="bg-gray-900">Force de Vente & Négociation</option>
+                                    <option class="bg-gray-900">Management d'Équipe Virtuelle</option>
+                                    <option class="bg-gray-900">Gestion du Changement</option>
+                                    <option class="bg-gray-900">Intelligence Émotionnelle</option>
+                                    <option class="bg-gray-900">Prise de Décision Stratégique</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -8086,20 +8072,20 @@ app.get('/', async (c) => {
                             <i class="fas fa-users mr-2"></i>Nombre de participants
                         </label>
                         <select x-model="formData.participants" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
-                            <option value="">Choisir le nombre...</option>
-                            <option>1 personne (One-to-One)</option>
-                            <option>2-5 personnes</option>
-                            <option>6-10 personnes</option>
-                            <option>11-20 personnes</option>
-                            <option>Plus de 20 personnes</option>
+                            <option value="" class="bg-gray-900">Choisir le nombre...</option>
+                            <option class="bg-gray-900">1 personne (One-to-One)</option>
+                            <option class="bg-gray-900">2-5 personnes</option>
+                            <option class="bg-gray-900">6-10 personnes</option>
+                            <option class="bg-gray-900">11-20 personnes</option>
+                            <option class="bg-gray-900">Plus de 20 personnes</option>
                         </select>
                     </div>
                     
                     <div>
                         <label class="block text-sm font-bold mb-2">
-                            <i class="fas fa-comment-dots mr-2"></i>Décrivez vos besoins en formation *
+                            <i class="fas fa-comment-dots mr-2"></i>Décrivez vos besoins en formation
                         </label>
-                        <textarea x-model="formData.message" rows="6" required 
+                        <textarea x-model="formData.message" rows="6" 
                                   class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                   placeholder="Parlez-nous de vos objectifs de formation, compétences à développer, délais..."></textarea>
                     </div>
@@ -10478,8 +10464,8 @@ app.get('/catalogue', async (c) => {
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-semibold mb-2 text-gray-300">Téléphone *</label>
-                            <input type="tel" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-[#D4AF37]/30 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] transition" placeholder="+212 6 88 94 70 98">
+                            <label class="block text-sm font-semibold mb-2 text-gray-300">Téléphone</label>
+                            <input type="tel" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-[#D4AF37]/30 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] transition" placeholder="+212 6 88 94 70 98">
                         </div>
                         
                         <div>
@@ -10492,14 +10478,15 @@ app.get('/catalogue', async (c) => {
                             <input type="text" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-[#D4AF37]/30 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] transition" placeholder="Votre fonction">
                         </div>
                         
-                        <div>
+                        <div class="mb-6">
                             <label class="block text-sm font-semibold mb-2 text-gray-300">Domaine d'intérêt *</label>
                             <select required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-[#D4AF37]/30 text-white focus:outline-none focus:border-[#D4AF37] transition">
-                                <option value="" class="bg-gray-900">Sélectionnez un domaine</option>
-                                <option value="formations" class="bg-gray-900">Formations Professionnelles</option>
-                                <option value="marketing" class="bg-gray-900">Marketing Digital & Production</option>
-                                <option value="innovation" class="bg-gray-900">Innovation & IA</option>
-                                <option value="tout" class="bg-gray-900">Tous les services</option>
+                                <option value="" class="text-gray-900">Choisir un domaine...</option>
+                                <option class="text-gray-900">Marketing Digital</option>
+                                <option class="text-gray-900">Production Audiovisuelle</option>
+                                <option class="text-gray-900">Formations & Coaching</option>
+                                <option class="text-gray-900">Transformation IA</option>
+                                <option class="text-gray-900">Autre</option>
                             </select>
                         </div>
                         

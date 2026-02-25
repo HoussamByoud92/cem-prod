@@ -969,7 +969,7 @@ formationApp.get('/', async (c) => {
                             <label class="block text-sm font-bold mb-2">
                                 <i class="fas fa-envelope mr-2"></i>Email *
                             </label>
-                            <input type="email" required 
+                            <input type="email" x-model="formData.email" required 
                                    class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                    placeholder="votre@email.com">
                         </div>
@@ -978,9 +978,9 @@ formationApp.get('/', async (c) => {
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-sm font-bold mb-2">
-                                <i class="fas fa-phone mr-2"></i>Téléphone *
+                                <i class="fas fa-phone mr-2"></i>Téléphone
                             </label>
-                            <input type="tel" required 
+                            <input type="tel" x-model="formData.phone" 
                                    class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                    placeholder="+212 6 88 94 70 98">
                         </div>
@@ -988,27 +988,27 @@ formationApp.get('/', async (c) => {
                             <label class="block text-sm font-bold mb-2">
                                 <i class="fas fa-graduation-cap mr-2"></i>Formation souhaitée *
                             </label>
-                            <select required 
+                            <select x-model="formData.service" required 
                                     class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
-                                <option value="">Choisir une formation...</option>
-                                <optgroup label="Formations Digitales">
-                                    <option>E-Learning Digital</option>
-                                    <option>LinkedIn Formation One-to-One</option>
-                                    <option>LinkedIn Accompagnement Team</option>
-                                    <option>Marketing Digital</option>
-                                    <option>Création de Contenu</option>
-                                    <option>IA & Innovation</option>
+                                <option value="" class="bg-gray-900">Choisir une formation...</option>
+                                <optgroup label="Formations Digitales" class="bg-gray-900">
+                                    <option class="bg-gray-900">E-Learning Digital</option>
+                                    <option class="bg-gray-900">LinkedIn Formation One-to-One</option>
+                                    <option class="bg-gray-900">LinkedIn Accompagnement Team</option>
+                                    <option class="bg-gray-900">Marketing Digital</option>
+                                    <option class="bg-gray-900">Création de Contenu</option>
+                                    <option class="bg-gray-900">IA & Innovation</option>
                                 </optgroup>
-                                <optgroup label="Management & Leadership">
-                                    <option>Leadership & Management</option>
-                                    <option>Formation en Communication</option>
-                                    <option>Bien-être au Travail</option>
-                                    <option>Coaching Dirigeants</option>
-                                    <option>Force de Vente & Négociation</option>
-                                    <option>Management d'Équipe Virtuelle</option>
-                                    <option>Gestion du Changement</option>
-                                    <option>Intelligence Émotionnelle</option>
-                                    <option>Prise de Décision Stratégique</option>
+                                <optgroup label="Management & Leadership" class="bg-gray-900">
+                                    <option class="bg-gray-900">Leadership & Management</option>
+                                    <option class="bg-gray-900">Formation en Communication</option>
+                                    <option class="bg-gray-900">Bien-être au Travail</option>
+                                    <option class="bg-gray-900">Coaching Dirigeants</option>
+                                    <option class="bg-gray-900">Force de Vente & Négociation</option>
+                                    <option class="bg-gray-900">Management d'Équipe Virtuelle</option>
+                                    <option class="bg-gray-900">Gestion du Changement</option>
+                                    <option class="bg-gray-900">Intelligence Émotionnelle</option>
+                                    <option class="bg-gray-900">Prise de Décision Stratégique</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -1018,21 +1018,21 @@ formationApp.get('/', async (c) => {
                         <label class="block text-sm font-bold mb-2">
                             <i class="fas fa-users mr-2"></i>Nombre de participants
                         </label>
-                        <select class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
-                            <option value="">Choisir le nombre...</option>
-                            <option>1 personne (One-to-One)</option>
-                            <option>2-5 personnes</option>
-                            <option>6-10 personnes</option>
-                            <option>11-20 personnes</option>
-                            <option>Plus de 20 personnes</option>
+                        <select x-model="formData.participants" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white">
+                            <option value="" class="bg-gray-900">Choisir le nombre...</option>
+                            <option class="bg-gray-900">1 personne (One-to-One)</option>
+                            <option class="bg-gray-900">2-5 personnes</option>
+                            <option class="bg-gray-900">6-10 personnes</option>
+                            <option class="bg-gray-900">11-20 personnes</option>
+                            <option class="bg-gray-900">Plus de 20 personnes</option>
                         </select>
                     </div>
                     
                     <div>
                         <label class="block text-sm font-bold mb-2">
-                            <i class="fas fa-comment-dots mr-2"></i>Décrivez vos besoins en formation *
+                            <i class="fas fa-comment-dots mr-2"></i>Décrivez vos besoins en formation
                         </label>
-                        <textarea rows="6" required 
+                        <textarea x-model="formData.message" rows="6" 
                                   class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37] transition text-white placeholder-gray-500"
                                   placeholder="Parlez-nous de vos objectifs de formation, compétences à développer, délais..."></textarea>
                     </div>
