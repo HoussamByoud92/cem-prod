@@ -642,7 +642,7 @@ formationApp.get('/', async (c) => {
                 'Industrie & Sécurité': { bg: 'from-green-600 to-emerald-700', text: 'white', icon: 'fa-industry' }
             };
 
-            const renderCard = (f: any) => {
+            const renderCard = (f: any, displayCat: string) => {
                 const bullets = (f.bullets || '').split(',').filter(Boolean);
                 const tags = (f.tags || '').split(',').filter(Boolean);
                 return `
@@ -653,7 +653,7 @@ formationApp.get('/', async (c) => {
                                          alt="${f.title}" 
                                          class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
                                     <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold" style="background-color: ${f.iconColor || '#D4AF37'}">
-                                        <i class="${f.icon || 'fas fa-graduation-cap'} mr-1"></i>${f.category || ''}
+                                        <i class="${f.icon || 'fas fa-graduation-cap'} mr-1"></i>${displayCat || ''}
                                     </div>
                                 </div>
                                 <h4 class="text-xl font-bold mb-2 text-gray-900">${f.title}</h4>
@@ -671,7 +671,14 @@ formationApp.get('/', async (c) => {
             categories.forEach(catObj => {
                 const cat = catObj.name;
                 const style = categoryStyles[cat as keyof typeof categoryStyles] || { bg: 'from-gray-700 to-gray-800', text: 'white', icon: 'fa-graduation-cap' };
-                const catsFormations = activeFormations.filter((f: any) => (f.category || '') === cat);
+                const catsFormations = activeFormations.filter((f: any) => {
+                    const fCat = f.category || '';
+                    if (cat === 'Digital Marketing' && (fCat === 'Digital Marketing' || fCat.includes('Digitales') || fCat.includes('Digital'))) return true;
+                    if (cat === 'Management & Leadership' && (fCat === 'Management & Leadership' || fCat.includes('Management'))) return true;
+                    if (cat === 'Business Développement' && (fCat === 'Business Développement' || fCat.includes('Business'))) return true;
+                    if (cat === 'Industrie & Sécurité' && (fCat === 'Industrie & Sécurité' || fCat.includes('Industrie'))) return true;
+                    return fCat === cat;
+                });
 
                 html += `
                         <div id="${catObj.id}" class="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-transparent hover:border-[#D4AF37] transition mb-6 scroll-mt-32">
@@ -692,7 +699,7 @@ formationApp.get('/', async (c) => {
                             <div x-show="activeCategory === '${catObj.id}'" x-collapse class="p-8 bg-gray-50">
                                 ${catsFormations.length > 0
                         ? `<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                        ${catsFormations.map(renderCard).join('')}
+                                        ${catsFormations.map(f => renderCard(f, cat)).join('')}
                                        </div>`
                         : `<p class="text-center text-gray-500 py-8">Aucune formation dans cette catégorie pour le moment.</p>`}
                             </div>
