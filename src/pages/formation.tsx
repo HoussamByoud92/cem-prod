@@ -646,7 +646,7 @@ formationApp.get('/', async (c) => {
                 const bullets = (f.bullets || '').split(',').filter(Boolean);
                 const tags = (f.tags || '').split(',').filter(Boolean);
                 return `
-                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition group relative border-2 border-transparent hover:border-[${f.borderColor || '#D4AF37'}]">
+                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition group relative border-2 border-transparent hover:border-[${f.borderColor || '#D4AF37'}] h-full flex flex-col">
                                 ${f.badge ? `<div class="absolute top-3 left-3 bg-gradient-to-r from-red-600 to-green-600 text-white px-3 py-1 rounded-full text-[10px] font-black z-10">${f.badge}</div>` : ''}
                                 <div class="relative overflow-hidden rounded-lg mb-4">
                                     <img src="${f.imageUrl || 'https://images.unsplash.com/photo-1501504905252-473c47e087f8'}" 
@@ -658,10 +658,10 @@ formationApp.get('/', async (c) => {
                                 </div>
                                 <h4 class="text-xl font-bold mb-2 text-gray-900">${f.title}</h4>
                                 <p class="text-sm text-gray-600 mb-4">${f.description}</p>
-                                <ul class="space-y-2 text-sm text-gray-700 mb-4">
+                                <ul class="space-y-2 text-sm text-gray-700 mb-6 flex-grow">
                                     ${bullets.map((b: string) => `<li><i class="fas fa-check mr-2" style="color: ${f.iconColor || '#D4AF37'}"></i>${b.trim()}</li>`).join('')}
                                 </ul>
-                                <a href="${f.ctaLink || '/#contact'}" class="block w-full text-white text-center font-bold py-2 rounded-lg transition text-sm hover:shadow-md" style="background-color: ${f.iconColor || '#D4AF37'}">
+                                <a href="${f.ctaLink || '/#contact'}" class="block w-full text-white text-center font-bold py-2 rounded-lg transition text-sm hover:shadow-md mt-auto" style="background-color: ${f.iconColor || '#D4AF37'}">
                                     <i class="fas fa-envelope mr-2"></i>${f.ctaText || 'Devis'}
                                 </a>
                             </div>`;
@@ -726,14 +726,14 @@ formationApp.get('/', async (c) => {
                 <!-- 3 Niveaux de Formation -->
                 <div class="grid md:grid-cols-3 gap-8 mb-16">
                     <!-- DÉBUTANT -->
-                    <div class="bg-gradient-to-br from-white to-[#F5F5F5] rounded-2xl p-8 border-2 border-[#D4AF37] hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    <div class="bg-gradient-to-br from-white to-[#F5F5F5] rounded-2xl p-8 border-2 border-[#D4AF37] hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full flex flex-col">
                         <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <i class="fas fa-seedling text-white text-4xl"></i>
                         </div>
                         <h3 class="text-3xl font-bold mb-2 text-center text-black">DÉBUTANT</h3>
                         <p class="text-center text-[#D4AF37] font-bold mb-6">Les Fondamentaux</p>
                         
-                        <ul class="space-y-3 text-gray-700 mb-8">
+                        <ul class="space-y-3 text-gray-700 mb-8 flex-grow">
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
                                 <span>Créer un profil LinkedIn professionnel complet</span>
@@ -756,14 +756,14 @@ formationApp.get('/', async (c) => {
                             </li>
                         </ul>
                         
-                        <div class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-4 text-center">
+                        <div class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-4 text-center mt-auto">
                             <div class="text-white text-sm mb-1">Durée</div>
                             <div class="text-white text-2xl font-bold">2 jours</div>
                         </div>
                     </div>
                     
                     <!-- INTERMÉDIAIRE -->
-                    <div class="bg-gradient-to-br from-white to-[#F5F5F5] rounded-2xl p-8 border-4 border-[#D4AF37] hover:shadow-2xl hover:scale-105 transition-all duration-300 relative">
+                    <div class="bg-gradient-to-br from-white to-[#F5F5F5] rounded-2xl p-8 border-4 border-[#D4AF37] hover:shadow-2xl hover:scale-105 transition-all duration-300 relative h-full flex flex-col">
                         <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-white px-6 py-1 rounded-full text-sm font-bold">
                             ⭐ POPULAIRE
                         </div>
@@ -773,7 +773,7 @@ formationApp.get('/', async (c) => {
                         <h3 class="text-3xl font-bold mb-2 text-center text-black">INTERMÉDIAIRE</h3>
                         <p class="text-center text-[#D4AF37] font-bold mb-6">Croissance & Engagement</p>
                         
-                        <ul class="space-y-3 text-gray-700 mb-8">
+                        <ul class="space-y-3 text-gray-700 mb-8 flex-grow">
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-[#D4AF37] mr-3 mt-1"></i>
                                 <span>Stratégie de contenu LinkedIn efficace</span>
@@ -800,21 +800,21 @@ formationApp.get('/', async (c) => {
                             </li>
                         </ul>
                         
-                        <div class="bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-xl p-4 text-center">
+                        <div class="bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-xl p-4 text-center mt-auto">
                             <div class="text-white text-sm mb-1">Durée</div>
                             <div class="text-white text-2xl font-bold">3 jours</div>
                         </div>
                     </div>
                     
                     <!-- EXPERT -->
-                    <div class="bg-gradient-to-br from-white to-[#F5F5F5] rounded-2xl p-8 border-2 border-black hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    <div class="bg-gradient-to-br from-white to-[#F5F5F5] rounded-2xl p-8 border-2 border-black hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full flex flex-col">
                         <div class="w-20 h-20 bg-gradient-to-br from-black to-[#1a1a1a] rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <i class="fas fa-crown text-[#D4AF37] text-4xl"></i>
                         </div>
                         <h3 class="text-3xl font-bold mb-2 text-center text-black">EXPERT</h3>
                         <p class="text-center text-black font-bold mb-6">Influence & Monétisation</p>
                         
-                        <ul class="space-y-3 text-gray-700 mb-8">
+                        <ul class="space-y-3 text-gray-700 mb-8 flex-grow">
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-black mr-3 mt-1"></i>
                                 <span>Devenir LinkedIn Top Voice</span>
@@ -841,7 +841,7 @@ formationApp.get('/', async (c) => {
                             </li>
                         </ul>
                         
-                        <div class="bg-gradient-to-r from-black to-[#1a1a1a] rounded-xl p-4 text-center">
+                        <div class="bg-gradient-to-r from-black to-[#1a1a1a] rounded-xl p-4 text-center mt-auto">
                             <div class="text-white text-sm mb-1">Durée</div>
                             <div class="text-white text-2xl font-bold">5 jours</div>
                         </div>
