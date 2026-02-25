@@ -2338,19 +2338,147 @@ app.get('/services/:slug', (c) => {
     </head>
     <body class="bg-gray-50">
         <!-- Navigation -->
-        <nav class="fixed w-full top-0 z-50 bg-white shadow-lg">
+                <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <div class="flex items-center space-x-6">
-                        <a href="/" class="text-gray-700 hover:text-[#D4AF37] transition">Accueil</a>
-                        <a href="/marketing" class="text-gray-700 hover:text-[#D4AF37] transition">Services</a>
-                        <a href="/#contact" class="bg-[#D4AF37] text-white px-6 py-2 rounded-full hover:bg-[#B8941F] transition font-bold">
-                            Contact
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
                         </a>
                     </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -2539,26 +2667,84 @@ app.get('/services/:slug', (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="text-lg mb-4">© 2026 CEM GROUP - CEM MARKETING. Tous droits réservés.</p>
-                <div class="mb-4 text-sm text-gray-400">
-                    <p><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
-                    <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
+                            <i class="fas fa-share-alt mr-2"></i>Suivez-nous
+                        </h4>
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
+                               title="Instagram">
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
+                               title="TikTok">
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
+                        </p>
+                    </div>
                 </div>
-                <div class="flex justify-center space-x-6">
-                    <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="hover:text-[#D4AF37] transition">
-                        <i class="fab fa-linkedin-in text-2xl"></i>
-                    </a>
-                    <a href="https://www.instagram.com/cem.group" target="_blank" class="hover:text-[#D4AF37] transition">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                    <a href="https://www.facebook.com/cemgroup" target="_blank" class="hover:text-[#D4AF37] transition">
-                        <i class="fab fa-facebook-f text-2xl"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@cem.group" target="_blank" class="hover:text-[#D4AF37] transition">
-                        <i class="fab fa-tiktok text-2xl"></i>
-                    </a>
+                
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
                 </div>
             </div>
         </footer>
@@ -2803,16 +2989,19 @@ app.get('/marketing', async (c) => {
         </div>
         
         <!-- Navigation (décalée pour barre sociale) -->
-        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ mobileMenuOpen: false }">
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <!-- Navigation Desktop -->
-                    <div class="hidden md:flex items-center space-x-4">
-                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-semibold text-sm">Qui Sommes-Nous</a>
-                        
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
                         <!-- Menu déroulant CEM Marketing -->
                         <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
                             <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
@@ -2876,7 +3065,6 @@ app.get('/marketing', async (c) => {
                                 </a>
                             </div>
                         </div>
-                        
                         <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
                             <i class="fas fa-calendar-alt mr-2"></i>Events à venir
                         </a>
@@ -2884,7 +3072,7 @@ app.get('/marketing', async (c) => {
                     
                     <!-- Mobile menu button -->
                     <div class="md:hidden flex items-center">
-                        <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 hover:text-[#D4AF37] focus:outline-none">
+                        <button @click="open = !open" class="text-gray-700">
                             <i class="fas fa-bars text-2xl"></i>
                         </button>
                     </div>
@@ -2892,19 +3080,13 @@ app.get('/marketing', async (c) => {
             </div>
             
             <!-- Mobile Menu -->
-            <div x-show="mobileMenuOpen" 
-                 x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0 transform -translate-y-4"
-                 x-transition:enter-end="opacity-100 transform translate-y-0"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="opacity-100 transform translate-y-0"
-                 x-transition:leave-end="opacity-0 transform -translate-y-4"
-                 class="md:hidden bg-white border-t border-gray-200">
-                <div class="px-4 py-6 space-y-4">
-                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-semibold">Qui Sommes-Nous</a>
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
                     <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
                     <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
-                    <a href="/#events" class="block py-2 text-[#D4AF37] font-semibold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -3959,60 +4141,84 @@ app.get('/marketing', async (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gradient-to-br from-gray-900 to-black text-white py-12">
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
-                        <h3 class="text-2xl font-bold mb-4 text-[#D4AF37]">CEM MARKETING</h3>
-                        <p class="text-gray-400">Votre partenaire en création et stratégie digitale</p>
-                        <p class="text-gray-500 text-sm mt-2">
-                            <i class="fas fa-map-marker-alt mr-2"></i>Casablanca, Maroc
-                        </p>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
                     </div>
                     
                     <div>
-                        <h4 class="font-bold mb-4 text-[#D4AF37]">Contact Rapide</h4>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
                         <ul class="space-y-2 text-gray-400">
-                            <li><a href="/#contact" class="hover:text-white transition"><i class="fas fa-envelope mr-2"></i>Nous contacter</a></li>
-                            <li><a href="/" class="hover:text-white transition"><i class="fas fa-home mr-2"></i>Retour à l'accueil</a></li>
-                            <li><a href="/formation" class="hover:text-white transition"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a></li>
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
                         </ul>
                     </div>
                     
                     <div>
-                        <h4 class="font-bold mb-4 text-[#D4AF37]">
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
                             <i class="fas fa-share-alt mr-2"></i>Suivez-nous
                         </h4>
-                        <div class="flex flex-wrap gap-3 mb-4">
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
-                                <i class="fab fa-linkedin-in text-xl"></i>
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
                                title="Instagram">
-                                <i class="fab fa-instagram text-xl"></i>
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
-                                <i class="fab fa-facebook-f text-xl"></i>
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
                                title="TikTok">
-                                <i class="fab fa-tiktok text-xl"></i>
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                         </div>
-                        <p class="text-gray-500 text-xs">
-                            <i class="fas fa-users mr-1"></i>+5000 abonnés
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
                         </p>
                     </div>
                 </div>
                 
-                <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                    <p>&copy; 2026 CEM GROUP - CEM MARKETING. Tous droits réservés.</p>
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
                 </div>
             </div>
         </footer>
@@ -4482,19 +4688,147 @@ app.get('/formation/:slug', (c) => {
     </head>
     <body class="bg-gray-50">
         <!-- Navigation -->
-        <nav class="fixed w-full top-0 z-50 bg-white shadow-lg">
+                <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <div class="flex items-center space-x-6">
-                        <a href="/" class="text-gray-700 hover:text-[#D4AF37] transition">Accueil</a>
-                        <a href="/formation" class="text-gray-700 hover:text-[#D4AF37] transition">Formations</a>
-                        <a href="/#contact" class="bg-[#D4AF37] text-white px-6 py-2 rounded-full hover:bg-[#B8941F] transition font-bold">
-                            S'inscrire
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
                         </a>
                     </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -4607,19 +4941,84 @@ app.get('/formation/:slug', (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="text-lg mb-4">© 2026 CEM GROUP - CEM FORMATION. Tous droits réservés.</p>
-                <div class="flex justify-center space-x-6">
-                    <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="hover:text-[#D4AF37] transition">
-                        <i class="fab fa-linkedin-in text-2xl"></i>
-                    </a>
-                    <a href="https://www.instagram.com/cem.group" target="_blank" class="hover:text-[#D4AF37] transition">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                    <a href="https://www.facebook.com/cemgroup" target="_blank" class="hover:text-[#D4AF37] transition">
-                        <i class="fab fa-facebook-f text-2xl"></i>
-                    </a>
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
+                            <i class="fas fa-share-alt mr-2"></i>Suivez-nous
+                        </h4>
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
+                               title="Instagram">
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
+                               title="TikTok">
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
                 </div>
             </div>
         </footer>
@@ -4750,18 +5149,104 @@ app.get('/innovation', async (c) => {
         </div>
         
         <!-- Navigation (décalée pour barre sociale) -->
-        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg">
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <div class="flex items-center space-x-8">
-                        <a href="/" class="text-gray-700 hover:text-#D4AF37">Accueil</a>
-                        <a href="/marketing" class="text-gray-700 hover:text-#D4AF37">CEM Marketing</a>
-                        <a href="/formation" class="text-gray-700 hover:text-#D4AF37">CEM Formation</a>
-                        <a href="/innovation" class="text-#D4AF37 font-bold">CEM Innovation</a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
+                        </a>
                     </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -5415,61 +5900,84 @@ app.get('/innovation', async (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gradient-to-br from-gray-900 to-black text-white py-12">
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
-                        <h3 class="text-2xl font-bold mb-4 text-#D4AF37">CEM INNOVATION</h3>
-                        <p class="text-gray-400">Intelligence Artificielle et Transformation Digitale</p>
-                        <p class="text-gray-500 text-sm mt-2">
-                            <i class="fas fa-map-marker-alt mr-2"></i>Casablanca, Maroc
-                        </p>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
                     </div>
                     
                     <div>
-                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Utiles</h4>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
                         <ul class="space-y-2 text-gray-400">
-                            <li><a href="#contact" class="hover:text-white transition"><i class="fas fa-envelope mr-2"></i>Nous contacter</a></li>
-                            <li><a href="/" class="hover:text-white transition"><i class="fas fa-home mr-2"></i>Retour à l'accueil</a></li>
-                            <li><a href="/marketing" class="hover:text-white transition"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a></li>
-                            <li><a href="/formation" class="hover:text-white transition"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a></li>
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
                         </ul>
                     </div>
                     
                     <div>
-                        <h4 class="font-bold mb-4 text-#D4AF37">
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
                             <i class="fas fa-share-alt mr-2"></i>Suivez-nous
                         </h4>
-                        <div class="flex flex-wrap gap-3 mb-4">
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-#D4AF37 hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
-                                <i class="fab fa-linkedin-in text-xl"></i>
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-#D4AF37 hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
                                title="Instagram">
-                                <i class="fab fa-instagram text-xl"></i>
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-#D4AF37 hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
-                                <i class="fab fa-facebook-f text-xl"></i>
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-#D4AF37 hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
                                title="TikTok">
-                                <i class="fab fa-tiktok text-xl"></i>
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                         </div>
-                        <p class="text-gray-500 text-xs">
-                            <i class="fas fa-users mr-1"></i>+5000 abonnés
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
                         </p>
                     </div>
                 </div>
                 
-                <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                    <p>&copy; 2026 CEM GROUP - CEM INNOVATION. Tous droits réservés.</p>
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
                 </div>
             </div>
         </footer>
@@ -5504,17 +6012,147 @@ app.get('/recrutement', (c) => {
     </head>
     <body class="bg-gray-50">
         <!-- Navigation -->
-        <nav class="fixed w-full top-0 z-50 bg-white shadow-lg">
+                <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <div class="flex items-center space-x-8">
-                        <a href="/" class="text-gray-700 hover:text-[#D4AF37] transition font-semibold">Accueil</a>
-                        <a href="/#services" class="text-gray-700 hover:text-[#D4AF37] transition font-semibold">Services</a>
-                        <a href="/#contact" class="text-gray-700 hover:text-[#D4AF37] transition font-semibold">Contact</a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
+                        </a>
                     </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -5787,21 +6425,85 @@ app.get('/recrutement', (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                <p class="text-gray-400 mb-4">17 rue Oraibi Jilali, 2ème étage - Casablanca, Maroc</p>
-                <div class="mb-4 text-sm text-gray-400">
-                    <p><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
-                    <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
+                            <i class="fas fa-share-alt mr-2"></i>Suivez-nous
+                        </h4>
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
+                               title="Instagram">
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
+                               title="TikTok">
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
+                        </p>
+                    </div>
                 </div>
-                <div class="flex justify-center space-x-6 mb-6">
-                    <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition text-2xl"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition text-2xl"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition text-2xl"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition text-2xl"><i class="fab fa-youtube"></i></a>
+                
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
                 </div>
-                <p class="text-gray-500 text-sm">© 2024 CEM GROUP. Tous droits réservés.</p>
             </div>
         </footer>
     </body>
@@ -5948,16 +6650,19 @@ app.get('/', async (c) => {
         </div>
         
         <!-- Navigation (décalée pour barre sociale) -->
-        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ mobileMenuOpen: false }">
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <!-- Navigation Desktop -->
-                    <div class="hidden md:flex items-center space-x-4">
-                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-semibold text-sm">Qui Sommes-Nous</a>
-                        
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
                         <!-- Menu déroulant CEM Marketing -->
                         <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
                             <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
@@ -6021,7 +6726,6 @@ app.get('/', async (c) => {
                                 </a>
                             </div>
                         </div>
-                        
                         <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
                             <i class="fas fa-calendar-alt mr-2"></i>Events à venir
                         </a>
@@ -6029,7 +6733,7 @@ app.get('/', async (c) => {
                     
                     <!-- Mobile menu button -->
                     <div class="md:hidden flex items-center">
-                        <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 hover:text-[#D4AF37] focus:outline-none">
+                        <button @click="open = !open" class="text-gray-700">
                             <i class="fas fa-bars text-2xl"></i>
                         </button>
                     </div>
@@ -6037,19 +6741,13 @@ app.get('/', async (c) => {
             </div>
             
             <!-- Mobile Menu -->
-            <div x-show="mobileMenuOpen" 
-                 x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0 transform -translate-y-4"
-                 x-transition:enter-end="opacity-100 transform translate-y-0"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="opacity-100 transform translate-y-0"
-                 x-transition:leave-end="opacity-0 transform -translate-y-4"
-                 class="md:hidden bg-white border-t border-gray-200">
-                <div class="px-4 py-6 space-y-4">
-                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-semibold">Qui Sommes-Nous</a>
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
                     <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
                     <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
-                    <a href="/#events" class="block py-2 text-[#D4AF37] font-semibold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -7443,60 +8141,84 @@ app.get('/', async (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gradient-to-br from-gray-900 to-black text-white py-12">
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
-                        <h3 class="text-2xl font-bold mb-4 text-[#D4AF37]">CEM FORMATION</h3>
-                        <p class="text-gray-400">Excellence en formation professionnelle et E-Learning</p>
-                        <p class="text-gray-500 text-sm mt-2">
-                            <i class="fas fa-map-marker-alt mr-2"></i>Casablanca, Maroc
-                        </p>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
                     </div>
                     
                     <div>
-                        <h4 class="font-bold mb-4 text-[#D4AF37]">Liens Utiles</h4>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
                         <ul class="space-y-2 text-gray-400">
-                            <li><a href="/#contact" class="hover:text-white transition"><i class="fas fa-envelope mr-2"></i>Nous contacter</a></li>
-                            <li><a href="/" class="hover:text-white transition"><i class="fas fa-home mr-2"></i>Retour à l'accueil</a></li>
-                            <li><a href="/marketing" class="hover:text-white transition"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a></li>
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
                         </ul>
                     </div>
                     
                     <div>
-                        <h4 class="font-bold mb-4 text-[#D4AF37]">
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
                             <i class="fas fa-share-alt mr-2"></i>Suivez-nous
                         </h4>
-                        <div class="flex flex-wrap gap-3 mb-4">
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
-                                <i class="fab fa-linkedin-in text-xl"></i>
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
                                title="Instagram">
-                                <i class="fab fa-instagram text-xl"></i>
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
-                                <i class="fab fa-facebook-f text-xl"></i>
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
                                title="TikTok">
-                                <i class="fab fa-tiktok text-xl"></i>
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                         </div>
-                        <p class="text-gray-500 text-xs">
-                            <i class="fas fa-users mr-1"></i>+5000 abonnés
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
                         </p>
                     </div>
                 </div>
                 
-                <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                    <p>&copy; 2026 CEM GROUP - CEM FORMATION. Tous droits réservés.</p>
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
                 </div>
             </div>
         </footer>
@@ -7590,19 +8312,147 @@ app.get('/actualites', (c) => {
     </head>
     <body class="bg-gray-50">
         <!-- Navigation -->
-        <nav class="fixed w-full top-0 z-50 bg-white shadow-lg">
+                <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <div class="flex items-center space-x-8">
-                        <a href="/" class="text-gray-700 hover:text-[#D4AF37]">Accueil</a>
-                        <a href="/marketing" class="text-gray-700 hover:text-[#D4AF37]">CEM Marketing</a>
-                        <a href="/formation" class="text-gray-700 hover:text-[#D4AF37]">CEM Formation</a>
-                        <a href="/innovation" class="text-gray-700 hover:text-[#D4AF37]">CEM Innovation</a>
-                        <a href="/actualites" class="text-[#D4AF37] font-bold">CEM Actu</a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
+                        </a>
                     </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -8015,40 +8865,84 @@ app.get('/actualites', (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-black text-gray-300 py-12">
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
-                        <h3 class="text-white font-bold text-xl mb-4 gradient-text">CEM GROUP</h3>
-                        <p class="text-sm text-gray-400">Marketing Digital, Formation & Innovation au Maroc</p>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
                     </div>
+                    
                     <div>
-                        <h4 class="font-bold mb-4 text-white">Nos Branches</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition">CEM Marketing</a></li>
-                            <li><a href="/formation" class="hover:text-[#D4AF37] transition">CEM Formation</a></li>
-                            <li><a href="/innovation" class="hover:text-[#D4AF37] transition">CEM Innovation</a></li>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
                         </ul>
                     </div>
+                    
                     <div>
-                        <h4 class="font-bold mb-4 text-white">Liens Rapides</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="/" class="hover:text-[#D4AF37] transition">Accueil</a></li>
-                            <li><a href="/#clients" class="hover:text-[#D4AF37] transition">Clients</a></li>
-                            <li><a href="/actualites" class="hover:text-[#D4AF37] transition">Actualités</a></li>
-                            <li><a href="/#contact" class="hover:text-[#D4AF37] transition">Contact</a></li>
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
                         </ul>
                     </div>
+                    
                     <div>
-                        <h4 class="font-bold mb-4 text-white">Contact</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>Casablanca, Maroc</li>
-                            <li><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></li>
-                        </ul>
+                        <h4 class="font-bold mb-4 text-white">
+                            <i class="fas fa-share-alt mr-2"></i>Suivez-nous
+                        </h4>
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
+                               title="Instagram">
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
+                               title="TikTok">
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
+                        </p>
                     </div>
                 </div>
-                <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-                    <p>&copy; 2024 CEM GROUP. Tous droits réservés.</p>
+                
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
                 </div>
             </div>
         </footer>
@@ -8087,17 +8981,147 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
     </head>
     <body class="bg-gray-50">
         <!-- Navigation -->
-        <nav class="fixed w-full top-0 z-50 bg-white shadow-lg">
+                <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <div class="flex items-center space-x-8">
-                        <a href="/" class="text-gray-700 hover:text-[#D4AF37]">Accueil</a>
-                        <a href="/actualites" class="text-[#D4AF37] font-bold">Blog</a>
-                        <a href="/#contact" class="bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">Contact</a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
+                        </a>
                     </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -8106,13 +9130,150 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
         <article class="pt-32 pb-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Breadcrumb -->
-                <nav class="text-sm text-gray-500 mb-8">
-                    <a href="/" class="hover:text-[#D4AF37]">Accueil</a>
-                    <span class="mx-2">/</span>
-                    <a href="/actualites" class="hover:text-[#D4AF37]">Blog</a>
-                    <span class="mx-2">/</span>
-                    <span class="text-gray-900">LinkedIn B2B</span>
-                </nav>
+                        <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    <div class="flex items-center">
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
+                        </a>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
+                </div>
+            </div>
+        </nav>
 
                 <!-- Category Badge -->
                 <div class="flex items-center gap-2 mb-6">
@@ -8341,11 +9502,85 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-black text-white py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <a href="/" class="inline-block mb-4 hover:opacity-80 transition"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
-                <p class="text-gray-400 mb-6">Marketing Digital, Formation & Innovation IA</p>
-                <p class="text-gray-600 text-sm">© 2024 CEM GROUP. Tous droits réservés.</p>
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
+                            <i class="fas fa-share-alt mr-2"></i>Suivez-nous
+                        </h4>
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
+                               title="Instagram">
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
+                               title="TikTok">
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
+                </div>
             </div>
         </footer>
     </body>
@@ -8381,17 +9616,147 @@ app.get('/actualites/ia-marketing-2026', (c) => {
     </head>
     <body class="bg-gray-50">
         <!-- Navigation -->
-        <nav class="fixed w-full top-0 z-50 bg-white shadow-lg">
+                <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
                         <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
                     </div>
-                    <div class="flex items-center space-x-8">
-                        <a href="/" class="text-gray-700 hover:text-[#D4AF37]">Accueil</a>
-                        <a href="/actualites" class="text-[#D4AF37] font-bold">Blog</a>
-                        <a href="/#contact" class="bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">Contact</a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
+                        </a>
                     </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -8400,13 +9765,150 @@ app.get('/actualites/ia-marketing-2026', (c) => {
         <article class="pt-32 pb-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Breadcrumb -->
-                <nav class="text-sm text-gray-500 mb-8">
-                    <a href="/" class="hover:text-[#D4AF37]">Accueil</a>
-                    <span class="mx-2">/</span>
-                    <a href="/actualites" class="hover:text-[#D4AF37]">Blog</a>
-                    <span class="mx-2">/</span>
-                    <span class="text-gray-900">IA & Marketing</span>
-                </nav>
+                        <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    <div class="flex items-center">
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
+                        </a>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
+                </div>
+            </div>
+        </nav>
 
                 <!-- Category Badge -->
                 <div class="flex items-center gap-2 mb-6">
@@ -8624,11 +10126,85 @@ app.get('/actualites/ia-marketing-2026', (c) => {
         </section>
 
         <!-- Footer -->
-        <footer class="bg-black text-white py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <a href="/" class="inline-block mb-4 hover:opacity-80 transition"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
-                <p class="text-gray-400 mb-6">Marketing Digital, Formation & Innovation IA</p>
-                <p class="text-gray-600 text-sm">© 2024 CEM GROUP. Tous droits réservés.</p>
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
+                            <i class="fas fa-share-alt mr-2"></i>Suivez-nous
+                        </h4>
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
+                               title="Instagram">
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
+                               title="TikTok">
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
+                </div>
             </div>
         </footer>
     </body>
@@ -8685,17 +10261,147 @@ app.get('/catalogue', async (c) => {
     <body class="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
         
         <!-- Navigation -->
-        <nav class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm shadow-lg z-50">
-            <div class="max-w-7xl mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
-                    <div class="flex items-center gap-6">
-                        <a href="/" class="text-black hover:text-[#D4AF37] transition no-underline">Accueil</a>
-                        <a href="/formation" class="text-black hover:text-[#D4AF37] transition no-underline">Formations</a>
-                        <a href="/marketing" class="text-black hover:text-[#D4AF37] transition no-underline">Marketing</a>
-                        <a href="/innovation" class="text-black hover:text-[#D4AF37] transition no-underline">Innovation</a>
-                        <a href="/#contact" class="bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-2 rounded-full font-semibold hover:shadow-lg transition no-underline">Contact</a>
+                <!-- Barre Réseaux Sociaux Top -->
+        <div class="fixed top-0 w-full bg-gradient-to-r from-black via-gray-900 to-black z-50 py-2 border-b border-[#D4AF37]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white text-sm hidden sm:block">
+                            <i class="fas fa-heart text-[#D4AF37] mr-2"></i>Suivez-nous
+                        </span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
                     </div>
+                    <div class="text-white text-xs hidden md:block">
+                        <i class="fas fa-phone-alt text-[#D4AF37] mr-2"></i>
+                        <a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a>
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope text-[#D4AF37] mr-2"></i>
+                        <a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation (décalée pour barre sociale) -->
+        <nav class="fixed w-full top-10 z-40 bg-white shadow-lg" x-data="{ open: false, marketingOpen: false, formationOpen: false }">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    <div class="flex items-center">
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/#qui-sommes-nous" class="text-gray-700 hover:text-[#D4AF37] transition font-medium">Qui Sommes-Nous</a>
+                        <a href="/innovation" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>CEM Innovation
+                        </a>
+                        <!-- Menu déroulant CEM Marketing -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="/marketing" class="bg-[#D4AF37] text-white px-5 py-2 rounded-full hover:bg-[#B8941F] transition font-bold shadow-lg text-sm inline-flex items-center">
+                                <i class="fas fa-bullhorn mr-2"></i>CEM Marketing <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </a>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/marketing#cem-leads" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM LEADS</div>
+                                    <div class="text-sm text-gray-600">Génération de leads B2B</div>
+                                </a>
+                                <a href="/marketing#cem-studio" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">CEM STUDIO</div>
+                                    <div class="text-sm text-gray-600">Production audiovisuelle</div>
+                                </a>
+                                <a href="/marketing#cem-branding" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">CEM BRANDING</div>
+                                    <div class="text-sm text-gray-600">Personal branding LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu déroulant CEM Formation -->
+                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                            <button type="button" @click="open = !open" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition font-bold shadow-lg text-sm inline-flex items-center cursor-pointer">
+                                <i class="fas fa-graduation-cap mr-2"></i>CEM Formation <i class="fas fa-chevron-down text-xs ml-1 transition-transform" :class="{ 'rotate-180': open }"></i>
+                            </button>
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                                <a href="/formation#digital-marketing" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Digital Marketing</div>
+                                    <div class="text-sm text-gray-600">+6 formations marketing digital</div>
+                                </a>
+                                <a href="/formation#management" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Management & Leadership</div>
+                                    <div class="text-sm text-gray-600">+5 formations management</div>
+                                </a>
+                                <a href="/formation#business-dev" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Business Développement</div>
+                                    <div class="text-sm text-gray-600">+4 formations business</div>
+                                </a>
+                                <a href="/formation#industrie-securite" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
+                                    <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
+                                    <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
+                                </a>
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
+                                    <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/#events" class="border-2 border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full hover:bg-[#D4AF37] hover:text-white transition font-bold text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events à venir
+                        </a>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden bg-white border-t">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="/#qui-sommes-nous" class="block py-2 text-gray-700 font-medium">Qui Sommes-Nous</a>
+                    <a href="/innovation" class="block py-2 text-black font-bold"><i class="fas fa-lightbulb mr-2"></i>CEM Innovation</a>
+                    <a href="/marketing" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-bullhorn mr-2"></i>CEM Marketing</a>
+                    <a href="/formation" class="block py-2 text-black font-bold"><i class="fas fa-graduation-cap mr-2"></i>CEM Formation</a>
+                    <a href="#events" class="block py-2 text-[#D4AF37] font-bold"><i class="fas fa-calendar-alt mr-2"></i>Events à venir</a>
                 </div>
             </div>
         </nav>
@@ -8920,34 +10626,85 @@ app.get('/catalogue', async (c) => {
         </section>
         
         <!-- Footer -->
-        <footer class="bg-black py-12 px-6 border-t border-gray-800">
-            <div class="max-w-6xl mx-auto text-center">
-                <a href="/" class="inline-block mb-6 hover:opacity-80 transition"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
-                <p class="text-gray-500 mb-6">Casablanca, Maroc • Depuis 2018</p>
-                
-                <div class="flex justify-center gap-6 mb-8">
-                    <a href="/" class="text-gray-400 hover:text-[#D4AF37] transition no-underline">Accueil</a>
-                    <a href="/formation" class="text-gray-400 hover:text-[#D4AF37] transition no-underline">Formations</a>
-                    <a href="/marketing" class="text-gray-400 hover:text-[#D4AF37] transition no-underline">Marketing</a>
-                    <a href="/innovation" class="text-gray-400 hover:text-[#D4AF37] transition no-underline">Innovation</a>
-                    <a href="/actualites" class="text-gray-400 hover:text-[#D4AF37] transition no-underline">Actualités</a>
+        <footer class="bg-black text-white py-12 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
+                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <div class="text-sm text-gray-500">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                            <p class="ml-6">Casablanca, Maroc</p>
+                            <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
+                            <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-[#D4AF37]">Nos Services</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/marketing" class="hover:text-[#D4AF37] transition flex items-center">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>CEM Marketing
+                            </a></li>
+                            <li><a href="/formation" class="hover:text-#D4AF37 transition flex items-center">
+                                <i class="fas fa-graduation-cap mr-2 text-xs"></i>CEM Formation
+                            </a></li>
+                            <li><a href="#innovation" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-lightbulb mr-2 text-xs"></i>CEM Innovation
+                            </a></li>
+                            <li><a href="/recrutement" class="hover:text-white transition flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-xs"></i>Rejoignez-nous
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-#D4AF37">Liens Rapides</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#equipes" class="hover:text-white transition">Nos Équipes</a></li>
+                            <li><a href="#clients" class="hover:text-white transition">Ils Nous Font Confiance</a></li>
+                            <li><a href="/actualites" class="hover:text-white transition">Actualités</a></li>
+                            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4 text-white">
+                            <i class="fas fa-share-alt mr-2"></i>Suivez-nous
+                        </h4>
+                        <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-black hover:to-#D4AF37 hover:scale-110 transition-all group border border-gray-700"
+                               title="Instagram">
+                                <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               title="Facebook">
+                                <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all group border border-gray-700"
+                               title="TikTok">
+                                <i class="fab fa-tiktok text-xl text-gray-400 group-hover:text-white"></i>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 text-xs mt-4">
+                            <i class="fas fa-users mr-1"></i>Rejoignez +5000 abonnés
+                        </p>
+                    </div>
                 </div>
                 
-                <div class="flex justify-center gap-4 mb-8">
-                    <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                    <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition">
-                        <i class="fab fa-facebook text-xl"></i>
-                    </a>
+                <div class="border-t border-gray-800 pt-8 text-center">
+                    <p class="text-gray-500">&copy; 2026 CEM GROUP. Tous droits réservés.</p>
+                    <p class="text-gray-600 text-sm mt-2">Créé avec <i class="fas fa-heart text-red-500 mx-1"></i> par CEM Marketing</p>
                 </div>
-                
-                <p class="text-gray-600 text-sm">
-                    © 2024 CEM GROUP. Tous droits réservés.
-                </p>
             </div>
         </footer>
         
