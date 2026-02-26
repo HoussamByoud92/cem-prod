@@ -42,7 +42,7 @@ formationApp.get('/', async (c) => {
         <meta property="og:locale" content="fr_MA">
         
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+        <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image">
@@ -146,7 +146,7 @@ formationApp.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->

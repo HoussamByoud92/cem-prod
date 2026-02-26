@@ -107,7 +107,7 @@ app.get('/', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM GROUP - Agence Marketing Digital & Formation Professionnelle Casablanca | Stratégie, IA, Audiovisuel</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM GROUP Casablanca: Expert en marketing digital, production vidéo professionnelle & formations certifiées. +500 clients depuis 2018. Transformez votre business !">
         <meta name="keywords" content="agence marketing digital casablanca, formation professionnelle maroc, production audiovisuelle, social branding, e-learning, intelligence artificielle, stratégie digitale, cem group, meryem mazini, acculturation IA">
         <meta name="author" content="CEM GROUP - Meryem Mazini">
@@ -242,7 +242,7 @@ app.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -1772,7 +1772,7 @@ app.get('/services/:slug', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${service.title} - CEM GROUP</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -1840,7 +1840,7 @@ app.get('/services/:slug', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -2254,7 +2254,7 @@ app.get('/marketing', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM MARKETING - Agence Marketing Digital Casablanca | Vidéo, Social Media & Leads B2B</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM MARKETING Casablanca: Génération de leads B2B, production vidéo professionnelle & personal branding LinkedIn. Agence digitale au Maroc. Audit !">
         <meta name="keywords" content="agence marketing digital casablanca, production vidéo maroc, social media management, leads b2b, linkedin maroc, personal branding, ghostwriting, copywriting maroc">
         <meta name="author" content="CEM GROUP - CEM Marketing">
@@ -2452,7 +2452,7 @@ app.get('/marketing', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -4112,7 +4112,7 @@ app.get('/formation/:slug', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${formation.title} - CEM FORMATION</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="${formation.description}">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -4183,7 +4183,7 @@ app.get('/formation/:slug', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -4518,7 +4518,7 @@ app.get('/innovation', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM INNOVATION - Intelligence Artificielle & Transformation Digitale | Acculturation IA Maroc</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM INNOVATION Maroc: Formations IA générative (ChatGPT, MidJourney, Gemini). 50+ entreprises formées, +85% de productivité. Démystifiez l'IA aujourd'hui !">
         <meta name="keywords" content="intelligence artificielle maroc, formation ia maroc, acculturation ia, chatgpt entreprise, transformation digitale, démystification ia, ateliers ia, consulting ia maroc, cem innovation">
         <meta name="author" content="CEM GROUP - CEM Innovation">
@@ -4606,7 +4606,7 @@ app.get('/innovation', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -5448,7 +5448,7 @@ app.get('/recrutement', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rejoignez CEM GROUP - Recrutement & Carrières</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <link href="/styles.css" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -5516,7 +5516,7 @@ app.get('/recrutement', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -5996,7 +5996,7 @@ app.get('/', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM FORMATION - Formation Professionnelle Digitale Maroc | LinkedIn, E-Learning, IA</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM FORMATION Maroc: 19 formations certifiées (LinkedIn, Marketing, Management, HACCP). 500+ apprenants, 95% satisfaction. Boostez vos compétences !">
         <meta name="keywords" content="formation professionnelle maroc, formation linkedin maroc, e-learning maroc, formation marketing digital, formation ia maroc, certification professionnelle, cem formation, n1 growth favikon">
         <meta name="author" content="CEM GROUP - CEM Formation">
@@ -6115,7 +6115,7 @@ app.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -7730,7 +7730,7 @@ app.get('/actualites', (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM ACTU - Actualités Marketing, Formation & Innovation | CEM GROUP Maroc</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM ACTU: Actualités marketing, IA & formation au Maroc. Événements, success stories, tendances digitales. Restez connectés à l'innovation !">
         <meta name="keywords" content="actualités cem group, événements marketing maroc, formation professionnelle, innovation ia, linkedin local morocco, success stories, tendances digitales">
         <meta name="author" content="CEM GROUP">
@@ -7825,7 +7825,7 @@ app.get('/actualites', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -8428,7 +8428,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>10 Astuces LinkedIn pour Générer des Leads B2B au Maroc | CEM GROUP Blog</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="Découvrez les stratégies éprouvées pour transformer votre profil LinkedIn en machine à générer des opportunités commerciales qualifiées au Maroc.">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -8499,7 +8499,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -8648,7 +8648,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -9068,7 +9068,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Comment l'IA Révolutionne le Marketing Digital en 2026 | CEM GROUP Blog</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="L'intelligence artificielle transforme radicalement les stratégies marketing. Explorez les outils et méthodes qui changent la donne en 2026.">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -9139,7 +9139,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -9288,7 +9288,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -9702,7 +9702,7 @@ app.get('/catalogue', async (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Télécharger le Catalogue CEM GROUP | Formations, Marketing & Innovation Maroc</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="Téléchargez le catalogue CEM GROUP: 19 formations professionnelles + services marketing digital & IA. Tarifs, modalités & certifications. Complet !"/>
         <meta name="keywords" content="catalogue formations, catalogue CEM, télécharger catalogue, formations digitales Maroc, marketing digital Casablanca, CEM GROUP" />
         <meta name="author" content="CEM GROUP - Catalogue" />
@@ -9789,7 +9789,7 @@ app.get('/catalogue', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
