@@ -4810,6 +4810,54 @@
   .bg-section-gold {
     background: linear-gradient(135deg, #D4AF37 0%, #D4AF37 50%, #D4AF37 100%);
   }
+  @keyframes railGlowHorizontal {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(212, 175, 55, 1), 0 0 80px rgba(255, 215, 0, 0.6);
+    }
+  }
+  @keyframes badgePulseHorizontal {
+    0%, 100% {
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.9), 0 0 0 6px #D4AF37, 0 0 30px rgba(212, 175, 55, 0.6), inset 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.9), 0 0 0 6px #D4AF37, 0 0 50px rgba(255, 215, 0, 0.9), inset 0 0 25px rgba(255, 215, 0, 0.5);
+    }
+  }
+  @keyframes lineMove {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 @property --tw-translate-x {
   syntax: "*";
