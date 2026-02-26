@@ -176,7 +176,10 @@ app.get('/', async (c) => {
         }
         </script>
         
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <style>
@@ -940,7 +943,7 @@ app.get('/', async (c) => {
                             <div class="relative z-10">
                                 <img src="/static/mascottes-cem-team.png" 
                                      alt="Moumen Hebbour et Meryem Mazini - Fondateurs CEM GROUP Casablanca - Experts Marketing Digital et Formation Maroc" 
-                                     alt="" 
+                                     fetchpriority="high"
                                      class="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
@@ -2323,7 +2326,7 @@ app.get('/services/:slug', (c) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${service.title} - CEM GROUP</title>
     <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
@@ -2870,7 +2873,7 @@ app.get('/marketing', async (c) => {
         }
         </script>
         
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <style>
@@ -4658,7 +4661,7 @@ app.get('/formation/:slug', (c) => {
         <title>${formation.title} - CEM FORMATION</title>
     <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="${formation.description}">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
@@ -5079,7 +5082,7 @@ app.get('/innovation', async (c) => {
         <meta name="twitter:title" content="CEM INNOVATION - Intelligence Artificielle Maroc">
         <meta name="twitter:description" content="Acculturation & Démystification IA. 85% gain productivité. Session découverte.">
         
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
@@ -5985,7 +5988,7 @@ app.get('/recrutement', (c) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rejoignez CEM GROUP - Recrutement & Carrières</title>
     <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
@@ -6550,7 +6553,7 @@ app.get('/', async (c) => {
         <meta name="twitter:title" content="CEM FORMATION - Formation Professionnelle Digitale Maroc">
         <meta name="twitter:description" content="15 formations : LinkedIn N°1 Growth Maroc, E-Learning, Marketing, IA. 500+ apprenants formés.">
         
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <style>
@@ -8278,7 +8281,7 @@ app.get('/actualites', (c) => {
         <meta name="twitter:title" content="CEM ACTU - Actualités CEM GROUP">
         <meta name="twitter:description" content="Événements, formations, et innovation IA au Maroc">
         
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
@@ -8954,7 +8957,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
         <title>10 Astuces LinkedIn pour Générer des Leads B2B au Maroc | CEM GROUP Blog</title>
     <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="Découvrez les stratégies éprouvées pour transformer votre profil LinkedIn en machine à générer des opportunités commerciales qualifiées au Maroc.">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -9590,7 +9593,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
         <title>Comment l'IA Révolutionne le Marketing Digital en 2026 | CEM GROUP Blog</title>
     <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
         <meta name="description" content="L'intelligence artificielle transforme radicalement les stratégies marketing. Explorez les outils et méthodes qui changent la donne en 2026.">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -10237,7 +10240,7 @@ app.get('/catalogue', async (c) => {
         <meta name="twitter:description" content="Téléchargez notre catalogue complet : +15 formations, production audiovisuelle, IA & marketing digital." />
         
         <!-- Styles -->
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
