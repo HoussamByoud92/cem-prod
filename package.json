@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "npm run build:css && vite",
     "build": "npm run build:css && vite build",
-    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./public/styles.css",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./public/styles.css --minify",
     "preview": "wrangler pages dev",
     "deploy": "npm run build && wrangler pages deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
