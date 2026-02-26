@@ -378,7 +378,7 @@ app.get('/', async (c) => {
                             
                             <!-- Image Mascottes Équipe CEM -->
                             <div class="relative z-10">
-                                <img src="/static/mascottes-cem-team.png" 
+                                <img src="/static/mascottes-cem-team.webp" 
                                      alt="Moumen Hebbour et Meryem Mazini - Fondateurs CEM GROUP Casablanca - Experts Marketing Digital et Formation Maroc" 
                                      fetchpriority="high"
                                      class="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500">
@@ -422,7 +422,7 @@ app.get('/', async (c) => {
                     <div class="relative">
                         <div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#D4AF37] rounded-3xl transform rotate-3"></div>
                         <div class="relative bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden p-2">
-                            <img src="/static/meryem-mazini-pro-realiste.jpg" alt="Meryem Mazini - Fondatrice et CEO CEM GROUP Casablanca - Experte Marketing Digital, Formation Professionnelle et Intelligence Artificielle au Maroc" loading="lazy" class="w-full h-full object-cover rounded-2xl" style="aspect-ratio: 3/4; max-height: 500px;">
+                            <img src="/static/meryem-mazini-pro-realiste.webp" alt="Meryem Mazini - Fondatrice et CEO CEM GROUP Casablanca - Experte Marketing Digital, Formation Professionnelle et Intelligence Artificielle au Maroc" loading="lazy" class="w-full h-full object-cover rounded-2xl" style="aspect-ratio: 3/4; max-height: 500px;">
                         </div>
                     </div>
                     
@@ -740,19 +740,19 @@ app.get('/', async (c) => {
                 <!-- Logos Clients Grid -->
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center mb-16">
                     <div class="group bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-1.png" alt="Client 1" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" />
+                        <img src="/logos/client-logo-1.webp" alt="Client 1" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" />
                     </div>
                     <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-2.png" alt="Client 2" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
+                        <img src="/logos/client-logo-2.webp" alt="Client 2" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
                     </div>
                     <div class="group bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-3.png" alt="Client 3" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" />
+                        <img src="/logos/client-logo-3.webp" alt="Client 3" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" />
                     </div>
                     <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-4.png" alt="Client 4" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
+                        <img src="/logos/client-logo-4.webp" alt="Client 4" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
                     </div>
                     <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-5.png" alt="Client 5" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
+                        <img src="/logos/client-logo-5.webp" alt="Client 5" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
                     </div>
                 </div>
                 
@@ -2625,7 +2625,7 @@ app.get('/marketing', async (c) => {
                     
                     <!-- COLONNE DROITE : IMAGE MASCOTTES -->
                     <div class="relative flex items-center justify-center">
-                        <img src="/static/mascottes-marketing.png" 
+                        <img src="/static/mascottes-marketing.webp" 
                              alt="Moumen et Meryem - Équipe CEM MARKETING Casablanca" 
                              loading="lazy"
                              class="w-full h-auto">
@@ -4757,7 +4757,7 @@ app.get('/innovation', async (c) => {
                     <div class="relative">
                         <!-- Image Mascottes agrandie sans cadre -->
                         <img 
-                            src="/static/mascottes-innovation.png" 
+                            src="/static/mascottes-innovation.webp" 
                             alt="Équipe CEM Innovation - Experts en Intelligence Artificielle" 
                             class="w-full h-auto rounded-2xl shadow-2xl"
                         />
