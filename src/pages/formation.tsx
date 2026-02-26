@@ -49,7 +49,7 @@ formationApp.get('/', async (c) => {
         <meta name="twitter:title" content="CEM FORMATION - Formation Professionnelle Digitale Maroc">
         <meta name="twitter:description" content="15 formations : LinkedIn N°1 Growth Maroc, E-Learning, Marketing, IA. 500+ apprenants formés.">
         
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/styles.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <style>
