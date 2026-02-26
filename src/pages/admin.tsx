@@ -11,7 +11,7 @@ const adminLayout = (content: string, title: string, script: string = '') => `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} - CEM GROUP Admin</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
     <link href="/styles.css" rel="stylesheet">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
@@ -121,7 +121,7 @@ adminPagesApp.get('/login', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin Login - CEM GROUP</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -470,7 +470,7 @@ const blogEditor = (isEdit = false) => `
                         </div>
                         
                         <div x-show="form.coverImage && !uploadingFile" x-cloak>
-                            <img :src="form.coverImage" class="max-h-52 mx-auto rounded-lg shadow-md" />
+                            <img :src="form.coverImage" class="max-h-52 mx-auto rounded-lg shadow-md" / loading="lazy" >
                             <div class="mt-3 flex gap-2 justify-center">
                                 <label for="file-coverImage" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition text-sm cursor-pointer"><i class="fas fa-sync-alt mr-1"></i>Remplacer</label>
                                 <button @click.prevent="form.coverImage = ''" type="button" class="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition text-sm"><i class="fas fa-trash mr-1"></i>Supprimer</button>
@@ -756,7 +756,7 @@ const eventEditor = (isEdit = false) => `
                             </div>
                         </div>
                         <div x-show="form.image && !uploadingFile" x-cloak>
-                            <img :src="form.image" class="max-h-52 mx-auto rounded-lg shadow-md" />
+                            <img :src="form.image" class="max-h-52 mx-auto rounded-lg shadow-md" / loading="lazy" >
                             <div class="mt-3 flex gap-2 justify-center">
                                 <label for="file-event-image" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition text-sm cursor-pointer"><i class="fas fa-sync-alt mr-1"></i>Remplacer</label>
                                 <button @click.prevent="form.image = ''" type="button" class="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition text-sm"><i class="fas fa-trash mr-1"></i>Supprimer</button>
@@ -869,7 +869,7 @@ adminPagesApp.get('/plaquettes', (c) => c.html(adminLayout(`
         <template x-for="pdf in plaquettes" :key="pdf.id">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden relative group">
-                    <img :src="pdf.thumbnail || 'https://via.placeholder.com/300x400?text=PDF'" class="w-full h-full object-cover">
+                    <img :src="pdf.thumbnail || 'https://via.placeholder.com/300x400?text=PDF'" class="w-full h-full object-cover" loading="lazy" >
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-4">
                         <a :href="pdf.url" target="_blank" class="text-white hover:text-[#D4AF37]"><i class="fas fa-eye fa-lg"></i></a>
                     </div>
@@ -981,7 +981,7 @@ const plaquetteEditor = () => `
                             <div class="animate-spin rounded-full h-6 w-6 border-2 border-[#D4AF37] border-t-transparent mx-auto"></div>
                         </div>
                         <div x-show="form.thumbnail && !uploadingThumb" x-cloak>
-                            <img :src="form.thumbnail" class="max-h-32 mx-auto rounded-lg shadow-sm" />
+                            <img :src="form.thumbnail" class="max-h-32 mx-auto rounded-lg shadow-sm" / loading="lazy" >
                             <div class="mt-2 flex gap-2 justify-center">
                                 <label for="file-thumbnail" class="text-xs text-blue-600 cursor-pointer hover:underline">Remplacer</label>
                                 <button @click.prevent="form.thumbnail = ''" type="button" class="text-xs text-red-600 hover:underline">Supprimer</button>
@@ -1563,7 +1563,7 @@ adminPagesApp.get('/marketing', (c) => c.html(adminLayout(`
                  </div>
 
                  <div x-show="popup.image" class="relative group mt-2">
-                    <img :src="popup.image" class="w-full h-64 object-cover rounded-lg shadow-sm">
+                    <img :src="popup.image" class="w-full h-64 object-cover rounded-lg shadow-sm" loading="lazy" >
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
                         <button type="button" @click="$refs.fileInput.click()" class="text-white mr-4 hover:text-[#D4AF37]"><i class="fas fa-edit fa-lg"></i></button>
                         <button type="button" @click="popup.image = ''" class="text-white hover:text-red-500"><i class="fas fa-trash fa-lg"></i></button>
@@ -1990,7 +1990,7 @@ const formationsContent = `
                     <template x-for="f in sortedFormations" :key="f.id">
                         <tr class="hover:bg-gray-50 transition">
                             <td class="px-4 py-3">
-                                <img :src="f.imageUrl" :alt="f.title" class="w-16 h-12 object-cover rounded-lg">
+                                <img :src="f.imageUrl" :alt="f.title" class="w-16 h-12 object-cover rounded-lg" loading="lazy" >
                             </td>
                             <td class="px-4 py-3">
                                 <div class="font-semibold text-gray-900" x-text="f.title"></div>
@@ -2067,7 +2067,7 @@ const formationsContent = `
                                         <span x-show="uploading" class="ml-2 text-sm text-gray-500"><i class="fas fa-spinner fa-spin"></i> Upload...</span>
                                     </div>
                                 </div>
-                                <img x-show="form.imageUrl" :src="form.imageUrl" class="w-24 h-16 object-cover rounded-lg border">
+                                <img x-show="form.imageUrl" :src="form.imageUrl" class="w-24 h-16 object-cover rounded-lg border" loading="lazy" >
                             </div>
                         </div>
                         <div class="col-span-2">

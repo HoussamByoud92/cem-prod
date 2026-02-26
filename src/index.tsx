@@ -107,7 +107,7 @@ app.get('/', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM GROUP - Agence Marketing Digital & Formation Professionnelle Casablanca | Stratégie, IA, Audiovisuel</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM GROUP Casablanca: Expert en marketing digital, production vidéo professionnelle & formations certifiées. +500 clients depuis 2018. Transformez votre business !">
         <meta name="keywords" content="agence marketing digital casablanca, formation professionnelle maroc, production audiovisuelle, social branding, e-learning, intelligence artificielle, stratégie digitale, cem group, meryem mazini, acculturation IA">
         <meta name="author" content="CEM GROUP - Meryem Mazini">
@@ -242,7 +242,7 @@ app.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -391,7 +391,7 @@ app.get('/', async (c) => {
                                 <img src="/static/mascottes-cem-team.webp" 
                                      alt="Moumen Hebbour et Meryem Mazini - Fondateurs CEM GROUP Casablanca - Experts Marketing Digital et Formation Maroc" 
                                      fetchpriority="high"
-                                     class="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500">
+                                     class="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500" loading="lazy" >
                             </div>
                         </div>
                     </div>
@@ -432,7 +432,7 @@ app.get('/', async (c) => {
                     <div class="relative">
                         <div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#D4AF37] rounded-3xl transform rotate-3"></div>
                         <div class="relative bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden p-2">
-                            <img src="/static/meryem-mazini-pro-realiste.webp" alt="Meryem Mazini - Fondatrice et CEO CEM GROUP Casablanca - Experte Marketing Digital, Formation Professionnelle et Intelligence Artificielle au Maroc" loading="lazy" class="w-full h-full object-cover rounded-2xl" style="aspect-ratio: 3/4; max-height: 500px;">
+                            <img src="/static/meryem-mazini-pro-realiste.webp" alt="Meryem Mazini - Fondatrice et CEO CEM GROUP Casablanca - Experte Marketing Digital, Formation Professionnelle et Intelligence Artificielle au Maroc" loading="lazy" class="w-full h-full object-cover rounded-2xl" style="aspect-ratio: 3/4; max-height: 500px;" loading="lazy" >
                         </div>
                     </div>
                     
@@ -750,19 +750,19 @@ app.get('/', async (c) => {
                 <!-- Logos Clients Grid -->
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center mb-16">
                     <div class="group bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-1.webp" alt="Client 1" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" />
+                        <img src="/logos/client-logo-1.webp" alt="Client 1" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" / loading="lazy" >
                     </div>
                     <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-2.webp" alt="Client 2" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
+                        <img src="/logos/client-logo-2.webp" alt="Client 2" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" / loading="lazy" >
                     </div>
                     <div class="group bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-3.webp" alt="Client 3" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" />
+                        <img src="/logos/client-logo-3.webp" alt="Client 3" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" / loading="lazy" >
                     </div>
                     <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-4.webp" alt="Client 4" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
+                        <img src="/logos/client-logo-4.webp" alt="Client 4" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" / loading="lazy" >
                     </div>
                     <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-5.webp" alt="Client 5" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" />
+                        <img src="/logos/client-logo-5.webp" alt="Client 5" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" / loading="lazy" >
                     </div>
                 </div>
                 
@@ -821,7 +821,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/JwnlUQaA" 
                                      alt="Meryem Mazini - CEO & Fondatrice CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy">
+                                     loading="lazy" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Meryem Mazini</h3>
@@ -840,7 +840,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/3xntIAP4" 
                                      alt="Moumen Hebbour - DGA CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy">
+                                     loading="lazy" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Moumen Hebbour</h3>
@@ -854,7 +854,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/QLn8q26N" 
                                      alt="Zineb Rais - Brand Manager CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy">
+                                     loading="lazy" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Zineb Rais</h3>
@@ -868,7 +868,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/RfWSyK7B" 
                                      alt="Ayman Aitmouss - Médiabuyer CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy">
+                                     loading="lazy" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Ayman Aitmouss</h3>
@@ -882,7 +882,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/kXtmzaUx" 
                                      alt="Houssam Bayoud - Développeur Web CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy">
+                                     loading="lazy" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Houssam Bayoud</h3>
@@ -1772,7 +1772,7 @@ app.get('/services/:slug', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${service.title} - CEM GROUP</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -1840,7 +1840,7 @@ app.get('/services/:slug', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -1960,7 +1960,7 @@ app.get('/services/:slug', (c) => {
                         </div>
                     </div>
                     <div>
-                        <img src="${service.image}" alt="${service.title}" loading="lazy" class="rounded-3xl shadow-2xl">
+                        <img src="${service.image}" alt="${service.title}" loading="lazy" class="rounded-3xl shadow-2xl" loading="lazy" >
                     </div>
                 </div>
             </div>
@@ -2221,7 +2221,7 @@ app.get('/marketing', async (c) => {
     const mktBlogsHtml = latestBlogs.length > 0 ? latestBlogs.map((blog: any) => `
         <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition border-2 border-[#D4AF37] group">
             <div class="h-48 overflow-hidden">
-                ${blog.coverImage ? `<img src="${blog.coverImage}" alt="${blog.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">` : `<div class="h-full bg-gradient-to-br from-[#D4AF37] to-[#B8941F] flex items-center justify-center"><i class="fas fa-newspaper text-white text-5xl"></i></div>`}
+                ${blog.coverImage ? `<img src="${blog.coverImage}" alt="${blog.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" >` : `<div class="h-full bg-gradient-to-br from-[#D4AF37] to-[#B8941F] flex items-center justify-center"><i class="fas fa-newspaper text-white text-5xl"></i></div>`}
             </div>
             <div class="p-6">
                 <div class="text-[#D4AF37] text-sm font-bold mb-2">
@@ -2254,7 +2254,7 @@ app.get('/marketing', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM MARKETING - Agence Marketing Digital Casablanca | Vidéo, Social Media & Leads B2B</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM MARKETING Casablanca: Génération de leads B2B, production vidéo professionnelle & personal branding LinkedIn. Agence digitale au Maroc. Audit !">
         <meta name="keywords" content="agence marketing digital casablanca, production vidéo maroc, social media management, leads b2b, linkedin maroc, personal branding, ghostwriting, copywriting maroc">
         <meta name="author" content="CEM GROUP - CEM Marketing">
@@ -2452,7 +2452,7 @@ app.get('/marketing', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -2645,8 +2645,7 @@ app.get('/marketing', async (c) => {
                     <div class="relative flex items-center justify-center">
                         <img src="/static/mascottes-marketing.webp" 
                              alt="Moumen et Meryem - Équipe CEM MARKETING Casablanca" 
-                             loading="lazy"
-                             class="w-full h-auto">
+                             loading="lazy" class="w-full h-auto" loading="lazy" >
                     </div>
                 </div>
             </div>
@@ -2753,8 +2752,7 @@ app.get('/marketing', async (c) => {
                         <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#D4AF37]/20 hover:border-[#D4AF37]/40 transition-all duration-500">
                             <img src="https://www.genspark.ai/api/files/s/dYROuCtR" 
                                  alt="CEM MARKETING - Production Audiovisuelle, Acquisition Digitale & Leads B2B, Personal Branding LinkedIn - Services Marketing Digital Premium Maroc" 
-                                 loading="lazy"
-                                 class="w-full h-auto transform hover:scale-105 transition-transform duration-700">
+                                 loading="lazy" class="w-full h-auto transform hover:scale-105 transition-transform duration-700" loading="lazy" >
                         </div>
                         
                         <!-- Points décoratifs dorés -->
@@ -4114,7 +4112,7 @@ app.get('/formation/:slug', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${formation.title} - CEM FORMATION</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="${formation.description}">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -4185,7 +4183,7 @@ app.get('/formation/:slug', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -4310,7 +4308,7 @@ app.get('/formation/:slug', (c) => {
                         </div>
                     </div>
                     <div>
-                        <img src="${formation.image}" alt="${formation.title}" loading="lazy" class="rounded-3xl shadow-2xl">
+                        <img src="${formation.image}" alt="${formation.title}" loading="lazy" class="rounded-3xl shadow-2xl" loading="lazy" >
                     </div>
                 </div>
             </div>
@@ -4490,7 +4488,7 @@ app.get('/innovation', async (c) => {
     const blogsHtml = latestBlogs.length > 0 ? latestBlogs.map((blog: any) => `
         <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl transition border border-gray-200 group">
             <div class="h-48 overflow-hidden">
-                ${blog.coverImage ? `<img src="${blog.coverImage}" alt="${blog.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">` : `<div class="h-full bg-gradient-to-br from-[#D4AF37] to-black flex items-center justify-center"><i class="fas fa-newspaper text-white text-5xl"></i></div>`}
+                ${blog.coverImage ? `<img src="${blog.coverImage}" alt="${blog.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" >` : `<div class="h-full bg-gradient-to-br from-[#D4AF37] to-black flex items-center justify-center"><i class="fas fa-newspaper text-white text-5xl"></i></div>`}
             </div>
             <div class="p-6">
                 <div class="text-[#D4AF37] text-sm font-bold mb-2">
@@ -4520,7 +4518,7 @@ app.get('/innovation', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM INNOVATION - Intelligence Artificielle & Transformation Digitale | Acculturation IA Maroc</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM INNOVATION Maroc: Formations IA générative (ChatGPT, MidJourney, Gemini). 50+ entreprises formées, +85% de productivité. Démystifiez l'IA aujourd'hui !">
         <meta name="keywords" content="intelligence artificielle maroc, formation ia maroc, acculturation ia, chatgpt entreprise, transformation digitale, démystification ia, ateliers ia, consulting ia maroc, cem innovation">
         <meta name="author" content="CEM GROUP - CEM Innovation">
@@ -4608,7 +4606,7 @@ app.get('/innovation', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -4786,7 +4784,7 @@ app.get('/innovation', async (c) => {
                             src="/static/mascottes-innovation.webp" 
                             alt="Équipe CEM Innovation - Experts en Intelligence Artificielle" 
                             class="w-full h-auto rounded-2xl shadow-2xl"
-                        />
+                        / loading="lazy" >
                     </div>
                 </div>
             </div>
@@ -5450,7 +5448,7 @@ app.get('/recrutement', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rejoignez CEM GROUP - Recrutement & Carrières</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <link href="/styles.css" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -5518,7 +5516,7 @@ app.get('/recrutement', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -5998,7 +5996,7 @@ app.get('/', async (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM FORMATION - Formation Professionnelle Digitale Maroc | LinkedIn, E-Learning, IA</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM FORMATION Maroc: 19 formations certifiées (LinkedIn, Marketing, Management, HACCP). 500+ apprenants, 95% satisfaction. Boostez vos compétences !">
         <meta name="keywords" content="formation professionnelle maroc, formation linkedin maroc, e-learning maroc, formation marketing digital, formation ia maroc, certification professionnelle, cem formation, n1 growth favikon">
         <meta name="author" content="CEM GROUP - CEM Formation">
@@ -6117,7 +6115,7 @@ app.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -6250,7 +6248,7 @@ app.get('/', async (c) => {
                 <!-- COLONNE DROITE : MASCOTTES -->
                 <div class="relative flex items-center justify-center">
                     <div class="relative animate-float">
-                        <img src="https://www.genspark.ai/api/files/s/QqzucmtA" alt="Équipe CEM Formation Maroc - Formateurs Certifiés E-Learning, LinkedIn N°1 Growth, Marketing Digital et Intelligence Artificielle" loading="lazy" class="relative z-20 w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300">
+                        <img src="https://www.genspark.ai/api/files/s/QqzucmtA" alt="Équipe CEM Formation Maroc - Formateurs Certifiés E-Learning, LinkedIn N°1 Growth, Marketing Digital et Intelligence Artificielle" loading="lazy" class="relative z-20 w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300" loading="lazy" >
                         <!-- Cercle doré pulsant -->
                         <div class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full blur-3xl opacity-20 animate-pulse"></div>
                     </div>
@@ -6540,7 +6538,7 @@ app.get('/', async (c) => {
                         <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-[#D4AF37]/30 hover:border-[#D4AF37] transition-all duration-500 transform hover:scale-105">
                             <img src="https://sspark.genspark.ai/cfimages?u1=d4s1MBgGj3TNhfs%2BP8mYDJRIo3d9m7IIfL17RfGgkicld84quvJthRiFvE%2BIcgPevW8NNCTZhpf9GcUUBGS6JdWpfcivMttJP1GIdYnxrn%2BJXYaMPjDsajBUyGoNxQOJtY6AYdTRWLu97C2TNJdV2LTKxsk%3D&u2=Xh6DcWlHXzAB%2B%2FLp&width=2560" 
                                  alt="Dashboard LMS moderne - Plateforme e-learning CEM Formation iSpring Learn" 
-                                 class="w-full h-auto object-cover">
+                                 class="w-full h-auto object-cover" loading="lazy" >
                             
                             <!-- Badge flottant -->
                             <div class="absolute top-6 right-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-3 rounded-full font-bold text-sm shadow-2xl animate-bounce">
@@ -6628,7 +6626,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=250&fit=crop" 
                                              alt="E-Learning Digital" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-graduation-cap mr-1"></i>E-Learning
                                         </div>
@@ -6653,7 +6651,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?w=400&h=250&fit=crop" 
                                              alt="LinkedIn Formation" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#0077B5] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fab fa-linkedin mr-1"></i>1-to-1
                                         </div>
@@ -6675,7 +6673,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop" 
                                              alt="LinkedIn Team" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#0077B5] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-users mr-1"></i>Team
                                         </div>
@@ -6697,7 +6695,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" 
                                              alt="Marketing Digital" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-bullhorn mr-1"></i>Marketing
                                         </div>
@@ -6719,7 +6717,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=250&fit=crop" 
                                              alt="Création de Contenu" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-pen-fancy mr-1"></i>Création
                                         </div>
@@ -6741,7 +6739,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop" 
                                              alt="IA & Innovation" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-black text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-robot mr-1"></i>IA
                                         </div>
@@ -6789,7 +6787,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=250&fit=crop" 
                                              alt="Leadership" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-crown mr-1"></i>Leadership
                                         </div>
@@ -6811,7 +6809,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=250&fit=crop" 
                                              alt="Communication" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-comments mr-1"></i>Communication
                                         </div>
@@ -6833,7 +6831,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=250&fit=crop" 
                                              alt="Bien-être" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-heart mr-1"></i>Bien-être
                                         </div>
@@ -6855,7 +6853,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop" 
                                              alt="Coaching" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-user-tie mr-1"></i>Coaching
                                         </div>
@@ -6877,7 +6875,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=250&fit=crop" 
                                              alt="Force de Vente" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-chart-line mr-1"></i>Vente
                                         </div>
@@ -6899,7 +6897,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop" 
                                              alt="Gestion de Projet" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-tasks mr-1"></i>Projet
                                         </div>
@@ -6947,7 +6945,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=250&fit=crop" 
                                              alt="Développement Personnel" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-user-check mr-1"></i>Perso
                                         </div>
@@ -6969,7 +6967,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop" 
                                              alt="Entrepreneuriat" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-lightbulb mr-1"></i>Entrepreneur
                                         </div>
@@ -6991,7 +6989,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop" 
                                              alt="Stratégie" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-chess mr-1"></i>Stratégie
                                         </div>
@@ -7041,7 +7039,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1584949091598-c31daaaa4aa9?w=400&h=250&fit=crop" 
                                              alt="HACCP Hygiène Alimentaire" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-utensils mr-1"></i>Alimentaire
                                         </div>
@@ -7063,7 +7061,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop" 
                                              alt="ISO Normes Qualité" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-certificate mr-1"></i>ISO
                                         </div>
@@ -7085,7 +7083,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=250&fit=crop" 
                                              alt="Sécurité Industrielle" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-hard-hat mr-1"></i>Sécurité
                                         </div>
@@ -7107,7 +7105,7 @@ app.get('/', async (c) => {
                                     <div class="relative overflow-hidden rounded-lg mb-4">
                                         <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=250&fit=crop" 
                                              alt="Pharmaceutique BPF" 
-                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                         <div class="absolute top-3 right-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-pills mr-1"></i>Pharma
                                         </div>
@@ -7732,7 +7730,7 @@ app.get('/actualites', (c) => {
         
         <!-- SEO Meta Tags -->
         <title>CEM ACTU - Actualités Marketing, Formation & Innovation | CEM GROUP Maroc</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="CEM ACTU: Actualités marketing, IA & formation au Maroc. Événements, success stories, tendances digitales. Restez connectés à l'innovation !">
         <meta name="keywords" content="actualités cem group, événements marketing maroc, formation professionnelle, innovation ia, linkedin local morocco, success stories, tendances digitales">
         <meta name="author" content="CEM GROUP">
@@ -7827,7 +7825,7 @@ app.get('/actualites', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -8430,7 +8428,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>10 Astuces LinkedIn pour Générer des Leads B2B au Maroc | CEM GROUP Blog</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="Découvrez les stratégies éprouvées pour transformer votre profil LinkedIn en machine à générer des opportunités commerciales qualifiées au Maroc.">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -8501,7 +8499,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -8650,7 +8648,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -9070,7 +9068,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Comment l'IA Révolutionne le Marketing Digital en 2026 | CEM GROUP Blog</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="L'intelligence artificielle transforme radicalement les stratégies marketing. Explorez les outils et méthodes qui changent la donne en 2026.">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -9141,7 +9139,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -9290,7 +9288,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -9704,7 +9702,7 @@ app.get('/catalogue', async (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Télécharger le Catalogue CEM GROUP | Formations, Marketing & Innovation Maroc</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <meta name="description" content="Téléchargez le catalogue CEM GROUP: 19 formations professionnelles + services marketing digital & IA. Tarifs, modalités & certifications. Complet !"/>
         <meta name="keywords" content="catalogue formations, catalogue CEM, télécharger catalogue, formations digitales Maroc, marketing digital Casablanca, CEM GROUP" />
         <meta name="author" content="CEM GROUP - Catalogue" />
@@ -9791,7 +9789,7 @@ app.get('/catalogue', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->

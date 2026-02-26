@@ -14,7 +14,7 @@ blogApp.get('/', async (c) => {
     const cardsHtml = publishedBlogs.map(blog => `
         <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col h-full">
             <div class="h-48 bg-gray-200 relative overflow-hidden">
-                <img src="${blog.coverImage || '/static/default-blog.jpg'}" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy" >
                 <div class="absolute top-4 right-4 bg-[#D4AF37] text-white text-xs font-bold px-3 py-1 rounded-full">
                     ${blog.category || 'Actualité'}
                 </div>
@@ -37,7 +37,7 @@ blogApp.get('/', async (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Actualités - CEM GROUP</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <link href="/styles.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -97,7 +97,7 @@ blogApp.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -310,7 +310,7 @@ blogApp.get('/:slug', async (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${blog.title} - CEM GROUP</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -373,7 +373,7 @@ blogApp.get('/:slug', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -474,7 +474,7 @@ blogApp.get('/:slug', async (c) => {
         <article>
             <!-- Hero Image -->
             <div class="w-full h-96 relative">
-                <img src="${blog.coverImage || '/static/default-blog.jpg'}" alt="${blog.title}" class="w-full h-full object-cover">
+                <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="w-full h-full object-cover" loading="lazy" >
                 <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
                     <div class="text-center px-4 max-w-4xl">
                         <span class="bg-[#D4AF37] text-white px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">${blog.category || 'Actualité'}</span>

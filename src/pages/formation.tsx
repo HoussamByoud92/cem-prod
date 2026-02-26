@@ -42,7 +42,7 @@ formationApp.get('/', async (c) => {
         <meta property="og:locale" content="fr_MA">
         
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+        <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image">
@@ -146,7 +146,7 @@ formationApp.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -279,7 +279,7 @@ formationApp.get('/', async (c) => {
                 <!-- COLONNE DROITE : MASCOTTES -->
                 <div class="relative flex items-center justify-center">
                     <div class="relative animate-float">
-                        <img src="https://www.genspark.ai/api/files/s/QqzucmtA" alt="Équipe CEM Formation Maroc - Formateurs Certifiés E-Learning, LinkedIn N°1 Growth, Marketing Digital et Intelligence Artificielle" loading="lazy" class="relative z-20 w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300">
+                        <img src="https://www.genspark.ai/api/files/s/QqzucmtA" alt="Équipe CEM Formation Maroc - Formateurs Certifiés E-Learning, LinkedIn N°1 Growth, Marketing Digital et Intelligence Artificielle" loading="lazy" class="relative z-20 w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300" loading="lazy" >
                         <!-- Cercle doré pulsant -->
                         <div class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full blur-3xl opacity-20 animate-pulse"></div>
                     </div>
@@ -569,7 +569,7 @@ formationApp.get('/', async (c) => {
                         <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-[#D4AF37]/30 hover:border-[#D4AF37] transition-all duration-500 transform hover:scale-105">
                             <img src="https://sspark.genspark.ai/cfimages?u1=d4s1MBgGj3TNhfs%2BP8mYDJRIo3d9m7IIfL17RfGgkicld84quvJthRiFvE%2BIcgPevW8NNCTZhpf9GcUUBGS6JdWpfcivMttJP1GIdYnxrn%2BJXYaMPjDsajBUyGoNxQOJtY6AYdTRWLu97C2TNJdV2LTKxsk%3D&u2=Xh6DcWlHXzAB%2B%2FLp&width=2560" 
                                  alt="Dashboard LMS moderne - Plateforme e-learning CEM Formation iSpring Learn" 
-                                 class="w-full h-auto object-cover">
+                                 class="w-full h-auto object-cover" loading="lazy" >
                             
                             <!-- Badge flottant -->
                             <div class="absolute top-6 right-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-3 rounded-full font-bold text-sm shadow-2xl animate-bounce">
@@ -655,7 +655,7 @@ formationApp.get('/', async (c) => {
                                 <div class="relative overflow-hidden rounded-lg mb-4">
                                     <img src="${f.imageUrl || 'https://images.unsplash.com/photo-1501504905252-473c47e087f8'}" 
                                          alt="${f.title}" 
-                                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
                                     <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold" style="background-color: ${f.iconColor || '#D4AF37'}">
                                         <i class="${f.icon || 'fas fa-graduation-cap'} mr-1"></i>${displayCat || ''}
                                     </div>
@@ -918,7 +918,7 @@ formationApp.get('/', async (c) => {
                     ${latestBlogs.length > 0 ? latestBlogs.map(blog => `
                     <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl transition border-2 border-[#D4AF37] flex flex-col h-full">
                         <div class="h-48 relative overflow-hidden">
-                            <img src="${blog.coverImage || '/static/default-blog.jpg'}" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy" >
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div class="absolute bottom-4 left-4 text-white">
                                 <span class="bg-[#D4AF37] text-xs font-bold px-2 py-1 rounded-full mb-2 inline-block">${blog.category || 'Actualité'}</span>

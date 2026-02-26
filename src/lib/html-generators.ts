@@ -54,7 +54,7 @@ export function generatePopupHtml(popup: Popup | undefined) {
                 <i class="fas fa-times text-xl"></i>
             </button>
             <a href="${popup.link || '#'}" ${popup.link ? 'target="_blank"' : ''} class="block">
-                <img src="${popup.image}" alt="${popup.title}" class="w-full h-auto object-cover">
+                <img src="${popup.image}" alt="${popup.title}" class="w-full h-auto object-cover" loading="lazy" >
             </a>
             ${popup.title ? `<div class="p-4 text-center"><h3 class="text-xl font-bold">${popup.title}</h3></div>` : ''}
         </div>
@@ -68,7 +68,7 @@ export function generateBlogSectionHtml(blogs: BlogPost[]) {
     const cards = blogs.map(blog => `
         <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col h-full">
             <div class="h-48 bg-gray-200 relative overflow-hidden">
-                <img src="${blog.coverImage || '/static/default-blog.jpg'}" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy" >
                 <div class="absolute top-4 right-4 bg-[#D4AF37] text-white text-xs font-bold px-3 py-1 rounded-full">
                     ${blog.category || 'Actualité'}
                 </div>
@@ -112,7 +112,7 @@ export function generateEventsSectionHtml(events: Event[]) {
     const cards = events.map(event => `
         <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition flex flex-col md:flex-row h-full">
             <div class="md:w-1/3 h-48 md:h-auto relative">
-                <img src="${event.image || '/static/default-event.jpg'}" alt="${event.title}" class="w-full h-full object-cover">
+                <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-full object-cover" loading="lazy" >
                 <div class="absolute top-0 left-0 bg-[#D4AF37] text-white p-3 text-center">
                     <div class="text-2xl font-bold leading-none">${new Date(event.date).getDate()}</div>
                     <div class="text-xs uppercase">${new Date(event.date).toLocaleDateString('fr-FR', { month: 'short' })}</div>

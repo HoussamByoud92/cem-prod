@@ -13,7 +13,7 @@ eventsApp.get('/', async (c) => {
     const generateEventCard = (event: any) => `
         <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition flex flex-col md:flex-row h-full">
             <div class="md:w-1/3 h-48 md:h-auto relative">
-                <img src="${event.image || '/static/default-event.jpg'}" alt="${event.title}" class="w-full h-full object-cover">
+                <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-full object-cover" loading="lazy" >
                 <div class="absolute top-0 left-0 bg-[#D4AF37] text-white p-3 text-center">
                     <div class="text-2xl font-bold leading-none">${new Date(event.date).getDate()}</div>
                     <div class="text-xs uppercase">${new Date(event.date).toLocaleDateString('fr-FR', { month: 'short' })}</div>
@@ -44,7 +44,7 @@ eventsApp.get('/', async (c) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Événements - CEM GROUP</title>
-    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1">
+    <link rel="icon" type="image/png" href="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1">
         <link href="/styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -104,7 +104,7 @@ eventsApp.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto"></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.webp?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
