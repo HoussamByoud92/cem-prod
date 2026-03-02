@@ -2347,6 +2347,7 @@ adminPagesApp.get('/formations', (c) => c.html(adminLayout(formationsContent, 'F
 
 // ===== REFERENCES MANAGEMENT =====
 const referencesContent = `
+<div x-data="referencesManager()">
     <div class="flex justify-between items-center mb-8">
         <div>
             <h2 class="text-3xl font-bold text-gray-900">Références</h2>
@@ -2357,7 +2358,7 @@ const referencesContent = `
         </button>
     </div>
 
-    <div class="bg-white rounded-xl shadow-lg p-6" x-data="referencesManager()">
+    <div class="bg-white rounded-xl shadow-lg p-6">
         <!-- Grid of Logos -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
             <template x-for="ref in references" :key="ref.id">
@@ -2452,6 +2453,7 @@ const referencesContent = `
             </div>
         </div>
     </div>
+</div>
 `;
 
 const referencesScript = `
