@@ -2526,7 +2526,7 @@ const referencesScript = `
                 
                 try {
                     const token = localStorage.getItem('admin_token');
-                    const res = await fetch('/api/admin/media/upload', {
+                    const res = await fetch('/api/admin/upload', {
                         method: 'POST',
                         headers: { 'Authorization': 'Bearer ' + token },
                         body: fd
