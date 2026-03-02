@@ -652,7 +652,6 @@ formationApp.get('/', async (c) => {
                 return `
                             <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition group relative border-2 border-transparent hover:border-[${f.borderColor || '#D4AF37'}] h-full flex flex-col">
                                 <div class="relative overflow-hidden rounded-lg mb-4">
-                                    ${f.badge ? `<div class="absolute top-3 left-3 bg-gradient-to-r from-red-600 to-green-600 text-white px-3 py-1 rounded-full text-[10px] font-black z-10">${f.badge}</div>` : ''}
                                     <img src="${f.imageUrl || 'https://images.unsplash.com/photo-1501504905252-473c47e087f8'}" 
                                          alt="${f.title}" 
                                          class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >

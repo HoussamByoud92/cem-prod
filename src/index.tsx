@@ -3709,7 +3709,6 @@ app.get('/formation/:slug', (c) => {
             icon: 'fab fa-linkedin',
             image: 'https://www.genspark.ai/api/files/s/iMeFueig',
             category: 'Digitale',
-            badge: 'N°1 Growth Morocco 🇲🇦 by FAVIKON',
             description: 'Accompagnement personnalisé pour transformer votre profil LinkedIn en machine à opportunités. N°1 Growth LinkedIn au Maroc !',
             benefits: [
                 'Optimisation complète de votre profil LinkedIn',
@@ -6646,9 +6645,6 @@ app.get('/', async (c) => {
                                 <!-- 2. LinkedIn One-to-One -->
                                 <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition group relative">
                                     <div class="relative overflow-hidden rounded-lg mb-4">
-                                        <div class="absolute top-3 left-3 bg-gradient-to-r from-red-600 to-green-600 text-white px-3 py-1 rounded-full text-[10px] font-black z-10">
-                                            N°1 GROWTH 🇲🇦
-                                        </div>
                                         <img src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?w=400&h=250&fit=crop" 
                                              alt="LinkedIn Formation" 
                                              class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
