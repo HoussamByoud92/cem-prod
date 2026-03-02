@@ -6,8 +6,8 @@ import adminPagesApp from './pages/admin'
 import blogApp from './pages/blog'
 import eventsApp from './pages/events'
 import formationApp from './pages/formation'
-import { blogService, eventsService, popupService, plaquettesService } from './lib/sheets'
-import { generateBlogSectionHtml, generateEventsSectionHtml, generatePopupHtml, generatePlaquettesHtml } from './lib/html-generators'
+import { blogService, eventsService, popupService, plaquettesService, referencesService } from './lib/sheets'
+import { generateBlogSectionHtml, generateEventsSectionHtml, generatePopupHtml, generatePlaquettesHtml, generateReferencesHtml } from './lib/html-generators'
 import { Bindings } from './bindings'
 
 const app = new Hono<{ Bindings: Bindings }>()
@@ -70,11 +70,12 @@ app.get('/debug-fetch', async (c) => {
 app.get('/', async (c) => {
     // Fetch dynamic content
     const env = c.env;
-    const [blogs, events, popups, plaquettes] = await Promise.all([
+    const [blogs, events, popups, plaquettes, referencesData] = await Promise.all([
         blogService.getAll(env).catch(() => []),
         eventsService.getAll(env).catch(() => []),
         popupService.getAll(env).catch(() => []),
-        plaquettesService.getAll(env).catch(() => [])
+        plaquettesService.getAll(env).catch(() => []),
+        referencesService.getAll(env).catch(() => [])
     ]);
 
     const publishedBlogs = blogs.filter(b => b.status === 'published').sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()).slice(0, 3);
@@ -93,10 +94,16 @@ app.get('/', async (c) => {
     const activePopup = popups.find(p => p.isActive);
     const catalogueUrl = plaquettes.length > 0 ? plaquettes[0].url : '#';
 
+    // Sort references by order and filter true active
+    const activeReferences = referencesData
+        .filter(r => r.isActive === true || String(r.isActive).toLowerCase() === 'true')
+        .sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+
     const blogHtml = generateBlogSectionHtml(publishedBlogs);
     const eventsHtml = generateEventsSectionHtml(upcomingEvents);
     const popupHtml = generatePopupHtml(activePopup);
     const plaquettesHtml = generatePlaquettesHtml(plaquettes);
+    const referencesHtml = generateReferencesHtml(activeReferences);
 
     return c.html(`
     <!DOCTYPE html>
@@ -748,23 +755,7 @@ app.get('/', async (c) => {
                 </div>
                 
                 <!-- Logos Clients Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center mb-16">
-                    <div class="group bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-1.webp" alt="Client 1" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" / loading="lazy" >
-                    </div>
-                    <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-2.webp" alt="Client 2" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" / loading="lazy" >
-                    </div>
-                    <div class="group bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-3.webp" alt="Client 3" class="max-h-full max-w-full object-contain filter transition-transform duration-300 scale-[1.5] group-hover:scale-[1.7]" / loading="lazy" >
-                    </div>
-                    <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-4.webp" alt="Client 4" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" / loading="lazy" >
-                    </div>
-                    <div class="group bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] flex items-center justify-center aspect-video">
-                        <img src="/logos/client-logo-5.webp" alt="Client 5" class="max-h-full max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110" / loading="lazy" >
-                    </div>
-                </div>
+                ${referencesHtml}
                 
                 <!-- Statistiques Clients -->
                 <div class="grid md:grid-cols-4 gap-8 text-center">

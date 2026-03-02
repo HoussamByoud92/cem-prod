@@ -10,6 +10,7 @@ import {
     popupService,
     recruitmentService,
     formationsService,
+    referencesService,
     initializeSheets,
     type BlogPost,
     type Event,
@@ -17,6 +18,7 @@ import {
     type NewsletterSubscriber,
     type Recruitment,
     type Formation,
+    type Reference,
 } from '../lib/sheets';
 import {
     uploadImage,
@@ -1133,6 +1135,58 @@ adminApp.delete('/formations/:id', authMiddleware, async (c) => {
         return c.json({ success: true });
     } catch (error) {
         return c.json({ error: 'Failed to delete formation' }, 500);
+    }
+});
+
+// ===== REFERENCES MANAGEMENT =====
+
+adminApp.get('/references', async (c) => {
+    try {
+        const references = await referencesService.getAll(c.env);
+        return c.json(references);
+    } catch (error: any) {
+        console.error('References GET error:', error?.message || error);
+        return c.json({ error: 'Failed to get references', details: error?.message || String(error) }, 500);
+    }
+});
+
+adminApp.post('/references', authMiddleware, async (c) => {
+    try {
+        const data = await c.req.json();
+        const reference = await referencesService.create({
+            ...data,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+        }, c.env);
+        return c.json(reference);
+    } catch (error) {
+        return c.json({ error: 'Failed to create reference' }, 500);
+    }
+});
+
+adminApp.put('/references/:id', authMiddleware, async (c) => {
+    try {
+        const id = c.req.param('id');
+        const data = await c.req.json();
+        const updated = await referencesService.update(id, {
+            ...data,
+            updatedAt: new Date().toISOString(),
+        }, c.env);
+        if (!updated) return c.json({ error: 'Reference not found' }, 404);
+        return c.json(updated);
+    } catch (error) {
+        return c.json({ error: 'Failed to update reference' }, 500);
+    }
+});
+
+adminApp.delete('/references/:id', authMiddleware, async (c) => {
+    try {
+        const id = c.req.param('id');
+        const success = await referencesService.delete(id, c.env);
+        if (!success) return c.json({ error: 'Reference not found' }, 404);
+        return c.json({ success: true });
+    } catch (error) {
+        return c.json({ error: 'Failed to delete reference' }, 500);
     }
 });
 

@@ -60,6 +60,10 @@ const adminLayout = (content: string, title: string, script: string = '') => `
                 <i class="fas fa-envelope w-6"></i>
                 <span class="ml-3">Newsletter</span>
             </a>
+            <a href="/admin/references" class="flex items-center px-6 py-3 ${title.includes('Références') ? 'bg-[#D4AF37]/20 border-l-4 border-[#D4AF37] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white transition'}">
+                <i class="fas fa-images w-6"></i>
+                <span class="ml-3">Références</span>
+            </a>
             <a href="/admin/recruitment" class="flex items-center px-6 py-3 ${title.includes('Recrutement') ? 'bg-[#D4AF37]/20 border-l-4 border-[#D4AF37] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white transition'}">
                 <i class="fas fa-briefcase w-6"></i>
                 <span class="ml-3">Recrutement</span>
@@ -2340,5 +2344,259 @@ const formationsScript = `
 `;
 
 adminPagesApp.get('/formations', (c) => c.html(adminLayout(formationsContent, 'Formations', formationsScript)));
+
+// ===== REFERENCES MANAGEMENT =====
+const referencesContent = `
+    <div class="flex justify-between items-center mb-8">
+        <div>
+            <h2 class="text-3xl font-bold text-gray-900">Références</h2>
+            <p class="text-gray-600 mt-1">Gérez les logos de vos clients (Page d'accueil)</p>
+        </div>
+        <button @click="openModal()" class="bg-[#D4AF37] text-white px-6 py-3 rounded-lg hover:bg-[#B8941F] transition shadow-md">
+            <i class="fas fa-plus mr-2"></i>Nouveau Logo
+        </button>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-lg p-6" x-data="referencesManager()">
+        <!-- Grid of Logos -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
+            <template x-for="ref in references" :key="ref.id">
+                <div class="relative group bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-[#D4AF37] transition flex flex-col items-center justify-between aspect-square">
+                    
+                    <div class="absolute top-2 right-2 flex space-x-1 opacity-0 group-hover:opacity-100 transition">
+                        <button @click.prevent="editReference(ref)" class="text-blue-500 hover:text-blue-700 bg-white rounded-full p-2 shadow-sm"><i class="fas fa-edit"></i></button>
+                        <button @click.prevent="deleteReference(ref.id)" class="text-red-500 hover:text-red-700 bg-white rounded-full p-2 shadow-sm"><i class="fas fa-trash"></i></button>
+                    </div>
+
+                    <div class="absolute top-2 left-2">
+                        <span x-show="ref.isActive" class="w-3 h-3 bg-green-500 rounded-full inline-block shadow-sm" title="Actif"></span>
+                        <span x-show="!ref.isActive" class="w-3 h-3 bg-red-500 rounded-full inline-block shadow-sm" title="Inactif"></span>
+                    </div>
+
+                    <div class="flex-1 flex items-center justify-center p-2 w-full">
+                        <img :src="ref.logoUrl" :alt="ref.name" class="max-h-full max-w-full object-contain filter " loading="lazy">
+                    </div>
+                    
+                    <div class="w-full text-center mt-2 border-t pt-2">
+                        <p class="text-xs font-semibold text-gray-800 truncate" x-text="ref.name"></p>
+                        <p class="text-[10px] text-gray-500">Ordre: <span x-text="ref.order"></span></p>
+                    </div>
+                </div>
+            </template>
+            <div x-show="references.length === 0 && !loading" class="col-span-full py-12 text-center text-gray-500">
+                Aucune référence trouvée. Ajoutez votre premier logo client.
+            </div>
+            <div x-show="loading" class="col-span-full py-12 text-center text-gray-500">
+                Chargement...
+            </div>
+        </div>
+
+        <!-- Create/Edit Modal -->
+        <div x-show="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50" x-cloak>
+            <div @click.away="closeModal()" class="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 transform transition-all">
+                <div class="flex justify-between items-center border-b pb-4 mb-4">
+                    <h3 class="text-xl font-bold text-gray-900" x-text="isEdit ? 'Modifier la référence' : 'Nouvelle référence'"></h3>
+                    <button @click="closeModal()" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
+                </div>
+                
+                <form @submit.prevent="submitForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nom de l'entreprise</label>
+                        <input type="text" x-model="form.name" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37]">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Logo</label>
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                            <input type="file" accept="image/*" @change="handleFileSelect($event)" class="hidden" id="file-logo" />
+                            
+                            <label for="file-logo" class="cursor-pointer" x-show="!form.logoUrl && !uploadingFile">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                <p class="text-xs text-gray-600">Glisser-déposer ou choisir un fichier</p>
+                            </label>
+                            
+                            <div x-show="uploadingFile" class="py-2">
+                                <div class="animate-spin rounded-full h-6 w-6 border-4 border-[#D4AF37] border-t-transparent mx-auto"></div>
+                            </div>
+                            
+                            <div x-show="form.logoUrl && !uploadingFile">
+                                <img :src="form.logoUrl" class="max-h-24 mx-auto object-contain" />
+                                <div class="mt-2">
+                                    <label for="file-logo" class="text-xs text-blue-600 hover:underline cursor-pointer">Changer</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Ordre d'affichage</label>
+                            <input type="number" x-model="form.order" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37]">
+                        </div>
+                        <div class="flex items-center pt-6">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" x-model="form.isActive" class="w-5 h-5 text-[#D4AF37] rounded focus:ring-[#D4AF37]">
+                                <span class="text-gray-900 text-sm font-medium">Afficher publiquement</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex justify-end gap-3 border-t">
+                        <button type="button" @click="closeModal()" class="px-4 py-2 border rounded-lg hover:bg-gray-50 text-gray-700">Annuler</button>
+                        <button type="submit" class="bg-[#D4AF37] text-white px-6 py-2 rounded-lg hover:bg-[#B8941F] font-semibold" :disabled="saving || uploadingFile">
+                            <span x-show="!saving">Enregistrer</span>
+                            <span x-show="saving"><i class="fas fa-spinner fa-spin"></i></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+`;
+
+const referencesScript = `
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('referencesManager', () => ({
+            references: [],
+            loading: true,
+            isModalOpen: false,
+            isEdit: false,
+            saving: false,
+            uploadingFile: false,
+            form: {
+                id: null,
+                name: '',
+                logoUrl: '',
+                order: 0,
+                isActive: true
+            },
+            
+            async init() {
+                await this.loadReferences();
+            },
+            
+            async loadReferences() {
+                this.loading = true;
+                const token = localStorage.getItem('admin_token');
+                try {
+                    const res = await fetch('/api/admin/references', {
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        // Sort by order
+                        this.references = data.sort((a, b) => (parseInt(a.order) || 0) - (parseInt(b.order) || 0));
+                    }
+                } catch(e) { console.error(e); }
+                this.loading = false;
+            },
+            
+            openModal() {
+                this.isEdit = false;
+                this.form = { id: null, name: '', logoUrl: '', order: this.references.length + 1, isActive: true };
+                this.isModalOpen = true;
+            },
+            
+            closeModal() {
+                this.isModalOpen = false;
+            },
+            
+            editReference(ref) {
+                this.isEdit = true;
+                this.form = { ...ref, order: parseInt(ref.order) || 0, isActive: ref.isActive !== false && ref.isActive !== 'false' };
+                this.isModalOpen = true;
+            },
+            
+            async handleFileSelect(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                if (!file.type.startsWith('image/')) {
+                    alert('Veuillez sélectionner une image.');
+                    return;
+                }
+                
+                this.uploadingFile = true;
+                const fd = new FormData();
+                fd.append('file', file);
+                fd.append('type', 'image');
+                fd.append('folder', 'cem-group/clients');
+                
+                try {
+                    const token = localStorage.getItem('admin_token');
+                    const res = await fetch('/api/admin/media/upload', {
+                        method: 'POST',
+                        headers: { 'Authorization': 'Bearer ' + token },
+                        body: fd
+                    });
+                    const data = await res.json();
+                    if (data.url) {
+                        this.form.logoUrl = data.url;
+                    } else {
+                        alert('Erreur: ' + (data.error || 'Upload failed'));
+                    }
+                } catch(e) {
+                    console.error(e);
+                    alert('Erreur lors du téléchargement');
+                }
+                this.uploadingFile = false;
+            },
+            
+            async submitForm() {
+                if (!this.form.logoUrl) {
+                    alert('Le logo est obligatoire');
+                    return;
+                }
+                
+                this.saving = true;
+                const token = localStorage.getItem('admin_token');
+                const url = this.isEdit ? '/api/admin/references/' + this.form.id : '/api/admin/references';
+                const method = this.isEdit ? 'PUT' : 'POST';
+                
+                try {
+                    const res = await fetch(url, {
+                        method: method,
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token 
+                        },
+                        body: JSON.stringify(this.form)
+                    });
+                    
+                    if (res.ok) {
+                        await this.loadReferences();
+                        this.closeModal();
+                    } else {
+                        alert('Erreur d\\'enregistrement');
+                    }
+                } catch(e) {
+                    alert('Erreur réseau');
+                }
+                this.saving = false;
+            },
+            
+            async deleteReference(id) {
+                if (!confirm('Supprimer cette référence ?')) return;
+                
+                const token = localStorage.getItem('admin_token');
+                try {
+                    const res = await fetch('/api/admin/references/' + id, {
+                        method: 'DELETE',
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    });
+                    if (res.ok) {
+                        this.references = this.references.filter(r => r.id !== id);
+                    } else {
+                        alert('Erreur lors de la suppression');
+                    }
+                } catch(e) {
+                    alert('Erreur réseau');
+                }
+            }
+        }));
+    });
+`;
+
+adminPagesApp.get('/references', (c) => c.html(adminLayout(referencesContent, 'Références', referencesScript)));
 
 export default adminPagesApp;

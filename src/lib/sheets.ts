@@ -14,6 +14,7 @@ export const SHEETS = {
   POPUPS: 'Popups',
   RECRUITMENT: 'Recruitment',
   FORMATIONS: 'Formations',
+  REFERENCES: 'References',
 } as const;
 
 // Types
@@ -113,6 +114,16 @@ export interface Formation {
   order: number;
   status: 'active' | 'draft';
   badge: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Reference {
+  id: string;
+  name: string;
+  logoUrl: string;
+  order: number;
+  isActive: boolean;
   createdAt: string;
   updatedAt: string;
 }
@@ -250,6 +261,7 @@ export const newsletterService = new SheetsService<NewsletterSubscriber>(SHEETS.
 export const popupService = new SheetsService<Popup>(SHEETS.POPUPS);
 export const recruitmentService = new SheetsService<Recruitment>(SHEETS.RECRUITMENT);
 export const formationsService = new SheetsService<Formation>(SHEETS.FORMATIONS);
+export const referencesService = new SheetsService<Reference>(SHEETS.REFERENCES);
 
 // Initialize sheets
 export const initializeSheets = async (env?: any) => {

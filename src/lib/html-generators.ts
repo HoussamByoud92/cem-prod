@@ -1,4 +1,42 @@
-import { BlogPost, Event, Popup, Plaquette } from './sheets';
+import { BlogPost, Event, Popup, Plaquette, Reference } from './sheets';
+
+export function generateReferencesHtml(references: Reference[]) {
+    if (!references || references.length === 0) return '';
+
+    // We duplicate the array to create a continuous seamless loop effect in CSS
+    const logos = [...references, ...references].map(ref => `
+        <div class="flex-none w-48 md:w-64 mx-4 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] aspect-video">
+            <img src="${ref.logoUrl}" alt="${ref.name}" class="max-h-full max-w-full object-contain filter transition-transform duration-300" loading="lazy">
+        </div>
+    `).join('');
+
+    return `
+    <div class="w-full relative mt-16 mb-8 group overflow-hidden">
+        <style>
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-scroll {
+                animation: scroll 30s linear infinite;
+                display: flex;
+                width: max-content;
+            }
+            .group:hover .animate-scroll {
+                animation-play-state: paused;
+            }
+        </style>
+        
+        <!-- Gradient overlays for smooth fading edges (dark theme) -->
+        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+        
+        <div class="animate-scroll">
+            ${logos}
+        </div>
+    </div>
+    `;
+}
 
 export function generatePlaquettesHtml(plaquettes: Plaquette[]) {
     if (!plaquettes || plaquettes.length === 0) return '';
