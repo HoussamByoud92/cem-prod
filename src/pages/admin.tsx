@@ -2567,7 +2567,7 @@ const referencesScript = `
                         await this.loadReferences();
                         this.closeModal();
                     } else {
-                        alert('Erreur d\\'enregistrement');
+                        alert('Erreur: Enregistrement echoue');
                     }
                 } catch(e) {
                     alert('Erreur réseau');
