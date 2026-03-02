@@ -569,16 +569,31 @@ const blogScript = (isEdit = false) => `
                     return;
                 }
                 this.uploadingFile = true;
-                const fd = new FormData();
-                fd.append('file', file);
-                fd.append('folder', 'cem-group/' + folder);
+                
                 try {
-                    const token = localStorage.getItem('admin_token');
-                    const res = await fetch('/api/admin/upload', {
-                        method: 'POST',
-                        headers: { 'Authorization': 'Bearer ' + token },
-                        body: fd
+                    const reader = new FileReader();
+                    const base64Promise = new Promise((resolve, reject) => {
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                        reader.readAsDataURL(file);
                     });
+                    
+                    const fileBase64 = await base64Promise;
+                    const token = localStorage.getItem('admin_token');
+                    
+                    const res = await fetch('/api/admin/upload-json', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token 
+                        },
+                        body: JSON.stringify({
+                            fileBase64: fileBase64,
+                            type: file.type === 'application/pdf' ? 'pdf' : 'image',
+                            folder: 'cem-group/' + folder
+                        })
+                    });
+                    
                     const data = await res.json();
                     if (data.success) {
                         this.form[fieldName] = data.url;
@@ -821,16 +836,31 @@ const eventScript = (isEdit = false) => `
                 if (!file.type.startsWith('image/')) { alert('Seules les images sont acceptées.'); return; }
                 if (file.size > 5*1024*1024) { alert('Image trop volumineuse. Max: 5MB'); return; }
                 this.uploadingFile = true;
-                const fd = new FormData();
-                fd.append('file', file);
-                fd.append('folder', 'cem-group/' + folder);
+                
                 try {
-                    const token = localStorage.getItem('admin_token');
-                    const res = await fetch('/api/admin/upload', {
-                        method: 'POST',
-                        headers: { 'Authorization': 'Bearer ' + token },
-                        body: fd
+                    const reader = new FileReader();
+                    const base64Promise = new Promise((resolve, reject) => {
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                        reader.readAsDataURL(file);
                     });
+                    
+                    const fileBase64 = await base64Promise;
+                    const token = localStorage.getItem('admin_token');
+                    
+                    const res = await fetch('/api/admin/upload-json', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token 
+                        },
+                        body: JSON.stringify({
+                            fileBase64: fileBase64,
+                            type: 'image',
+                            folder: 'cem-group/' + folder
+                        })
+                    });
+                    
                     const data = await res.json();
                     if (data.success) { this.form[fieldName] = data.url; }
                     else { alert('Erreur: ' + (data.error || 'Upload failed')); }
@@ -1040,16 +1070,31 @@ const plaquetteScript = () => `
                 if (file.type !== 'application/pdf') { alert('Seuls les fichiers PDF sont acceptés.'); return; }
                 if (file.size > 20*1024*1024) { alert('Fichier trop volumineux. Max: 20MB'); return; }
                 this.uploadingPdf = true;
-                const fd = new FormData();
-                fd.append('file', file);
-                fd.append('folder', 'cem-group/' + folder);
+                
                 try {
-                    const token = localStorage.getItem('admin_token');
-                    const res = await fetch('/api/admin/upload', {
-                        method: 'POST',
-                        headers: { 'Authorization': 'Bearer ' + token },
-                        body: fd
+                    const reader = new FileReader();
+                    const base64Promise = new Promise((resolve, reject) => {
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                        reader.readAsDataURL(file);
                     });
+                    
+                    const fileBase64 = await base64Promise;
+                    const token = localStorage.getItem('admin_token');
+                    
+                    const res = await fetch('/api/admin/upload-json', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token 
+                        },
+                        body: JSON.stringify({
+                            fileBase64: fileBase64,
+                            type: 'pdf',
+                            folder: 'cem-group/' + folder
+                        })
+                    });
+                    
                     const data = await res.json();
                     if (data.success) { this.form[fieldName] = data.url; }
                     else { alert('Erreur: ' + (data.error || 'Upload failed')); }
@@ -1060,16 +1105,31 @@ const plaquetteScript = () => `
                 if (!file.type.startsWith('image/')) { alert('Seules les images sont acceptées.'); return; }
                 if (file.size > 5*1024*1024) { alert('Image trop volumineuse. Max: 5MB'); return; }
                 this.uploadingThumb = true;
-                const fd = new FormData();
-                fd.append('file', file);
-                fd.append('folder', 'cem-group/plaquettes');
+                
                 try {
-                    const token = localStorage.getItem('admin_token');
-                    const res = await fetch('/api/admin/upload', {
-                        method: 'POST',
-                        headers: { 'Authorization': 'Bearer ' + token },
-                        body: fd
+                    const reader = new FileReader();
+                    const base64Promise = new Promise((resolve, reject) => {
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                        reader.readAsDataURL(file);
                     });
+                    
+                    const fileBase64 = await base64Promise;
+                    const token = localStorage.getItem('admin_token');
+                    
+                    const res = await fetch('/api/admin/upload-json', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token 
+                        },
+                        body: JSON.stringify({
+                            fileBase64: fileBase64,
+                            type: 'image',
+                            folder: 'cem-group/plaquettes'
+                        })
+                    });
+                    
                     const data = await res.json();
                     if (data.success) { this.form.thumbnail = data.url; }
                     else { alert('Erreur: ' + (data.error || 'Upload failed')); }
@@ -1619,17 +1679,31 @@ adminPagesApp.get('/marketing', (c) => c.html(adminLayout(`
                 if (!file) return;
                 
                 this.uploading = true;
-                const formData = new FormData();
-                formData.append('file', file);
-                formData.append('folder', 'cem-group/popups');
-
+                
                 try {
-                    const token = localStorage.getItem('admin_token');
-                    const res = await fetch('/api/admin/upload', {
-                        method: 'POST',
-                        headers: { 'Authorization': 'Bearer ' + token },
-                        body: formData
+                    const reader = new FileReader();
+                    const base64Promise = new Promise((resolve, reject) => {
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                        reader.readAsDataURL(file);
                     });
+                    
+                    const fileBase64 = await base64Promise;
+                    const token = localStorage.getItem('admin_token');
+                    
+                    const res = await fetch('/api/admin/upload-json', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token 
+                        },
+                        body: JSON.stringify({
+                            fileBase64: fileBase64,
+                            type: 'image',
+                            folder: 'cem-group/popups'
+                        })
+                    });
+                    
                     const data = await res.json();
                     if (data.success) {
                         this.popup.image = data.url;
@@ -2255,19 +2329,35 @@ const formationsScript = `
                 const file = e.target.files[0];
                 if (!file) return;
                 this.uploading = true;
-                const formData = new FormData();
-                formData.append('file', file);
-                formData.append('type', 'image');
-                formData.append('folder', 'cem-group/formations');
+                
                 try {
-                    const token = localStorage.getItem('admin_token');
-                    const res = await fetch('/api/admin/media/upload', {
-                        method: 'POST',
-                        headers: { 'Authorization': 'Bearer ' + token },
-                        body: formData
+                    const reader = new FileReader();
+                    const base64Promise = new Promise((resolve, reject) => {
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                        reader.readAsDataURL(file);
                     });
+                    
+                    const fileBase64 = await base64Promise;
+                    const token = localStorage.getItem('admin_token');
+                    
+                    const res = await fetch('/api/admin/upload-json', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token 
+                        },
+                        body: JSON.stringify({
+                            fileBase64: fileBase64,
+                            type: 'image',
+                            folder: 'cem-group/formations'
+                        })
+                    });
+                    
                     const data = await res.json();
                     if (data.url) {
+                        this.form.imageUrl = data.url;
+                    } else if (data.success && data.url) {
                         this.form.imageUrl = data.url;
                     } else {
                         alert('Erreur: ' + (data.error || 'Upload failed'));
@@ -2519,20 +2609,33 @@ const referencesScript = `
                 }
                 
                 this.uploadingFile = true;
-                const fd = new FormData();
-                fd.append('file', file);
-                fd.append('type', 'image');
-                fd.append('folder', 'cem-group/clients');
                 
                 try {
-                    const token = localStorage.getItem('admin_token');
-                    const res = await fetch('/api/admin/upload', {
-                        method: 'POST',
-                        headers: { 'Authorization': 'Bearer ' + token },
-                        body: fd
+                    const reader = new FileReader();
+                    const base64Promise = new Promise((resolve, reject) => {
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                        reader.readAsDataURL(file);
                     });
+                    
+                    const fileBase64 = await base64Promise;
+                    const token = localStorage.getItem('admin_token');
+                    
+                    const res = await fetch('/api/admin/upload-json', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token 
+                        },
+                        body: JSON.stringify({
+                            fileBase64: fileBase64,
+                            type: 'image',
+                            folder: 'cem-group/clients'
+                        })
+                    });
+                    
                     const data = await res.json();
-                    if (data.url) {
+                    if (res.ok && data.url) {
                         this.form.logoUrl = data.url;
                     } else {
                         alert('Erreur: ' + (data.error || 'Upload failed'));

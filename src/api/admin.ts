@@ -262,6 +262,38 @@ adminApp.post('/upload', authMiddleware, async (c) => {
     }
 });
 
+// ===== BASE64 MEDIA UPLOAD =====
+adminApp.post('/upload-json', authMiddleware, async (c) => {
+    try {
+        const body = await c.req.json();
+        const { fileBase64, folder, type } = body;
+
+        if (!fileBase64) {
+            return c.json({ error: 'No file provided' }, 400);
+        }
+
+        let result;
+        if (type === 'image') {
+            result = await uploadImage(fileBase64, folder || 'cem-group', c.env);
+        } else if (type === 'video') {
+            result = await uploadVideo(fileBase64, folder || 'cem-group/videos');
+        } else if (type === 'pdf') {
+            result = await uploadPDF(fileBase64, folder || 'cem-group/plaquettes', c.env);
+        } else {
+            return c.json({ error: 'Invalid file type' }, 400);
+        }
+
+        return c.json({
+            success: true,
+            url: result.secureUrl || result.url,
+            publicId: result.publicId
+        });
+    } catch (error: any) {
+        console.error('JSON Upload error:', error?.message || error);
+        return c.json({ error: 'Upload failed: ' + (error?.message || String(error)) }, 500);
+    }
+});
+
 // ===== DASHBOARD STATS =====
 
 adminApp.get('/stats', async (c) => {
