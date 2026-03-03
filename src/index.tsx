@@ -6,7 +6,7 @@ import adminPagesApp from './pages/admin'
 import blogApp from './pages/blog'
 import eventsApp from './pages/events'
 import formationApp from './pages/formation'
-import { blogService, eventsService, popupService, plaquettesService, referencesService } from './lib/sheets'
+import { blogService, eventsService, popupService, plaquettesService, referencesService, getCachedHomepage, setCachedHomepage } from './lib/sheets'
 import { generateBlogSectionHtml, generateEventsSectionHtml, generatePopupHtml, generatePlaquettesHtml, generateReferencesHtml } from './lib/html-generators'
 import { Bindings } from './bindings'
 
@@ -68,6 +68,12 @@ app.get('/debug-fetch', async (c) => {
 });
 
 app.get('/', async (c) => {
+    // ===== FULL PAGE CACHE: serve cached HTML instantly =====
+    const cachedHtml = getCachedHomepage();
+    if (cachedHtml) {
+        return c.html(cachedHtml);
+    }
+
     // Fetch dynamic content
     const env = c.env;
     const [blogs, events, popups, plaquettes, referencesData] = await Promise.all([
@@ -105,7 +111,7 @@ app.get('/', async (c) => {
     const plaquettesHtml = generatePlaquettesHtml(plaquettes);
     const referencesHtml = generateReferencesHtml(activeReferences);
 
-    return c.html(`
+    const fullHtml = `
     <!DOCTYPE html>
     <html lang="fr">
     <head>
@@ -1403,7 +1409,9 @@ app.get('/', async (c) => {
         </footer>
     </body>
     </html>
-  `)
+  `;
+    setCachedHomepage(fullHtml);
+    return c.html(fullHtml);
 })
 
 // Routes Services Détaillés CEM MARKETING

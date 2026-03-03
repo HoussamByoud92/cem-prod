@@ -5,6 +5,30 @@ import fetch from 'node-fetch';
 const GAS_WEB_APP_URL = process.env.GAS_WEB_APP_URL || '';
 const GAS_API_TOKEN = process.env.GAS_API_TOKEN || '';
 
+// ===== IN-MEMORY CACHE (edge-side, per-isolate) =====
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+interface CacheEntry { data: any; timestamp: number; }
+const dataCache = new Map<string, CacheEntry>();
+
+// Full-page HTML cache for the homepage
+let homepageHtmlCache: { html: string; timestamp: number } | null = null;
+const HOMEPAGE_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
+export function getCachedHomepage(): string | null {
+  if (homepageHtmlCache && (Date.now() - homepageHtmlCache.timestamp) < HOMEPAGE_CACHE_TTL_MS) {
+    return homepageHtmlCache.html;
+  }
+  return null;
+}
+
+export function setCachedHomepage(html: string): void {
+  homepageHtmlCache = { html, timestamp: Date.now() };
+}
+
+export function invalidateHomepageCache(): void {
+  homepageHtmlCache = null;
+}
+
 // Sheet names
 export const SHEETS = {
   BLOG: 'Blog',
@@ -220,8 +244,35 @@ export class SheetsService<T extends { id: string }> {
   }
 
   async getAll(env?: any): Promise<T[]> {
-    const data = await this.request('getAll', {}, 'GET', null, env);
-    return Array.isArray(data) ? data : [];
+    const cacheKey = `getAll:${this.sheetName}`;
+    const cached = dataCache.get(cacheKey);
+
+    // If cache is fresh, return instantly
+    if (cached && (Date.now() - cached.timestamp) < CACHE_TTL_MS) {
+      return Array.isArray(cached.data) ? cached.data : [];
+    }
+
+    // If cache exists but is stale, return stale data AND refresh in background
+    if (cached) {
+      this.request('getAll', {}, 'GET', null, env)
+        .then(data => {
+          if (Array.isArray(data)) {
+            dataCache.set(cacheKey, { data, timestamp: Date.now() });
+          }
+        })
+        .catch(() => { });
+      return Array.isArray(cached.data) ? cached.data : [];
+    }
+
+    // No cache at all - must fetch (first request)
+    try {
+      const data = await this.request('getAll', {}, 'GET', null, env);
+      const result = Array.isArray(data) ? data : [];
+      dataCache.set(cacheKey, { data: result, timestamp: Date.now() });
+      return result;
+    } catch (e) {
+      return [];
+    }
   }
 
   async getById(id: string, env?: any): Promise<T | null> {
@@ -239,15 +290,24 @@ export class SheetsService<T extends { id: string }> {
       delete dataCopy.id;
     }
     const newItem = { id, ...dataCopy } as T;
-    return await this.request('create', {}, 'POST', newItem, env);
+    const result = await this.request('create', {}, 'POST', newItem, env);
+    // Invalidate caches
+    dataCache.delete(`getAll:${this.sheetName}`);
+    invalidateHomepageCache();
+    return result;
   }
 
   async update(id: string, data: Partial<T>, env?: any): Promise<T | null> {
-    return await this.request('update', { id }, 'POST', data, env);
+    const result = await this.request('update', { id }, 'POST', data, env);
+    dataCache.delete(`getAll:${this.sheetName}`);
+    invalidateHomepageCache();
+    return result;
   }
 
   async delete(id: string, env?: any): Promise<boolean> {
     const result = await this.request('delete', { id }, 'POST', null, env);
+    dataCache.delete(`getAll:${this.sheetName}`);
+    invalidateHomepageCache();
     return result.success === true;
   }
 
