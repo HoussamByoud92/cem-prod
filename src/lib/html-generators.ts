@@ -18,7 +18,7 @@ export function generateReferencesHtml(references: Reference[]) {
                 100% { transform: translateX(-50%); }
             }
             .animate-scroll {
-                animation: scroll 60s linear infinite;
+                animation: scroll 15s linear infinite;
                 display: flex;
                 width: max-content;
             }
