@@ -193,6 +193,8 @@ app.get('/', async (c) => {
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://www.genspark.ai" crossorigin>
+        <link rel="preconnect" href="https://i0.wp.com" crossorigin>
         
         <!-- Preload LCP image for fastest paint -->
         <link rel="preload" as="image" type="image/webp" href="/static/mascottes-cem-team.webp">
@@ -255,7 +257,7 @@ app.get('/', async (c) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" loading="lazy" ></a>
+                        <a href="/" class="flex items-center hover:opacity-80 transition no-underline"><img src="https://i0.wp.com/cembymazini.ma/wp-content/uploads/2023/07/cem.png?fit=146%2C118&ssl=1" alt="CEM GROUP" class="h-14 w-auto" width="146" height="118" decoding="async" ></a>
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -403,8 +405,8 @@ app.get('/', async (c) => {
                             <div class="relative z-10">
                                 <img src="/static/mascottes-cem-team.webp" 
                                      alt="Moumen Hebbour et Meryem Mazini - Fondateurs CEM GROUP Casablanca - Experts Marketing Digital et Formation Maroc" 
-                                     fetchpriority="high"
-                                     class="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500" loading="lazy" >
+                                     fetchpriority="high" width="800" height="600"
+                                     class="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500" >
                             </div>
                         </div>
                     </div>
@@ -445,7 +447,7 @@ app.get('/', async (c) => {
                     <div class="relative">
                         <div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#D4AF37] rounded-3xl transform rotate-3"></div>
                         <div class="relative bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden p-2">
-                            <img src="/static/meryem-mazini-pro-realiste.webp" alt="Meryem Mazini - Fondatrice et CEO CEM GROUP Casablanca - Experte Marketing Digital, Formation Professionnelle et Intelligence Artificielle au Maroc" loading="lazy" class="w-full h-full object-cover rounded-2xl" style="aspect-ratio: 3/4; max-height: 500px;" loading="lazy" >
+                            <img src="/static/meryem-mazini-pro-realiste.webp" alt="Meryem Mazini - Fondatrice et CEO CEM GROUP Casablanca - Experte Marketing Digital, Formation Professionnelle et Intelligence Artificielle au Maroc" loading="lazy" decoding="async" width="375" height="500" class="w-full h-full object-cover rounded-2xl" style="aspect-ratio: 3/4; max-height: 500px;" >
                         </div>
                     </div>
                     
@@ -818,7 +820,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/JwnlUQaA" 
                                      alt="Meryem Mazini - CEO & Fondatrice CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy" >
+                                     loading="lazy" decoding="async" width="160" height="160" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Meryem Mazini</h3>
@@ -837,7 +839,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/3xntIAP4" 
                                      alt="Moumen Hebbour - DGA CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy" >
+                                     loading="lazy" decoding="async" width="160" height="160" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Moumen Hebbour</h3>
@@ -851,7 +853,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/QLn8q26N" 
                                      alt="Zineb Rais - Brand Manager CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy" >
+                                     loading="lazy" decoding="async" width="160" height="160" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Zineb Rais</h3>
@@ -865,7 +867,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/RfWSyK7B" 
                                      alt="Ayman Aitmouss - Médiabuyer CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy" >
+                                     loading="lazy" decoding="async" width="160" height="160" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Ayman Aitmouss</h3>
@@ -879,7 +881,7 @@ app.get('/', async (c) => {
                                 <img src="https://www.genspark.ai/api/files/s/kXtmzaUx" 
                                      alt="Houssam Bayoud - Développeur Web CEM GROUP" 
                                      class="w-full h-full object-cover"
-                                     loading="lazy" >
+                                     loading="lazy" decoding="async" width="160" height="160" >
                             </div>
                         </div>
                         <h3 class="text-white font-bold text-lg mb-1">Houssam Bayoud</h3>
@@ -4703,7 +4705,7 @@ app.get('/innovation', async (c) => {
         </nav>
 
         <!-- Hero Section : À Propos CEM INNOVATION -->
-        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center justify-center pt-20 px-4 pb-32 md:pb-40 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center justify-center pt-40 md:pt-48 px-4 pb-32 md:pb-40 overflow-hidden">
             <!-- Grille de points dorés en arrière-plan -->
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute inset-0" style="background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
@@ -4719,7 +4721,7 @@ app.get('/innovation', async (c) => {
                     <!-- COLONNE GAUCHE : COPYWRITING STRATÉGIQUE -->
                     <div class="text-left text-white space-y-8">
                         <!-- Titre Principal -->
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
                             <span class="text-white">Transformez votre entreprise</span>
                             <br>
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#D4AF37]">avec l'intelligence artificielle</span>
