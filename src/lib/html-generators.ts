@@ -5,7 +5,7 @@ export function generateReferencesHtml(references: Reference[]) {
 
     // We duplicate the array to create a continuous seamless loop effect in CSS
     const logos = [...references, ...references].map(ref => `
-        <div class="flex-none w-64 md:w-80 mx-4 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-2xl p-4 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] h-40 md:h-56">
+        <div class="flex-none w-72 md:w-96 mx-4 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-2xl p-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-110 border-2 border-transparent hover:border-[#D4AF37] h-48 md:h-64">
             <img src="${ref.logoUrl}" alt="${ref.name}" class="h-full w-full object-contain filter transition-transform duration-300" loading="lazy">
         </div>
     `).join('');
@@ -18,7 +18,7 @@ export function generateReferencesHtml(references: Reference[]) {
                 100% { transform: translateX(-50%); }
             }
             .animate-scroll {
-                animation: scroll 15s linear infinite;
+                animation: scroll 8s linear infinite;
                 display: flex;
                 width: max-content;
             }
