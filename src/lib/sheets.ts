@@ -153,8 +153,8 @@ export class SheetsService<T extends { id: string }> {
 
     try {
       const controller = new AbortController();
-      // Vercel Hobby is max 10s, give GAS 8s before failing gracefully
-      const timeoutId = setTimeout(() => controller.abort(), 8000);
+      // Increase timeout to 45s to avoid 500 errors when GAS is slow (Cloudflare allows 50s)
+      const timeoutId = setTimeout(() => controller.abort(), 45000);
 
       const options: any = {
         method,
@@ -234,7 +234,11 @@ export class SheetsService<T extends { id: string }> {
 
   async create(data: Omit<T, 'id'>, env?: any): Promise<T> {
     const id = nanoid();
-    const newItem = { id, ...data };
+    const dataCopy = { ...data };
+    if ('id' in dataCopy && !dataCopy.id) {
+      delete dataCopy.id;
+    }
+    const newItem = { id, ...dataCopy } as T;
     return await this.request('create', {}, 'POST', newItem, env);
   }
 
