@@ -1585,6 +1585,104 @@ adminPagesApp.get('/newsletter/campaigns', (c) => c.html(adminLayout(`
 `)));
 
 
+// ===== CATALOG DEMANDS MANAGEMENT =====
+adminPagesApp.get('/catalog-demands', (c) => c.html(adminLayout(`
+    <div class="flex justify-between items-center mb-8">
+        <div>
+            <h2 class="text-3xl font-bold text-gray-900">Demandes Catalogue</h2>
+            <p class="text-gray-600 mt-1">Gérez les demandes de catalogue et téléchargez les contacts</p>
+        </div>
+        <div class="flex gap-4">
+            <a href="/api/admin/catalog-demands/export" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition shadow-sm font-semibold flex items-center">
+                <i class="fas fa-file-excel mr-2"></i>Exporter Excel
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden" x-data="catalogDemands()">
+        <div class="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+            <h3 class="font-bold text-gray-900">Dernières Demandes</h3>
+            <span class="text-sm text-gray-500" x-text="demands.length + ' demande(s)'"></span>
+        </div>
+        
+        <!-- Search and Filter -->
+        <div class="p-4 border-b border-gray-100 bg-white">
+            <div class="relative max-w-md">
+                <input type="text" x-model="searchQuery" placeholder="Rechercher par nom, entreprise ou email..." class="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37]">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Entreprise / Rôle</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Téléphone</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <template x-for="d in filteredDemands" :key="d.email + d.requestedAt">
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" x-text="new Date(d.requestedAt).toLocaleString('fr-FR')"></td>
+                            <td class="px-6 py-4">
+                                <div class="font-medium text-gray-900" x-text="d.name"></div>
+                                <div class="text-sm text-gray-500" x-text="d.email"></div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900" x-text="d.company || '-'"></div>
+                                <div class="text-xs text-gray-500" x-text="d.role || '-'"></div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span x-text="d.phone || '-'"></span>
+                            </td>
+                        </tr>
+                    </template>
+                    <tr x-show="filteredDemands.length === 0 && !loading">
+                        <td colspan="4" class="px-6 py-8 text-center text-gray-500">Aucune demande trouvée.</td>
+                    </tr>
+                    <tr x-show="loading">
+                        <td colspan="4" class="px-6 py-8 text-center text-gray-400"><i class="fas fa-spinner fa-spin mr-2"></i>Chargement...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+`, 'Demandes Catalogue', `
+    function catalogDemands() {
+        return {
+            demands: [],
+            loading: true,
+            searchQuery: '',
+            
+            async init() {
+                const token = localStorage.getItem('admin_token');
+                try {
+                    const res = await fetch('/api/admin/catalog-demands', { headers: { 'Authorization': 'Bearer ' + token } });
+                    if (res.ok) {
+                        this.demands = await res.json();
+                    }
+                } catch(e) { console.error('Load error:', e); }
+                this.loading = false;
+            },
+            
+            get filteredDemands() {
+                if (!this.searchQuery) return this.demands;
+                const lowerQ = this.searchQuery.toLowerCase();
+                return this.demands.filter(d => 
+                    (d.name && d.name.toLowerCase().includes(lowerQ)) ||
+                    (d.email && d.email.toLowerCase().includes(lowerQ)) ||
+                    (d.company && d.company.toLowerCase().includes(lowerQ)) ||
+                    (d.role && d.role.toLowerCase().includes(lowerQ))
+                );
+            }
+        }
+    }
+`)));
+
+
 // ===== POPUP MANAGEMENT =====
 adminPagesApp.get('/marketing', (c) => c.html(adminLayout(`
     <div class="flex justify-between items-center mb-8">

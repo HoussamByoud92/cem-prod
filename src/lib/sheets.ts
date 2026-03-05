@@ -39,6 +39,7 @@ export const SHEETS = {
   RECRUITMENT: 'Recruitment',
   FORMATIONS: 'Formations',
   REFERENCES: 'References',
+  CATALOG_DEMANDS: 'CatalogDemands',
 } as const;
 
 // Types
@@ -150,6 +151,17 @@ export interface Reference {
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface CatalogDemand {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  role: string;
+  source: string;
+  requestedAt: string;
 }
 
 // Generic CRUD operations interfacing with GAS
@@ -326,6 +338,7 @@ export const popupService = new SheetsService<Popup>(SHEETS.POPUPS);
 export const recruitmentService = new SheetsService<Recruitment>(SHEETS.RECRUITMENT);
 export const formationsService = new SheetsService<Formation>(SHEETS.FORMATIONS);
 export const referencesService = new SheetsService<Reference>(SHEETS.REFERENCES);
+export const catalogDemandService = new SheetsService<CatalogDemand>(SHEETS.CATALOG_DEMANDS);
 
 // Initialize sheets
 export const initializeSheets = async (env?: any) => {

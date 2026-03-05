@@ -470,3 +470,69 @@ export const sendBrevoNewsletter = async (
 
     return { success: failedCount === 0, messageId: `newsletter-${Date.now()}`, failedCount };
 };
+
+/**
+ * Send a catalog demand email with PDF attachment via Brevo
+ */
+export const sendCatalogEmailWithBrevo = async (
+    recipientEmail: string,
+    recipientName: string,
+    pdfUrl: string,
+    env?: any
+): Promise<boolean> => {
+    const apiKey = getBrevoApiKey(env);
+    if (!apiKey) return false;
+
+    try {
+        const body = {
+            sender: { name: 'CEM GROUP', email: 'contact@cembymazini.ma' },
+            to: [{ email: recipientEmail, name: recipientName }],
+            subject: 'Votre Catalogue de Formations CEM GROUP 2026',
+            htmlContent: `
+            <div style="font-family: 'Poppins', Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <div style="background: linear-gradient(135deg, #000 0%, #1a1a1a 100%); padding: 30px; text-align: center;">
+                    <h1 style="color: #D4AF37; margin: 0; font-size: 28px;">CEM GROUP</h1>
+                </div>
+                <div style="padding: 30px; background: #fff;">
+                    <h2 style="color: #1a1a1a;">Bonjour ${recipientName},</h2>
+                    <p style="color: #4a5568; line-height: 1.6;">Merci pour votre intérêt envers CEM GROUP.</p>
+                    <p style="color: #4a5568; line-height: 1.6;">Vous trouverez ci-joint notre <strong>Catalogue de Formations 2026</strong> en format PDF.</p>
+                    <p style="color: #4a5568; line-height: 1.6;">N'hésitez pas à nous contacter si vous avez la moindre question.</p>
+                    <br/>
+                    <p style="color: #4a5568; line-height: 1.6;">Cordialement,<br/>L'équipe CEM GROUP</p>
+                </div>
+                <div style="background: #f7fafc; padding: 20px; text-align: center; color: #718096; font-size: 12px;">
+                    <p>contact@cembymazini.ma | +212 (0) 5 22 22 22 22</p>
+                    <p>© ${new Date().getFullYear()} CEM GROUP - Tous droits réservés</p>
+                </div>
+            </div>`,
+            attachment: [
+                {
+                    url: pdfUrl,
+                    name: 'Catalogue de formations CEM 2026.pdf'
+                }
+            ]
+        };
+
+        const response = await fetch(`${BREVO_API_URL}/smtp/email`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'api-key': apiKey,
+            },
+            body: JSON.stringify(body),
+        });
+
+        if (!response.ok) {
+            const err = await response.json().catch(() => ({}));
+            console.error('Brevo catalog email send error:', err);
+            return false;
+        }
+
+        return true;
+    } catch (e) {
+        console.error('Brevo catalog email send exception:', e);
+        return false;
+    }
+};

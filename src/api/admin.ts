@@ -11,6 +11,7 @@ import {
     recruitmentService,
     formationsService,
     referencesService,
+    catalogDemandService,
     initializeSheets,
     type BlogPost,
     type Event,
@@ -51,6 +52,7 @@ import {
 } from '../lib/auth';
 import {
     exportSubscribersToExcel,
+    exportCatalogDemandsToExcel,
     generateExportFilename,
 } from '../lib/excel';
 import { Bindings } from '../bindings';
@@ -798,7 +800,7 @@ adminApp.post('/newsletter/campaign', zValidator('json', campaignSchema), async 
 
         return c.json({ campaignId, success: true });
     } catch (error) {
-        console.error('Campaign creation error:', error);
+        console.error('Campaign create error:', error);
         return c.json({ error: 'Failed to create campaign' }, 500);
     }
 });
@@ -806,10 +808,12 @@ adminApp.post('/newsletter/campaign', zValidator('json', campaignSchema), async 
 adminApp.get('/newsletter/stats/:campaignId', async (c) => {
     try {
         const campaignId = parseInt(c.req.param('campaignId'));
+        if (isNaN(campaignId)) return c.json({ error: 'Invalid ID' }, 400);
+
         const stats = await getCampaignStats(campaignId, c.env);
         return c.json(stats);
     } catch (error) {
-        return c.json({ error: 'Failed to get campaign stats' }, 500);
+        return c.json({ error: 'Failed to get stats' }, 500);
     }
 });
 
@@ -830,6 +834,40 @@ adminApp.get('/newsletter/lists', async (c) => {
         return c.json({ error: 'Failed to get lists' }, 500);
     }
 });
+
+// ===== CATALOG DEMANDS ROUTES =====
+
+adminApp.get('/catalog-demands', async (c) => {
+    try {
+        const demands = await catalogDemandService.getAll(c.env);
+        // Sort descending
+        demands.sort((a, b) => new Date(b.requestedAt).getTime() - new Date(a.requestedAt).getTime());
+        return c.json(demands);
+    } catch (error) {
+        return c.json({ error: 'Failed to get catalog demands' }, 500);
+    }
+});
+
+adminApp.get('/catalog-demands/export', async (c) => {
+    try {
+        const demands = await catalogDemandService.getAll(c.env);
+        demands.sort((a, b) => new Date(b.requestedAt).getTime() - new Date(a.requestedAt).getTime());
+        const buffer = await exportCatalogDemandsToExcel(demands);
+        const filename = `cem_group_demandes_catalogue_${new Date().toISOString().split('T')[0]}.xlsx`;
+
+        return new Response(buffer, {
+            headers: {
+                'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'Content-Disposition': `attachment; filename="${filename}"`,
+            },
+        });
+    } catch (error) {
+        console.error('Export catalog demands error:', error);
+        return c.json({ error: 'Failed to export demands' }, 500);
+    }
+});
+
+
 
 // ===== POPUP ROUTES =====
 
@@ -1007,16 +1045,16 @@ adminApp.get('/ping', (c) => c.json({ status: 'ok', message: 'pong' }));
 
 adminApp.get('/recruitment/cv/:id', async (c) => {
     const id = c.req.param('id');
-    console.log(`CV Proxy Request for ID: ${id}`);
+    console.log(`CV Proxy Request for ID: ${id} `);
 
     try {
         const application = await recruitmentService.getById(id, c.env);
         if (!application || !application.cvUrl) {
-            console.warn(`CV not found for ID: ${id}`);
+            console.warn(`CV not found for ID: ${id} `);
             return c.json({ error: 'CV not found' }, 404);
         }
 
-        console.log(`Original CV URL: ${application.cvUrl}`);
+        console.log(`Original CV URL: ${application.cvUrl} `);
 
         // Strategy 1: Try the direct stored URL (works for type=upload, access_mode=public)
         let response = await fetch(application.cvUrl);
@@ -1036,13 +1074,13 @@ adminApp.get('/recruitment/cv/:id', async (c) => {
         }
 
         if (!response.ok) {
-            console.error(`CV proxy failed: ${response.status}`);
+            console.error(`CV proxy failed: ${response.status} `);
             return c.json({ error: 'Failed to fetch CV', status: response.status }, 502);
         }
 
         const headers = new Headers();
         headers.set('Content-Type', response.headers.get('Content-Type') || 'application/pdf');
-        headers.set('Content-Disposition', `inline; filename="CV_${application.firstName}_${application.lastName}.pdf"`);
+        headers.set('Content-Disposition', `inline; filename = "CV_${application.firstName}_${application.lastName}.pdf"`);
         if (response.headers.get('Content-Length')) {
             headers.set('Content-Length', response.headers.get('Content-Length')!);
         }

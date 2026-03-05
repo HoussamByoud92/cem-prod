@@ -265,7 +265,7 @@ formationApp.get('/', async (c) => {
                     
                     <!-- CTAs -->
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="/catalogue" class="bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl hover:shadow-[#D4AF37]/50 transition-all inline-flex items-center">
+                        <a href="/demande-catalogue" class="bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl hover:shadow-[#D4AF37]/50 transition-all inline-flex items-center">
                             <i class="fas fa-download mr-2"></i>
                             Télécharger le catalogue
                         </a>
@@ -464,9 +464,7 @@ formationApp.get('/', async (c) => {
                     <i class="fas fa-file-pdf text-6xl mb-6"></i>
                     <h3 class="text-4xl font-bold mb-4">Téléchargez Notre Catalogue Complet 2026</h3>
                     <p class="text-xl mb-8 opacity-90">19 formations détaillées • Tarifs • Modalités • Certifications</p>
-                    <a href="/static/catalogue.html" 
-                       target="_blank"
-                       download
+                    <a href="/demande-catalogue" 
                        class="inline-block bg-white text-[#D4AF37] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-2xl">
                         <i class="fas fa-download mr-3"></i>Télécharger le Catalogue PDF
                     </a>
@@ -606,7 +604,7 @@ formationApp.get('/', async (c) => {
                                 <i class="fas fa-comments mr-2"></i>
                                 Parlons-en
                             </a>
-                            <a href="/catalogue" class="bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl inline-flex items-center">
+                            <a href="/demande-catalogue" class="bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl inline-flex items-center">
                                 <i class="fas fa-download mr-2"></i>
                                 Télécharger le catalogue
                             </a>

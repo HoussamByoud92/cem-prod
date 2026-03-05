@@ -62,7 +62,47 @@ export const exportSubscribersToExcel = async (
 
     // Generate buffer
     const buffer = await workbook.xlsx.writeBuffer();
-    return Buffer.from(buffer);
+    return buffer as Buffer;
+};
+
+export async function exportCatalogDemandsToExcel(demands: any[]) {
+    const workbook = new ExcelJS.Workbook();
+    const sheet = workbook.addWorksheet('Demandes Catalogue');
+
+    // Define columns
+    sheet.columns = [
+        { header: 'Nom', key: 'name', width: 25 },
+        { header: 'Email', key: 'email', width: 30 },
+        { header: 'Téléphone', key: 'phone', width: 20 },
+        { header: 'Entreprise', key: 'company', width: 25 },
+        { header: 'Fonction', key: 'role', width: 25 },
+        { header: 'Source', key: 'source', width: 20 },
+        { header: 'Date de Demande', key: 'requestedAt', width: 30 },
+    ];
+
+    // Style headers
+    sheet.getRow(1).font = { bold: true };
+    sheet.getRow(1).fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'FFE0E0E0' }
+    };
+
+    // Add data
+    demands.forEach(demand => {
+        sheet.addRow({
+            name: demand.name,
+            email: demand.email,
+            phone: demand.phone || '',
+            company: demand.company || '',
+            role: demand.role || '',
+            source: demand.source || '',
+            requestedAt: demand.requestedAt ? new Date(demand.requestedAt).toLocaleString('fr-FR') : '',
+        });
+    });
+
+    const buffer = await workbook.xlsx.writeBuffer();
+    return buffer as Buffer;
 };
 
 /**

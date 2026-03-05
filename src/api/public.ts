@@ -2,8 +2,8 @@ import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
 import { sendContactEmail, type ContactFormData } from '../lib/email';
-import { newsletterService, recruitmentService } from '../lib/sheets';
-import { addBrevoContact } from '../lib/email';
+import { newsletterService, recruitmentService, catalogDemandService } from '../lib/sheets';
+import { addBrevoContact, sendCatalogEmailWithBrevo } from '../lib/email';
 import { Bindings } from '../bindings';
 
 const publicApp = new Hono<{ Bindings: Bindings }>();
@@ -389,6 +389,59 @@ publicApp.post('/upload', async (c) => {
     } catch (e) {
         console.error('Upload error:', e);
         return c.json({ error: 'Upload failed' }, 500);
+    }
+});
+
+// Catalog Demand form submission
+const catalogDemandSchema = z.object({
+    name: z.string().min(1),
+    email: z.string().email(),
+    phone: z.string().optional(),
+    company: z.string().optional(),
+    role: z.string().optional(),
+    source: z.string().optional(),
+});
+
+publicApp.post('/catalog-demand', zValidator('json', catalogDemandSchema), async (c) => {
+    try {
+        const data = c.req.valid('json');
+        const now = new Date().toISOString();
+
+        // 1. Save demand to Google Sheets DB
+        await catalogDemandService.create({
+            name: data.name,
+            email: data.email,
+            phone: data.phone || '',
+            company: data.company || '',
+            role: data.role || '',
+            source: data.source || 'Website',
+            requestedAt: now,
+        }, c.env);
+
+        // 2. Send the PDF via Brevo API in the background (fire and forget)
+        const pdfUrl = 'https://cembymazini.ma/static/Catalogue%20de%20formations%20CEM%202026_compressed.pdf';
+
+        sendCatalogEmailWithBrevo(data.email, data.name, pdfUrl, c.env).catch(error => {
+            console.error('Brevo catalog email error:', error);
+        });
+
+        // 3. Optional: Add to newsletter silently or just as a basic contact in Brevo
+        if ((c.env as any)?.BREVO_API_KEY || process.env.BREVO_API_KEY) {
+            addBrevoContact({
+                email: data.email,
+                attributes: {
+                    FIRSTNAME: data.name.split(' ')[0] || '',
+                    LASTNAME: data.name.split(' ').slice(1).join(' ') || '',
+                },
+            }, c.env).catch(e => {
+                console.error('Brevo background sync error:', e);
+            });
+        }
+
+        return c.json({ success: true, message: 'Le catalogue vous a été envoyé par email avec succès !' });
+    } catch (error) {
+        console.error('Catalog demand error:', error);
+        return c.json({ error: 'Échec de la demande de catalogue' }, 500);
     }
 });
 
