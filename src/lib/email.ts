@@ -525,10 +525,12 @@ export const sendCatalogEmailWithBrevo = async (
         });
 
         if (!response.ok) {
-            const err = await response.json().catch(() => ({}));
-            console.error('Brevo catalog email send error:', err);
+            const errText = await response.text().catch(() => '(no body)');
+            console.error(`Brevo catalog email send error: status=${response.status} body=${errText}`);
             return false;
         }
+
+        console.log('[CatalogDemand] Brevo email sent successfully to recipient');
 
         return true;
     } catch (e) {

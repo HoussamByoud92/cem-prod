@@ -418,12 +418,16 @@ publicApp.post('/catalog-demand', zValidator('json', catalogDemandSchema), async
             requestedAt: now,
         }, c.env);
 
-        // 2. Send the PDF via Brevo API in the background (fire and forget)
+        // 2. Send the PDF via Brevo API
         const pdfUrl = 'https://cembymazini.ma/static/Catalogue%20de%20formations%20CEM%202026_compressed.pdf';
 
-        sendCatalogEmailWithBrevo(data.email, data.name, pdfUrl, c.env).catch(error => {
-            console.error('Brevo catalog email error:', error);
-        });
+        try {
+            console.log('[CatalogDemand] Sending Brevo email to:', data.email);
+            const emailSent = await sendCatalogEmailWithBrevo(data.email, data.name, pdfUrl, c.env);
+            console.log('[CatalogDemand] Brevo email result:', emailSent);
+        } catch (emailError) {
+            console.error('[CatalogDemand] Brevo catalog email error:', emailError);
+        }
 
         // 3. Optional: Add to newsletter silently or just as a basic contact in Brevo
         if ((c.env as any)?.BREVO_API_KEY || process.env.BREVO_API_KEY) {

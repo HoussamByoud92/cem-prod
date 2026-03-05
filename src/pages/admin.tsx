@@ -2802,4 +2802,179 @@ const referencesScript = `
 
 adminPagesApp.get('/references', (c) => c.html(adminLayout(referencesContent, 'Références', referencesScript)));
 
+// ===== CATALOG DEMANDS PAGE =====
+adminPagesApp.get('/catalog-demands', (c) => {
+    return c.html(adminLayout(`
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900">Demandes de Catalogue</h2>
+                <p class="text-gray-600 mt-1">Liste des personnes ayant demandé le catalogue</p>
+            </div>
+            <button @click="exportExcel()" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-file-excel mr-2"></i>Exporter (Excel)
+            </button>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" x-data x-init>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-[#D4AF37]">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm font-semibold">Total demandes</p>
+                        <p class="text-3xl font-bold text-gray-900 mt-2" x-text="$store.catalogData.demands.length">0</p>
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-book-open text-[#D4AF37] text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm font-semibold">Aujourd'hui</p>
+                        <p class="text-3xl font-bold text-gray-900 mt-2" x-text="$store.catalogData.demands.filter(d => d.requestedAt && d.requestedAt.startsWith(new Date().toISOString().split('T')[0])).length">0</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-calendar-day text-blue-500 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm font-semibold">Cette semaine</p>
+                        <p class="text-3xl font-bold text-gray-900 mt-2" x-text="(() => { const d = new Date(); d.setDate(d.getDate()-7); return $store.catalogData.demands.filter(dm => dm.requestedAt && new Date(dm.requestedAt) >= d).length; })()">0</p>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-chart-line text-green-500 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden" x-data="catalogDemands()">
+            <div class="p-4 border-b">
+                <input type="text" x-model="search" placeholder="Rechercher par nom, email, entreprise..." class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:outline-none">
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Téléphone</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Entreprise</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Poste</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <template x-for="demand in filteredDemands" :key="demand.id">
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-[#D4AF37]/20 rounded-full flex items-center justify-center mr-3">
+                                            <i class="fas fa-user text-[#D4AF37] text-xs"></i>
+                                        </div>
+                                        <span class="text-sm font-medium text-gray-900" x-text="demand.name"></span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
+                                    <a :href="'mailto:' + demand.email" x-text="demand.email"></a>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="demand.phone || '-'"></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="demand.company || '-'"></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="demand.role || '-'"></td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800" x-text="demand.source || 'Website'"></span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="demand.requestedAt ? new Date(demand.requestedAt).toLocaleString('fr-FR') : '-'"></td>
+                            </tr>
+                        </template>
+                        <tr x-show="filteredDemands.length === 0">
+                            <td colspan="7" class="px-6 py-8 text-center text-gray-500">
+                                <div x-show="loading" class="flex items-center justify-center space-x-2">
+                                    <div class="animate-spin rounded-full h-6 w-6 border-2 border-[#D4AF37] border-t-transparent"></div>
+                                    <span>Chargement...</span>
+                                </div>
+                                <div x-show="!loading">
+                                    <i class="fas fa-inbox text-4xl text-gray-300 mb-3"></i>
+                                    <p>Aucune demande de catalogue trouvée.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 border-t bg-gray-50 text-sm text-gray-500 flex justify-between items-center">
+                <span x-text="filteredDemands.length + ' demande(s) affichée(s)'"></span>
+                <span x-text="'Total: ' + demands.length + ' demande(s)'"></span>
+            </div>
+        </div>
+    `, 'Demandes Catalogue', `
+        // Alpine.js store for stats cards
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('catalogData', { demands: [] });
+        });
+
+        function catalogDemands() {
+            return {
+                demands: [],
+                search: '',
+                loading: true,
+                get filteredDemands() {
+                    if (!this.search) return this.demands;
+                    const s = this.search.toLowerCase();
+                    return this.demands.filter(d =>
+                        (d.name || '').toLowerCase().includes(s) ||
+                        (d.email || '').toLowerCase().includes(s) ||
+                        (d.company || '').toLowerCase().includes(s) ||
+                        (d.phone || '').toLowerCase().includes(s) ||
+                        (d.role || '').toLowerCase().includes(s)
+                    );
+                },
+                async init() {
+                    const token = localStorage.getItem('admin_token');
+                    try {
+                        const res = await fetch('/api/admin/catalog-demands', {
+                            headers: { 'Authorization': 'Bearer ' + token }
+                        });
+                        if (res.ok) {
+                            this.demands = await res.json();
+                            // Sort newest first
+                            this.demands.sort((a, b) => new Date(b.requestedAt).getTime() - new Date(a.requestedAt).getTime());
+                            // Update store for stats cards
+                            if (Alpine.store) Alpine.store('catalogData').demands = this.demands;
+                        }
+                    } catch(e) { console.error(e); }
+                    this.loading = false;
+                },
+                async exportExcel() {
+                    const token = localStorage.getItem('admin_token');
+                    try {
+                        const res = await fetch('/api/admin/catalog-demands/export', {
+                            headers: { 'Authorization': 'Bearer ' + token }
+                        });
+                        if (res.ok) {
+                            const blob = await res.blob();
+                            const url = URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = 'demandes_catalogue_' + new Date().toISOString().split('T')[0] + '.xlsx';
+                            a.click();
+                            URL.revokeObjectURL(url);
+                        } else {
+                            alert('Erreur lors de l\\' export');
+                        }
+                    } catch(e) {
+                        alert('Erreur réseau');
+                    }
+                }
+            }
+        }
+    `));
+});
+
 export default adminPagesApp;

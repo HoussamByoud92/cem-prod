@@ -6,7 +6,7 @@ import adminPagesApp from './pages/admin'
 import blogApp from './pages/blog'
 import eventsApp from './pages/events'
 import formationApp from './pages/formation'
-import demandeCatalogueApp from './pages/demande-catalogue'
+
 import { blogService, eventsService, popupService, plaquettesService, referencesService, getCachedHomepage, setCachedHomepage } from './lib/sheets'
 import { generateBlogSectionHtml, generateEventsSectionHtml, generatePopupHtml, generatePlaquettesHtml, generateReferencesHtml } from './lib/html-generators'
 import { Bindings } from './bindings'
@@ -37,7 +37,7 @@ app.route('/actualites', blogApp)
 app.route('/events', eventsApp)
 app.route('/formation', formationApp)
 app.route('/formations', formationApp)
-app.route('/demande-catalogue', demandeCatalogueApp)
+
 
 // Page principale CEM GROUP
 
@@ -388,7 +388,7 @@ app.get('/', async (c) => {
                                 <i class="fas fa-rocket mr-2"></i>
                                 Démarrer mon projet
                             </a>
-                            <a href="/demande-catalogue" class="bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#D4AF37] hover:text-black transition-all inline-flex items-center">
+                            <a href="https://cembymazini.ma/static/Catalogue%20de%20formations%20CEM%202026_compressed.pdf" download class="bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#D4AF37] hover:text-black transition-all inline-flex items-center">
                                 <i class="fas fa-arrow-right mr-2"></i>
                                 Demander le catalogue
                             </a>
@@ -2637,7 +2637,7 @@ app.get('/marketing', async (c) => {
                                 <i class="fas fa-comments mr-2 group-hover:rotate-12 transition-transform"></i>
                                 Démarrer un projet
                             </a>
-                            <a href="/demande-catalogue" class="group bg-white/10 backdrop-blur-sm text-white border-2 border-[#D4AF37] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all inline-flex items-center">
+                            <a href="https://cembymazini.ma/static/Catalogue%20de%20formations%20CEM%202026_compressed.pdf" download class="group bg-white/10 backdrop-blur-sm text-white border-2 border-[#D4AF37] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all inline-flex items-center">
                                 <i class="fas fa-rocket mr-2 group-hover:scale-110 transition-transform"></i>
                                 Demander le catalogue
                             </a>
@@ -4772,7 +4772,7 @@ app.get('/innovation', async (c) => {
                                 <i class="fas fa-calendar-alt mr-2 group-hover:rotate-12 transition-transform"></i>
                                 Réserver une session IA
                             </a>
-                            <a href="/demande-catalogue" class="group bg-white/10 backdrop-blur-sm text-white border-2 border-[#D4AF37] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all inline-flex items-center">
+                            <a href="https://cembymazini.ma/static/Catalogue%20de%20formations%20CEM%202026_compressed.pdf" download class="group bg-white/10 backdrop-blur-sm text-white border-2 border-[#D4AF37] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all inline-flex items-center">
                                 <i class="fas fa-rocket mr-2 group-hover:scale-110 transition-transform"></i>
                                 Demander le catalogue
                             </a>
