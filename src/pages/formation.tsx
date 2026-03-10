@@ -1129,22 +1129,22 @@ formationApp.get('/', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>

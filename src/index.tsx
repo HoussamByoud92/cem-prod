@@ -1379,22 +1379,22 @@ app.get('/', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -2174,22 +2174,22 @@ app.get('/services/:slug', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -3636,22 +3636,22 @@ app.get('/marketing', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -4440,22 +4440,22 @@ app.get('/formation/:slug', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -5404,22 +5404,22 @@ app.get('/innovation', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -5933,22 +5933,22 @@ app.get('/recrutement', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -7650,22 +7650,22 @@ app.get('/', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -8057,7 +8057,7 @@ app.get('/actualites', (c) => {
                         </div>
                         <div class="p-6">
                             <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
-                                <span class="bg-[#D4AF37]/10 text-[#D4AF37] px-3 py-1 rounded-full font-semibold">LinkedIn</span>
+                                <span class="bg-[#0077B5]/10 text-[#D4AF37] px-3 py-1 rounded-full font-semibold">LinkedIn</span>
                                 <span>•</span>
                                 <span>15 Janvier 2026</span>
                             </div>
@@ -8316,7 +8316,7 @@ app.get('/actualites', (c) => {
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
                     <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                       class="inline-flex items-center gap-2 bg-[#D4AF37] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#005885] transition shadow-lg">
+                       class="inline-flex items-center gap-2 bg-[#0077B5] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#005885] transition shadow-lg">
                         <i class="fab fa-linkedin-in"></i>
                         Suivre sur LinkedIn
                     </a>
@@ -8379,22 +8379,22 @@ app.get('/actualites', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -8920,13 +8920,13 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                     <div class="flex items-center justify-between">
                         <div class="text-gray-600 font-semibold">Partager cet article :</div>
                         <div class="flex gap-4">
-                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="w-12 h-12 bg-[#0077B5] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://www.facebook.com/cemgroup" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" class="w-12 h-12 bg-[#1877F2] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-facebook"></i>
                             </a>
-                            <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-twitter"></i>
                             </a>
                         </div>
@@ -9021,22 +9021,22 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -9549,13 +9549,13 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                     <div class="flex items-center justify-between">
                         <div class="text-gray-600 font-semibold">Partager cet article :</div>
                         <div class="flex gap-4">
-                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="w-12 h-12 bg-[#0077B5] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://www.facebook.com/cemgroup" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" class="w-12 h-12 bg-[#1877F2] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-facebook"></i>
                             </a>
-                            <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-twitter"></i>
                             </a>
                         </div>
@@ -9650,22 +9650,22 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
