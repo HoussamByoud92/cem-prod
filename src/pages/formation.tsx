@@ -914,7 +914,7 @@ formationApp.get('/', async (c) => {
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     ${latestBlogs.length > 0 ? latestBlogs.map(blog => `
                     <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl transition border-2 border-[#D4AF37] flex flex-col h-full">
-                        <div class="h-48 relative overflow-hidden">
+                        <div class="aspect-video relative overflow-hidden">
                             <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy" >
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div class="absolute bottom-4 left-4 text-white">

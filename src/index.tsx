@@ -222,17 +222,17 @@ app.get('/', async (c) => {
                         </span>
                         <div class="flex space-x-2">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#0077B5] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#E4405F] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
                                title="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#1877F2] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
                                title="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
@@ -1379,22 +1379,22 @@ app.get('/', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-[#0077B5] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-white"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#E4405F] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Instagram">
                                 <i class="fab fa-instagram text-xl text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-[#1877F2] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-white"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
+                               class="w-12 h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center hover:scale-110 transition-all border border-white/10"
                                title="TikTok">
                                 <i class="fab fa-tiktok text-xl text-white"></i>
                             </a>
@@ -2174,7 +2174,7 @@ app.get('/services/:slug', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -2184,7 +2184,7 @@ app.get('/services/:slug', (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -2223,7 +2223,7 @@ app.get('/marketing', async (c) => {
 
     const mktBlogsHtml = latestBlogs.length > 0 ? latestBlogs.map((blog: any) => `
         <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition border-2 border-[#D4AF37] group">
-            <div class="h-48 overflow-hidden">
+            <div class="aspect-video overflow-hidden">
                 ${blog.coverImage ? `<img src="${blog.coverImage}" alt="${blog.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" >` : `<div class="h-full bg-gradient-to-br from-[#D4AF37] to-[#B8941F] flex items-center justify-center"><i class="fas fa-newspaper text-white text-5xl"></i></div>`}
             </div>
             <div class="p-6">
@@ -3636,7 +3636,7 @@ app.get('/marketing', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -3646,7 +3646,7 @@ app.get('/marketing', async (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -4440,7 +4440,7 @@ app.get('/formation/:slug', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -4450,7 +4450,7 @@ app.get('/formation/:slug', (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -4489,7 +4489,7 @@ app.get('/innovation', async (c) => {
 
     const blogsHtml = latestBlogs.length > 0 ? latestBlogs.map((blog: any) => `
         <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl transition border border-gray-200 group">
-            <div class="h-48 overflow-hidden">
+            <div class="aspect-video overflow-hidden">
                 ${blog.coverImage ? `<img src="${blog.coverImage}" alt="${blog.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" >` : `<div class="h-full bg-gradient-to-br from-[#D4AF37] to-black flex items-center justify-center"><i class="fas fa-newspaper text-white text-5xl"></i></div>`}
             </div>
             <div class="p-6">
@@ -5404,7 +5404,7 @@ app.get('/innovation', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -5414,7 +5414,7 @@ app.get('/innovation', async (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -5933,7 +5933,7 @@ app.get('/recrutement', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -5943,7 +5943,7 @@ app.get('/recrutement', (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -6651,7 +6651,7 @@ app.get('/', async (c) => {
                                         <img src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?w=400&h=250&fit=crop" 
                                              alt="LinkedIn Formation" 
                                              class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
-                                        <div class="absolute top-3 right-3 bg-[#0077B5] text-white px-3 py-1 rounded-full text-xs font-bold">
+                                        <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fab fa-linkedin mr-1"></i>1-to-1
                                         </div>
                                     </div>
@@ -6662,7 +6662,7 @@ app.get('/', async (c) => {
                                         <li><i class="fas fa-check text-[#0077B5] mr-2"></i>Stratégie contenu</li>
                                         <li><i class="fas fa-check text-[#0077B5] mr-2"></i>Personal Branding</li>
                                     </ul>
-                                    <a href="/#contact" class="block w-full bg-[#0077B5] text-white text-center font-bold py-2 rounded-lg hover:bg-black transition text-sm">
+                                    <a href="/#contact" class="block w-full bg-[#D4AF37] text-white text-center font-bold py-2 rounded-lg hover:bg-black transition text-sm">
                                         <i class="fas fa-calendar-alt mr-2"></i>Réserver
                                     </a>
                                 </div>
@@ -6673,7 +6673,7 @@ app.get('/', async (c) => {
                                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop" 
                                              alt="LinkedIn Team" 
                                              class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
-                                        <div class="absolute top-3 right-3 bg-[#0077B5] text-white px-3 py-1 rounded-full text-xs font-bold">
+                                        <div class="absolute top-3 right-3 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
                                             <i class="fas fa-users mr-1"></i>Team
                                         </div>
                                     </div>
@@ -6684,7 +6684,7 @@ app.get('/', async (c) => {
                                         <li><i class="fas fa-check text-[#0077B5] mr-2"></i>Social Selling</li>
                                         <li><i class="fas fa-check text-[#0077B5] mr-2"></i>Stratégie équipe</li>
                                     </ul>
-                                    <a href="/#contact" class="block w-full bg-[#0077B5] text-white text-center font-bold py-2 rounded-lg hover:bg-black transition text-sm">
+                                    <a href="/#contact" class="block w-full bg-[#D4AF37] text-white text-center font-bold py-2 rounded-lg hover:bg-black transition text-sm">
                                         <i class="fas fa-users mr-2"></i>Former l'équipe
                                     </a>
                                 </div>
@@ -7352,7 +7352,7 @@ app.get('/', async (c) => {
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Actu 1 -->
                     <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl transition border-2 border-[#D4AF37]">
-                        <div class="h-48 bg-gradient-to-br from-[#D4AF37] to-[#D4AF37] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#D4AF37] to-[#D4AF37] flex items-center justify-center">
                             <i class="fas fa-robot text-white text-6xl"></i>
                         </div>
                         <div class="p-6">
@@ -7369,7 +7369,7 @@ app.get('/', async (c) => {
                     
                     <!-- Actu 2 -->
                     <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl transition border-2 border-[#D4AF37]">
-                        <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-green-500 to-emerald-600 flex items-center justify-center">
                             <i class="fas fa-chart-line text-white text-6xl"></i>
                         </div>
                         <div class="p-6">
@@ -7386,7 +7386,7 @@ app.get('/', async (c) => {
                     
                     <!-- Actu 3 -->
                     <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl transition border-2 border-[#D4AF37]">
-                        <div class="h-48 bg-gradient-to-br from-#1a1a1a to-#D4AF37 flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-#1a1a1a to-#D4AF37 flex items-center justify-center">
                             <i class="fab fa-linkedin text-white text-6xl"></i>
                         </div>
                         <div class="p-6">
@@ -7403,7 +7403,7 @@ app.get('/', async (c) => {
                     
                     <!-- Actu 4 -->
                     <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl transition border-2 border-[#D4AF37]">
-                        <div class="h-48 bg-gradient-to-br from-#D4AF37 to-#D4AF37 flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-#D4AF37 to-#D4AF37 flex items-center justify-center">
                             <i class="fas fa-graduation-cap text-white text-6xl"></i>
                         </div>
                         <div class="p-6">
@@ -7650,7 +7650,7 @@ app.get('/', async (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -7660,7 +7660,7 @@ app.get('/', async (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -7983,7 +7983,7 @@ app.get('/actualites', (c) => {
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Événement 1 - Placeholder -->
                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
-                        <div class="h-48 bg-gradient-to-br from-[#D4AF37] to-[#FFD700] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#D4AF37] to-[#FFD700] flex items-center justify-center">
                             <i class="fas fa-calendar-alt text-6xl text-white opacity-50"></i>
                         </div>
                         <div class="p-6">
@@ -8001,7 +8001,7 @@ app.get('/actualites', (c) => {
                     
                     <!-- Événement 2 - Placeholder -->
                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
-                        <div class="h-48 bg-gradient-to-br from-black to-gray-800 flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-black to-gray-800 flex items-center justify-center">
                             <i class="fas fa-users text-6xl text-[#D4AF37] opacity-50"></i>
                         </div>
                         <div class="p-6">
@@ -8019,7 +8019,7 @@ app.get('/actualites', (c) => {
                     
                     <!-- Événement 3 - Placeholder -->
                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
-                        <div class="h-48 bg-gradient-to-br from-[#D4AF37] to-black flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#D4AF37] to-black flex items-center justify-center">
                             <i class="fas fa-lightbulb text-6xl text-white opacity-50"></i>
                         </div>
                         <div class="p-6">
@@ -8052,7 +8052,7 @@ app.get('/actualites', (c) => {
                     
                     <!-- Article 1 - LinkedIn B2B -->
                     <a href="/actualites/linkedin-b2b-leads" class="block bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100 hover:border-[#D4AF37] transition">
-                        <div class="h-48 bg-gradient-to-br from-[#0077B5] to-[#00A0DC] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#0077B5] to-[#00A0DC] flex items-center justify-center">
                             <i class="fab fa-linkedin text-8xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -8077,7 +8077,7 @@ app.get('/actualites', (c) => {
                     
                     <!-- Article 2 - IA & Marketing -->
                     <a href="/actualites/ia-marketing-2026" class="block bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100 hover:border-[#D4AF37] transition">
-                        <div class="h-48 bg-gradient-to-br from-[#D4AF37] to-[#FFD700] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#D4AF37] to-[#FFD700] flex items-center justify-center">
                             <i class="fas fa-robot text-8xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -8102,7 +8102,7 @@ app.get('/actualites', (c) => {
                     
                     <!-- Article 3 - Formation Digitale -->
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100 hover:border-[#D4AF37] transition">
-                        <div class="h-48 bg-gradient-to-br from-black to-gray-800 flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-black to-gray-800 flex items-center justify-center">
                             <i class="fas fa-graduation-cap text-8xl text-[#D4AF37] opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -8127,7 +8127,7 @@ app.get('/actualites', (c) => {
                     
                     <!-- Article 4 - Content Marketing -->
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100 hover:border-[#D4AF37] transition">
-                        <div class="h-48 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#D4AF37] to-[#B8941F] flex items-center justify-center">
                             <i class="fas fa-pen-fancy text-8xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -8152,7 +8152,7 @@ app.get('/actualites', (c) => {
                     
                     <!-- Article 5 - Video Marketing -->
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100 hover:border-[#D4AF37] transition">
-                        <div class="h-48 bg-gradient-to-br from-black to-gray-900 flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-black to-gray-900 flex items-center justify-center">
                             <i class="fas fa-video text-8xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -8177,7 +8177,7 @@ app.get('/actualites', (c) => {
                     
                     <!-- Article 6 - ChatGPT Formation -->
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100 hover:border-[#D4AF37] transition">
-                        <div class="h-48 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#D4AF37] to-[#B8941F] flex items-center justify-center">
                             <i class="fas fa-brain text-8xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -8316,7 +8316,7 @@ app.get('/actualites', (c) => {
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
                     <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                       class="inline-flex items-center gap-2 bg-[#0077B5] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#005885] transition shadow-lg">
+                       class="inline-flex items-center gap-2 bg-[#D4AF37] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#005885] transition shadow-lg">
                         <i class="fab fa-linkedin-in"></i>
                         Suivre sur LinkedIn
                     </a>
@@ -8379,7 +8379,7 @@ app.get('/actualites', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -8389,7 +8389,7 @@ app.get('/actualites', (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -8747,7 +8747,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
 
                 <!-- Category Badge -->
                 <div class="flex items-center gap-2 mb-6">
-                    <span class="bg-[#0077B5]/10 text-[#0077B5] px-4 py-2 rounded-full font-semibold text-sm">
+                    <span class="bg-[#D4AF37]/10 text-[#0077B5] px-4 py-2 rounded-full font-semibold text-sm">
                         <i class="fab fa-linkedin mr-2"></i>LinkedIn Marketing
                     </span>
                     <span class="text-gray-500">•</span>
@@ -8920,13 +8920,13 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                     <div class="flex items-center justify-between">
                         <div class="text-gray-600 font-semibold">Partager cet article :</div>
                         <div class="flex gap-4">
-                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="w-12 h-12 bg-[#0077B5] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://www.facebook.com/cemgroup" target="_blank" class="w-12 h-12 bg-[#1877F2] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-facebook"></i>
                             </a>
-                            <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-[#1DA1F2] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-twitter"></i>
                             </a>
                         </div>
@@ -8941,7 +8941,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                 <h2 class="text-3xl font-bold text-gray-900 mb-12">Articles Similaires</h2>
                 <div class="grid md:grid-cols-3 gap-8">
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                        <div class="h-48 bg-gradient-to-br from-[#D4AF37] to-[#FFD700] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#D4AF37] to-[#FFD700] flex items-center justify-center">
                             <i class="fas fa-robot text-6xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -8950,7 +8950,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                         </div>
                     </a>
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                        <div class="h-48 bg-gradient-to-br from-[#FF6B6B] to-[#FF8E53] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#FF6B6B] to-[#FF8E53] flex items-center justify-center">
                             <i class="fas fa-pen-fancy text-6xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -8959,7 +8959,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                         </div>
                     </a>
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                        <div class="h-48 bg-gradient-to-br from-black to-gray-800 flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-black to-gray-800 flex items-center justify-center">
                             <i class="fas fa-graduation-cap text-6xl text-[#D4AF37] opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -9021,7 +9021,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -9031,7 +9031,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -9549,13 +9549,13 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                     <div class="flex items-center justify-between">
                         <div class="text-gray-600 font-semibold">Partager cet article :</div>
                         <div class="flex gap-4">
-                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="w-12 h-12 bg-[#0077B5] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://www.facebook.com/cemgroup" target="_blank" class="w-12 h-12 bg-[#1877F2] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://www.facebook.com/cemgroup" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-facebook"></i>
                             </a>
-                            <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-[#1DA1F2] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                            <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white hover:scale-110 transition">
                                 <i class="fab fa-twitter"></i>
                             </a>
                         </div>
@@ -9570,7 +9570,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                 <h2 class="text-3xl font-bold text-gray-900 mb-12">Articles Similaires</h2>
                 <div class="grid md:grid-cols-3 gap-8">
                     <a href="/actualites/linkedin-b2b-leads" class="block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                        <div class="h-48 bg-gradient-to-br from-[#0077B5] to-[#00A0DC] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#0077B5] to-[#00A0DC] flex items-center justify-center">
                             <i class="fab fa-linkedin text-6xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -9579,7 +9579,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                         </div>
                     </a>
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                        <div class="h-48 bg-gradient-to-br from-[#10A37F] to-[#1A7F64] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#10A37F] to-[#1A7F64] flex items-center justify-center">
                             <i class="fas fa-brain text-6xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -9588,7 +9588,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                         </div>
                     </a>
                     <a href="/actualites" class="block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                        <div class="h-48 bg-gradient-to-br from-[#9B59B6] to-[#8E44AD] flex items-center justify-center">
+                        <div class="aspect-video bg-gradient-to-br"  from-[#9B59B6] to-[#8E44AD] flex items-center justify-center">
                             <i class="fas fa-video text-6xl text-white opacity-30"></i>
                         </div>
                         <div class="p-6">
@@ -9650,7 +9650,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                         <p class="text-gray-400 text-sm mb-4">Rejoignez notre communauté sur les réseaux sociaux</p>
                         <div class="flex flex-wrap gap-3">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#0077B5] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
@@ -9660,7 +9660,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                                 <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all group border border-gray-700"
+                               class="w-12 h-12 bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center hover:bg-[#D4AF37] hover:scale-110 transition-all group border border-gray-700"
                                title="Facebook">
                                 <i class="fab fa-facebook-f text-xl text-gray-400 group-hover:text-white"></i>
                             </a>
