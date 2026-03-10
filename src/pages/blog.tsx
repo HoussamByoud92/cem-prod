@@ -60,17 +60,17 @@ blogApp.get('/', async (c) => {
                         </span>
                         <div class="flex space-x-2">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#0077B5] transition text-white text-sm"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#E4405F] transition text-white text-sm"
                                title="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#1877F2] transition text-white text-sm"
                                title="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
@@ -336,22 +336,22 @@ blogApp.get('/:slug', async (c) => {
                         </span>
                         <div class="flex space-x-2">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#0077B5] transition text-white text-sm"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#E4405F] transition text-white text-sm"
                                title="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#1877F2] transition text-white text-sm"
                                title="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition text-white text-sm"
+                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-black transition text-white text-sm"
                                title="TikTok">
                                 <i class="fab fa-tiktok"></i>
                             </a>
