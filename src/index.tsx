@@ -1335,7 +1335,7 @@ app.get('/', async (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -2130,7 +2130,7 @@ app.get('/services/:slug', (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -3592,7 +3592,7 @@ app.get('/marketing', async (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -4396,7 +4396,7 @@ app.get('/formation/:slug', (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -5360,7 +5360,7 @@ app.get('/innovation', async (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -5889,7 +5889,7 @@ app.get('/recrutement', (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -7606,7 +7606,7 @@ app.get('/', async (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -8335,7 +8335,7 @@ app.get('/actualites', (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -8977,7 +8977,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -9606,7 +9606,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>

@@ -232,7 +232,7 @@ eventsApp.get('/', async (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -525,41 +525,51 @@ eventsApp.get('/:id', async (c) => {
         </nav>
 
         <article>
-            <!-- Hero Image -->
-            <div class="w-full min-h-screen relative flex flex-col justify-center">
-                <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-full object-cover" loading="lazy" >
-                <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <div class="text-center px-4 max-w-4xl">
-                        <span class="bg-[#D4AF37] text-white px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">
-                            <i class="fas fa-calendar-alt mr-2"></i>Événement
-                        </span>
-                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">${event.title}</h1>
-                        <div class="flex flex-wrap justify-center gap-4 text-gray-300 text-lg">
-                            <span><i class="far fa-calendar text-[#D4AF37] mr-2"></i>${formattedDate}</span>
-                            ${event.location ? `<span><i class="fas fa-map-marker-alt text-[#D4AF37] mr-2"></i>${event.location}</span>` : ''}
-                        </div>
-                    </div>
-                </div>
+            <!-- Hero Banner 100vh -->
+            <div class="w-full h-screen relative">
+                <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="absolute inset-0 w-full h-full object-cover object-center" >
+                <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
             </div>
 
-            <!-- Content -->
-            <div class="max-w-3xl mx-auto px-4 py-16">
-                <div class="prose prose-lg mx-auto text-gray-800">
-                    ${event.description || '<p class="text-gray-500">Détails à venir prochainement.</p>'}
-                </div>
-                
-                ${event.registrationLink ? `
-                <div class="mt-12 text-center">
-                    <a href="${event.registrationLink}" target="_blank" class="inline-flex items-center bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#D4AF37]/50 transition-all">
-                        <i class="fas fa-ticket-alt mr-3"></i>S'inscrire à cet événement
-                    </a>
-                </div>
-                ` : ''}
-
-                <div class="mt-12 pt-8 border-t border-gray-200">
-                    <div class="flex flex-wrap gap-4 text-sm text-gray-500">
-                        <span><i class="far fa-calendar text-[#D4AF37] mr-2"></i>${formattedDate}</span>
-                        ${event.location ? `<span><i class="fas fa-map-marker-alt text-[#D4AF37] mr-2"></i>${event.location}</span>` : ''}
+            <!-- Event Details: Image + Info -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-10 pb-16">
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <!-- Image Left -->
+                        <div class="h-72 md:h-auto relative">
+                            <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-full object-cover" loading="lazy" >
+                            <div class="absolute top-4 left-4 bg-[#D4AF37] text-white px-4 py-2 rounded-full text-sm font-bold">
+                                <i class="fas fa-calendar-alt mr-2"></i>Événement
+                            </div>
+                        </div>
+                        <!-- Info Right -->
+                        <div class="p-8 md:p-12 flex flex-col justify-center">
+                            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">${event.title}</h1>
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center gap-3 text-gray-600">
+                                    <div class="w-10 h-10 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
+                                        <i class="far fa-calendar text-[#D4AF37]"></i>
+                                    </div>
+                                    <span class="text-lg">${formattedDate}</span>
+                                </div>
+                                ${event.location ? `
+                                <div class="flex items-center gap-3 text-gray-600">
+                                    <div class="w-10 h-10 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-[#D4AF37]"></i>
+                                    </div>
+                                    <span class="text-lg">${event.location}</span>
+                                </div>
+                                ` : ''}
+                            </div>
+                            <div class="prose prose-lg text-gray-700 mb-8">
+                                ${event.description || '<p class="text-gray-500">Détails à venir prochainement.</p>'}
+                            </div>
+                            ${event.registrationLink ? `
+                            <a href="${event.registrationLink}" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#D4AF37]/50 transition-all w-fit">
+                                <i class="fas fa-ticket-alt mr-3"></i>S'inscrire à cet événement
+                            </a>
+                            ` : ''}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -586,7 +596,7 @@ eventsApp.get('/:id', async (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>

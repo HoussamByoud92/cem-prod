@@ -213,7 +213,7 @@ blogApp.get('/', async (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
@@ -506,7 +506,7 @@ blogApp.get('/:slug', async (c) => {
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
-                        <p class="text-gray-400 mb-4">Quand la créativité rencontre la stratégie, elle transforme vos ambitions en succès.</p>
+                        <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
                             <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
                             <p class="ml-6">Casablanca, Maroc</p>
