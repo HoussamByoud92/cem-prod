@@ -1087,7 +1087,7 @@ app.get('/', async (c) => {
                                     <i class="fas fa-building text-[#D4AF37] text-2xl mr-4 mt-1"></i>
                                     <div>
                                         <p class="text-xl font-bold mb-2">CEM GROUP</p>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=17+rue+Oraibi+Jilali+Casablanca+Maroc" target="_blank" class="hover:text-[#D4AF37] transition-colors group">
+                                        <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" class="hover:text-[#D4AF37] transition-colors group">
                                             <p class="text-gray-300 group-hover:text-[#D4AF37]">17 rue Oraibi Jilali</p>
                                             <p class="text-gray-300 group-hover:text-[#D4AF37]">2ème étage</p>
                                             <p class="text-gray-300 font-bold group-hover:text-[#D4AF37]">Casablanca, Maroc</p>
@@ -1337,8 +1337,10 @@ app.get('/', async (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -2132,8 +2134,10 @@ app.get('/services/:slug', (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -3594,8 +3598,10 @@ app.get('/marketing', async (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -4398,8 +4404,10 @@ app.get('/formation/:slug', (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -5345,11 +5353,11 @@ app.get('/innovation', async (c) => {
                         <h4 class="font-bold mb-2">Email</h4>
                         <a href="mailto:contact@cembymazini.ma" class="text-gray-400 hover:text-[#D4AF37] transition block">contact@cembymazini.ma</a>
                     </div>
-                    <div class="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-#D4AF37/30">
-                        <i class="fas fa-map-marker-alt text-#D4AF37 text-3xl mb-3"></i>
+                    <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-[#D4AF37]/30 block hover:bg-[#D4AF37]/10 transition-all hover:scale-105 group">
+                        <i class="fas fa-map-marker-alt text-[#D4AF37] text-3xl mb-3"></i>
                         <h4 class="font-bold mb-2">Adresse</h4>
-                        <p class="text-gray-400">Casablanca, Maroc</p>
-                    </div>
+                        <p class="text-gray-400 group-hover:text-white">17 rue Oraibi Jilali, 2ème étage, Casablanca, Maroc</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -5362,8 +5370,10 @@ app.get('/innovation', async (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -5891,8 +5901,10 @@ app.get('/recrutement', (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -7608,8 +7620,10 @@ app.get('/', async (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -8337,8 +8351,10 @@ app.get('/actualites', (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -8979,8 +8995,10 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
@@ -9608,8 +9626,10 @@ app.get('/actualites/ia-marketing-2026', (c) => {
                         <h3 class="text-2xl font-bold mb-4 gradient-text" style="-webkit-text-fill-color: white;">CEM GROUP</h3>
                         <p class="text-gray-400 mb-4"></p>
                         <div class="text-sm text-gray-500">
-                            <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
-                            <p class="ml-6">Casablanca, Maroc</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.59709708955426,-7.615190214360085" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition block mb-1">
+                                <p><i class="fas fa-map-marker-alt mr-2 text-[#D4AF37]"></i>17 rue Oraibi Jilali, 2ème étage</p>
+                                <p class="ml-6">Casablanca, Maroc</p>
+                            </a>
                             <p class="mt-2"><i class="fas fa-phone mr-2 text-[#D4AF37]"></i><a href="tel:+212688947098" class="hover:text-[#D4AF37] transition">+212 6 88 94 70 98</a></p>
                             <p class="mt-1"><i class="fas fa-envelope mr-2 text-[#D4AF37]"></i><a href="mailto:contact@cembymazini.ma" class="hover:text-[#D4AF37] transition">contact@cembymazini.ma</a></p>
                         </div>
