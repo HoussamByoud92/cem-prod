@@ -166,7 +166,7 @@ export function generateEventsSectionHtml(events: Event[]) {
                     <p class="text-gray-600 line-clamp-2">${event.description || ''}</p>
                 </div>
                 <div class="mt-4">
-                     <a href="/events" class="text-[#D4AF37] font-semibold hover:text-[#B8941F] text-sm uppercase tracking-wide">
+                     <a href="/events/${event.id}" class="text-[#D4AF37] font-semibold hover:text-[#B8941F] text-sm uppercase tracking-wide">
                         Plus d'infos <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>
