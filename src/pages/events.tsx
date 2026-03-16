@@ -391,22 +391,22 @@ eventsApp.get('/:id', async (c) => {
                         </span>
                         <div class="flex space-x-2">
                             <a href="https://www.linkedin.com/company/consulting-events-by-mazini/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#0077B5] transition text-white text-sm"
+                               class="w-8 h-8 bg-[#0077B5] rounded-full flex items-center justify-center hover:scale-110 transition text-white text-sm"
                                title="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="https://www.instagram.com/cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#E4405F] transition text-white text-sm"
+                               class="w-8 h-8 bg-[#E4405F] rounded-full flex items-center justify-center hover:scale-110 transition text-white text-sm"
                                title="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="https://www.facebook.com/cemgroup" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#1877F2] transition text-white text-sm"
+                               class="w-8 h-8 bg-[#1877F2] rounded-full flex items-center justify-center hover:scale-110 transition text-white text-sm"
                                title="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                             <a href="https://www.tiktok.com/@cem.group" target="_blank" rel="noopener noreferrer"
-                               class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-black transition text-white text-sm"
+                               class="w-8 h-8 bg-black rounded-full flex items-center justify-center hover:scale-110 transition text-white text-sm"
                                title="TikTok">
                                 <i class="fab fa-tiktok"></i>
                             </a>
@@ -526,51 +526,97 @@ eventsApp.get('/:id', async (c) => {
             </div>
         </nav>
 
-        <article>
+        <article class="bg-white">
             <!-- Hero Banner 100vh -->
             <div class="w-full h-screen relative">
                 <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="absolute inset-0 w-full h-full object-cover object-center" >
-                <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60"></div>
+                <div class="absolute inset-0 flex items-end justify-start p-12">
+                    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl md:text-7xl font-bold text-white mb-4 drop-shadow-2xl leading-tight">${event.title}</h1>
+                        <p class="text-xl md:text-3xl text-white/90 font-medium drop-shadow-lg">${formattedDate}</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Event Details: Image + Info -->
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-10 mt-12 mb-24 pb-16">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                    <div class="grid md:grid-cols-2 gap-0">
-                        <!-- Image Left -->
-                        <div class="h-72 md:h-auto relative">
-                            <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-full object-cover" loading="lazy" >
-                            <div class="absolute top-4 left-4 bg-[#D4AF37] text-white px-4 py-2 rounded-full text-sm font-bold">
-                                <i class="fas fa-calendar-alt mr-2"></i>Événement
-                            </div>
+            <!-- Event Content Plain -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="grid lg:grid-cols-12 gap-16 items-start">
+                    <!-- Image Left -->
+                    <div class="lg:col-span-5 hidden md:block sticky top-32">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+                            <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-auto object-cover" loading="lazy" >
                         </div>
-                        <!-- Info Right -->
-                        <div class="p-8 md:p-12 flex flex-col justify-center">
-                            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">${event.title}</h1>
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-center gap-3 text-gray-600">
-                                    <div class="w-10 h-10 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
+                        <div class="mt-8 p-8 bg-gray-50 rounded-3xl border border-gray-100">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <i class="fas fa-info-circle text-[#D4AF37]"></i> Informations Pratiques
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 text-gray-600">
+                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
                                         <i class="far fa-calendar text-[#D4AF37]"></i>
                                     </div>
-                                    <span class="text-lg">${formattedDate}</span>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase font-bold">Date</p>
+                                        <p class="font-semibold text-gray-900">${formattedDate}</p>
+                                    </div>
                                 </div>
                                 ${event.location ? `
-                                <div class="flex items-center gap-3 text-gray-600">
-                                    <div class="w-10 h-10 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
+                                <div class="flex items-center gap-4 text-gray-600">
+                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
                                         <i class="fas fa-map-marker-alt text-[#D4AF37]"></i>
                                     </div>
-                                    <span class="text-lg">${event.location}</span>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase font-bold">Lieu</p>
+                                        <p class="font-semibold text-gray-900">${event.location}</p>
+                                    </div>
                                 </div>
                                 ` : ''}
                             </div>
-                            <div class="prose prose-lg text-gray-700 mb-8">
-                                ${event.description || '<p class="text-gray-500">Détails à venir prochainement.</p>'}
+                        </div>
+                    </div>
+
+                    <!-- Info Right -->
+                    <div class="lg:col-span-7">
+                        <div class="mb-10">
+                            <div class="inline-flex items-center gap-2 bg-[#D4AF37]/10 text-[#D4AF37] px-4 py-2 rounded-full text-sm font-bold mb-6">
+                                <span class="relative flex h-3 w-3">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[#D4AF37]"></span>
+                                </span>
+                                Événement en direct
                             </div>
-                            ${event.registrationLink ? `
-                            <a href="${event.registrationLink}" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#D4AF37]/50 transition-all w-fit">
-                                <i class="fas fa-ticket-alt mr-3"></i>S'inscrire à cet événement
+                            <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">Description de l'événement</h2>
+                            <div class="prose prose-2xl text-gray-700 leading-relaxed max-w-none">
+                                ${event.description || '<p class="text-gray-500 italic">Détails de l\'événement à venir prochainement.</p>'}
+                            </div>
+                        </div>
+
+                        ${event.registrationLink ? `
+                        <div class="mt-16 bg-black rounded-3xl p-10 text-white relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                            <h3 class="text-2xl font-bold mb-4 relative z-10">Prêt à nous rejoindre ?</h3>
+                            <p class="text-gray-400 mb-8 max-w-md relative z-10">Réservez votre place dès maintenant pour participer à cet événement exclusif organisé par CEM GROUP.</p>
+                            <a href="${event.registrationLink}" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-10 py-5 rounded-full font-black text-xl hover:shadow-2xl hover:shadow-[#D4AF37]/40 transition-all hover:-translate-y-1 relative z-10">
+                                <i class="fas fa-ticket-alt mr-3"></i>Réserver ma place
                             </a>
-                            ` : ''}
+                        </div>
+                        ` : ''}
+
+                        <!-- Social Share (Plain) -->
+                        <div class="mt-12 flex items-center gap-6 border-t border-gray-100 pt-8">
+                            <span class="text-gray-900 font-bold uppercase text-sm tracking-wider">Partager :</span>
+                            <div class="flex gap-4">
+                                <a href="#" class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 hover:text-[#1877F2] hover:bg-[#1877F2]/10 transition-all">
+                                    <i class="fab fa-facebook-f text-lg"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 hover:text-[#0077B5] hover:bg-[#0077B5]/10 transition-all">
+                                    <i class="fab fa-linkedin-in text-lg"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 hover:text-[#E4405F] hover:bg-[#E4405F]/10 transition-all">
+                                    <i class="fab fa-instagram text-lg"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
