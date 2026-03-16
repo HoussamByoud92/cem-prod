@@ -245,7 +245,7 @@ formationApp.get('/', async (c) => {
         </nav>
 
         <!-- Hero Formation (FOND NOIR) -->
-        <section class="relative bg-black min-h-screen flex items-center justify-center pt-48 px-4 pb-32 md:pb-40 overflow-hidden">
+        <section class="relative bg-black min-h-screen flex items-center justify-center pt-64 px-4 pb-32 md:pb-40 overflow-hidden">
             <!-- Blobs dorés animés en arrière-plan -->
             <div class="absolute inset-0 overflow-hidden">
                 <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full opacity-20 blur-3xl animate-blob"></div>

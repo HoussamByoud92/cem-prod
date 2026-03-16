@@ -195,7 +195,7 @@ blogApp.get('/', async (c) => {
             </div>
         </nav>
 
-        <section class="pt-48 pb-20">
+        <section class="pt-64 pb-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h1 class="text-5xl font-bold gradient-text mb-4">Toutes nos Actualités</h1>

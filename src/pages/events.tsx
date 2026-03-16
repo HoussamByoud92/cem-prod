@@ -203,7 +203,7 @@ eventsApp.get('/', async (c) => {
             </div>
         </nav>
 
-        <section class="pt-48 pb-20">
+        <section class="pt-64 pb-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h1 class="text-5xl font-bold gradient-text mb-4">Nos Événements</h1>
@@ -540,10 +540,10 @@ eventsApp.get('/:id', async (c) => {
             </div>
 
             <!-- Event Content Plain -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-20">
                 <div class="grid lg:grid-cols-12 gap-16 items-start">
                     <!-- Sidebar Left -->
-                    <div class="lg:col-span-4 hidden md:block sticky top-32">
+                    <div class="lg:col-span-4 hidden md:block sticky top-56">
                         <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm">
                             <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                                 <i class="fas fa-info-circle text-[#D4AF37]"></i> Informations Pratiques
