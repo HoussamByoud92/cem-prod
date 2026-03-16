@@ -603,10 +603,10 @@ eventsApp.get('/:id', async (c) => {
                         </div>
 
                         ${event.registrationLink ? `
-                        <div class="mt-16 bg-black rounded-3xl p-10 text-white relative overflow-hidden group">
+                        <div class="mt-16 bg-black rounded-3xl p-10 text-white relative overflow-hidden group text-center">
                             <div class="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
                             <h3 class="text-2xl font-bold mb-4 relative z-10">Prêt à nous rejoindre ?</h3>
-                            <p class="text-gray-400 mb-8 max-w-md relative z-10">Réservez votre place dès maintenant pour participer à cet événement exclusif organisé par CEM GROUP.</p>
+                            <p class="text-gray-400 mb-8 max-w-md mx-auto relative z-10">Réservez votre place dès maintenant pour participer à cet événement exclusif organisé par CEM GROUP.</p>
                             <a href="${event.registrationLink}" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-10 py-5 rounded-full font-black text-xl hover:shadow-2xl hover:shadow-[#D4AF37]/40 transition-all hover:-translate-y-1 relative z-10">
                                 <i class="fas fa-ticket-alt mr-3"></i>Réserver ma place
                             </a>
