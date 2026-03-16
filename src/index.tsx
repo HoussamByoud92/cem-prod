@@ -358,7 +358,7 @@ app.get('/', async (c) => {
         </nav>
 
         <!-- Hero Section avec Mascottes -->
-        <section class="relative bg-black min-h-screen flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden">
+        <section class="relative bg-black min-h-screen flex items-center justify-center pt-48 pb-20 px-4 overflow-hidden">
             <!-- Animated Background Circles -->
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
                 <div class="absolute top-20 left-10 w-96 h-96 bg-[#D4AF37] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -1944,7 +1944,7 @@ app.get('/services/:slug', (c) => {
         </nav>
 
         <!-- Hero Section -->
-        <section class="gradient-bg pt-32 pb-20 px-4">
+        <section class="gradient-bg pt-48 pb-20 px-4">
             <div class="max-w-7xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
@@ -2558,7 +2558,7 @@ app.get('/marketing', async (c) => {
         </nav>
 
         <!-- Hero Section : À Propos CEM MARKETING -->
-        <section class="relative bg-black min-h-screen flex items-center justify-center pt-20 px-4 pb-32 md:pb-40 overflow-hidden">
+        <section class="relative bg-black min-h-screen flex items-center justify-center pt-48 px-4 pb-32 md:pb-40 overflow-hidden">
             <!-- Grille de points dorés en arrière-plan -->
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute inset-0" style="background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
@@ -4290,7 +4290,7 @@ app.get('/formation/:slug', (c) => {
         </nav>
 
         <!-- Hero Section -->
-        <section class="gradient-bg pt-32 pb-20 px-4">
+        <section class="gradient-bg pt-48 pb-20 px-4">
             <div class="max-w-7xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
@@ -4715,7 +4715,7 @@ app.get('/innovation', async (c) => {
         </nav>
 
         <!-- Hero Section : À Propos CEM INNOVATION -->
-        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center justify-center pt-40 md:pt-48 px-4 pb-32 md:pb-40 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center justify-center pt-48 md:pt-48 px-4 pb-32 md:pb-40 overflow-hidden">
             <!-- Grille de points dorés en arrière-plan -->
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute inset-0" style="background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
@@ -5627,7 +5627,7 @@ app.get('/recrutement', (c) => {
         </nav>
 
         <!-- Hero Section -->
-        <section class="pt-32 pb-20 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
+        <section class="pt-48 pb-20 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute top-0 right-1/4 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl"></div>
                 <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl"></div>
@@ -6228,7 +6228,7 @@ app.get('/', async (c) => {
         </nav>
 
         <!-- Hero Formation (FOND NOIR) -->
-        <section class="relative bg-black min-h-screen flex items-center justify-center pt-20 px-4 pb-32 md:pb-40 overflow-hidden">
+        <section class="relative bg-black min-h-screen flex items-center justify-center pt-48 px-4 pb-32 md:pb-40 overflow-hidden">
             <!-- Blobs dorés animés en arrière-plan -->
             <div class="absolute inset-0 overflow-hidden">
                 <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full opacity-20 blur-3xl animate-blob"></div>
@@ -7937,7 +7937,7 @@ app.get('/actualites', (c) => {
         </nav>
 
         <!-- Hero Section -->
-        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-[60vh] flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-[60vh] flex items-center justify-center pt-48 pb-20 px-4 overflow-hidden">
             <!-- Grille de points dorés en arrière-plan -->
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute inset-0" style="background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
@@ -8613,7 +8613,7 @@ app.get('/actualites/linkedin-b2b-leads', (c) => {
         </nav>
 
         <!-- Article Header -->
-        <article class="pt-32 pb-20">
+        <article class="pt-48 pb-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Breadcrumb -->
                         <!-- Barre Réseaux Sociaux Top -->
@@ -9255,7 +9255,7 @@ app.get('/actualites/ia-marketing-2026', (c) => {
         </nav>
 
         <!-- Article Header -->
-        <article class="pt-32 pb-20">
+        <article class="pt-48 pb-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Breadcrumb -->
                         <!-- Barre Réseaux Sociaux Top -->

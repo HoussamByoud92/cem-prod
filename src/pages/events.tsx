@@ -203,7 +203,7 @@ eventsApp.get('/', async (c) => {
             </div>
         </nav>
 
-        <section class="py-20">
+        <section class="pt-48 pb-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h1 class="text-5xl font-bold gradient-text mb-4">Nos Événements</h1>
@@ -585,8 +585,8 @@ eventsApp.get('/:id', async (c) => {
                             </div>
                             
                             <div class="flex flex-col md:flex-row gap-10 items-center">
-                                <!-- Small Image (4x smaller) -->
-                                <div class="w-24 md:w-32 flex-shrink-0">
+                                <!-- Repositioned Image (Centered with text) -->
+                                <div class="w-48 md:w-64 flex-shrink-0">
                                     <div class="rounded-xl overflow-hidden shadow-lg border-2 border-white">
                                         <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-auto object-cover" loading="lazy" >
                                     </div>
