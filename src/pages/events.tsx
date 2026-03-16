@@ -584,17 +584,17 @@ eventsApp.get('/:id', async (c) => {
                                 Événement en direct
                             </div>
                             
-                            <div class="flex flex-col md:flex-row gap-10 items-start">
-                                <!-- Small Image -->
-                                <div class="w-full md:w-1/3 flex-shrink-0">
-                                    <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                            <div class="flex flex-col md:flex-row gap-10 items-center">
+                                <!-- Small Image (4x smaller) -->
+                                <div class="w-24 md:w-32 flex-shrink-0">
+                                    <div class="rounded-xl overflow-hidden shadow-lg border-2 border-white">
                                         <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-auto object-cover" loading="lazy" >
                                     </div>
                                 </div>
                                 
                                 <!-- Description -->
                                 <div class="flex-1">
-                                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">Description</h2>
+                                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4 leading-tight">Description</h2>
                                     <div class="prose prose-xl text-gray-700 leading-relaxed max-w-none">
                                         ${event.description || '<p class="text-gray-500 italic">Détails de l\'événement à venir prochainement.</p>'}
                                     </div>
