@@ -542,18 +542,15 @@ eventsApp.get('/:id', async (c) => {
             <!-- Event Content Plain -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div class="grid lg:grid-cols-12 gap-16 items-start">
-                    <!-- Image Left -->
-                    <div class="lg:col-span-5 hidden md:block sticky top-32">
-                        <div class="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
-                            <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-auto object-cover" loading="lazy" >
-                        </div>
-                        <div class="mt-8 p-8 bg-gray-50 rounded-3xl border border-gray-100">
+                    <!-- Sidebar Left -->
+                    <div class="lg:col-span-4 hidden md:block sticky top-32">
+                        <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm">
                             <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                                 <i class="fas fa-info-circle text-[#D4AF37]"></i> Informations Pratiques
                             </h3>
                             <div class="space-y-4">
                                 <div class="flex items-center gap-4 text-gray-600">
-                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xs">
                                         <i class="far fa-calendar text-[#D4AF37]"></i>
                                     </div>
                                     <div>
@@ -563,7 +560,7 @@ eventsApp.get('/:id', async (c) => {
                                 </div>
                                 ${event.location ? `
                                 <div class="flex items-center gap-4 text-gray-600">
-                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xs">
                                         <i class="fas fa-map-marker-alt text-[#D4AF37]"></i>
                                     </div>
                                     <div>
@@ -577,18 +574,31 @@ eventsApp.get('/:id', async (c) => {
                     </div>
 
                     <!-- Info Right -->
-                    <div class="lg:col-span-7">
+                    <div class="lg:col-span-8">
                         <div class="mb-10">
-                            <div class="inline-flex items-center gap-2 bg-[#D4AF37]/10 text-[#D4AF37] px-4 py-2 rounded-full text-sm font-bold mb-6">
+                            <div class="inline-flex items-center gap-2 bg-[#D4AF37]/10 text-[#D4AF37] px-4 py-2 rounded-full text-sm font-bold mb-8">
                                 <span class="relative flex h-3 w-3">
                                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span>
                                     <span class="relative inline-flex rounded-full h-3 w-3 bg-[#D4AF37]"></span>
                                 </span>
                                 Événement en direct
                             </div>
-                            <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">Description de l'événement</h2>
-                            <div class="prose prose-2xl text-gray-700 leading-relaxed max-w-none">
-                                ${event.description || '<p class="text-gray-500 italic">Détails de l\'événement à venir prochainement.</p>'}
+                            
+                            <div class="flex flex-col md:flex-row gap-10 items-start">
+                                <!-- Small Image -->
+                                <div class="w-full md:w-1/3 flex-shrink-0">
+                                    <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                                        <img src="${event.image || '/static/default-event.webp'}" alt="${event.title}" class="w-full h-auto object-cover" loading="lazy" >
+                                    </div>
+                                </div>
+                                
+                                <!-- Description -->
+                                <div class="flex-1">
+                                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">Description</h2>
+                                    <div class="prose prose-xl text-gray-700 leading-relaxed max-w-none">
+                                        ${event.description || '<p class="text-gray-500 italic">Détails de l\'événement à venir prochainement.</p>'}
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
