@@ -212,9 +212,13 @@ formationApp.get('/', async (c) => {
                                     <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
                                     <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
                                 </a>
-                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
                                     <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
                                     <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                                <a href="/formation#linkedin-formation" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Formation LinkedIn</div>
+                                    <div class="text-sm text-gray-600">Personal Branding & N°1 Growth</div>
                                 </a>
                             </div>
                         </div>
@@ -720,8 +724,8 @@ formationApp.get('/', async (c) => {
                     <div class="inline-block bg-gradient-to-r from-[#D4AF37] to-[#0077B5] text-white px-6 py-2 rounded-full text-sm font-bold mb-4">
                         <i class="fab fa-linkedin mr-2"></i>Formation LinkedIn Professionnelle
                     </div>
-                    <h2 class="text-5xl font-bold text-white mb-4">LinkedIn Formation & Accompagnement</h2>
-                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">3 niveaux de formation pour maîtriser LinkedIn et développer votre présence professionnelle</p>
+                    <h2 class="text-5xl font-bold text-white mb-4">Formation LinkedIn</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">Dominez l’algorithme avec la méthode N°1 Growth (Favikon Inspiration) : 3 niveaux d’expertise pour transformer votre profil en moteur de business.</p>
                 </div>
                 
                 <!-- 3 Niveaux de Formation -->

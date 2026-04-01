@@ -171,9 +171,13 @@ eventsApp.get('/', async (c) => {
                                     <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
                                     <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
                                 </a>
-                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
                                     <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
                                     <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                                <a href="/formation#linkedin-formation" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Formation LinkedIn</div>
+                                    <div class="text-sm text-gray-600">Personal Branding & N°1 Growth</div>
                                 </a>
                             </div>
                         </div>
@@ -494,9 +498,13 @@ eventsApp.get('/:id', async (c) => {
                                     <div class="font-bold text-gray-900 mb-1">Industrie & Sécurité</div>
                                     <div class="text-sm text-gray-600">+4 formations HACCP, ISO, BPF</div>
                                 </a>
-                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                <a href="/formation#digitaliser" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition border-b border-gray-100">
                                     <div class="font-bold text-gray-900 mb-1">Digitaliser vos formations</div>
                                     <div class="text-sm text-gray-600">Plateforme e-learning iSpring</div>
+                                </a>
+                                <a href="/formation#linkedin-formation" @click="open = false" class="block px-6 py-4 hover:bg-[#D4AF37]/10 transition">
+                                    <div class="font-bold text-gray-900 mb-1">Formation LinkedIn</div>
+                                    <div class="text-sm text-gray-600">Personal Branding & N°1 Growth</div>
                                 </a>
                             </div>
                         </div>
