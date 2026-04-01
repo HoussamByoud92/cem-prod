@@ -305,6 +305,25 @@ blogApp.get('/:slug', async (c) => {
         return c.html('<h1>Article non trouvé</h1>', 404);
     }
 
+    const otherPosts = blogs
+        .filter(b => b.status === 'published' && b.slug !== slug)
+        .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+        .slice(0, 5);
+
+    const otherPostsHtml = otherPosts.map(post => `
+        <a href="/actualites/${post.slug}" class="group flex gap-4 mb-6 hover:bg-[#D4AF37]/5 p-2 rounded-xl transition no-underline">
+            <div class="w-20 h-16 flex-shrink-0 bg-gray-200 rounded-lg overflow-hidden border border-gray-100">
+                <img src="${post.coverImage || '/static/default-blog.webp'}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" >
+            </div>
+            <div class="flex-1">
+                <h4 class="text-sm font-bold text-gray-800 line-clamp-2 leading-tight group-hover:text-[#D4AF37] transition mb-1">${post.title}</h4>
+                <div class="flex items-center text-[10px] text-gray-400">
+                    <i class="far fa-calendar-alt mr-1"></i> ${new Date(post.publishedAt).toLocaleDateString('fr-FR')}
+                </div>
+            </div>
+        </a>
+    `).join('');
+
     return c.html(`
     <!DOCTYPE html>
     <html lang="fr">
@@ -475,28 +494,67 @@ blogApp.get('/:slug', async (c) => {
 
         <article>
             <!-- Hero Image -->
-            <div class="w-full min-h-screen relative flex flex-col justify-center">
-                <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="w-full h-full object-cover" loading="lazy" >
-                <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <div class="w-full min-h-[70vh] relative flex flex-col justify-center">
+                <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" >
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
                     <div class="text-center px-4 max-w-4xl">
                         <span class="bg-[#D4AF37] text-white px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">${blog.category || 'Actualité'}</span>
-                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">${blog.title}</h1>
-                        <p class="text-gray-300 text-lg">Publié le ${new Date(blog.publishedAt).toLocaleDateString('fr-FR')} par ${blog.author}</p>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">${blog.title}</h1>
+                        <div class="flex items-center justify-center text-gray-300 text-lg gap-6">
+                            <span class="flex items-center"><i class="far fa-calendar-alt mr-2 text-[#D4AF37]"></i>${new Date(blog.publishedAt).toLocaleDateString('fr-FR')}</span>
+                            <span class="flex items-center"><i class="far fa-user mr-2 text-[#D4AF37]"></i>${blog.author}</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Content -->
-            <div class="max-w-3xl mx-auto px-4 py-16">
-                <div class="prose prose-lg mx-auto text-gray-800">
-                    ${blog.content} 
-                    <!-- Note: In a real app, use a markdown parser appropriately if content is markdown, but here passing raw HTML/Text -->
-                </div>
-                
-                <div class="mt-12 pt-8 border-t border-gray-200">
-                    <h3 class="text-xl font-bold mb-4">Tags</h3>
-                    <div class="flex flex-wrap gap-2">
-                        ${blog.tags ? blog.tags.split(',').map(tag => `<span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">#${tag.trim()}</span>`).join('') : ''}
+            <!-- Content Container -->
+            <div class="max-w-7xl mx-auto px-4 py-20">
+                <div class="flex flex-col lg:flex-row gap-16">
+                    <!-- Main Content (Left) -->
+                    <div class="lg:w-2/3">
+                        <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed">
+                            ${blog.content}
+                        </div>
+                        
+                        <!-- Tags After Content -->
+                        <div class="mt-16 pt-8 border-t border-gray-100">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-tags text-[#D4AF37]"></i>
+                                <h3 class="text-xl font-bold">Étiquettes</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                ${blog.tags ? blog.tags.split(',').map(tag => `<span class="bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] transition cursor-default">#${tag.trim()}</span>`).join('') : '<span class="text-gray-400 italic">Aucun tag</span>'}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar (Right) -->
+                    <div class="lg:w-1/3">
+                        <div class="sticky top-32">
+                            <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 shadow-sm">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-8 relative inline-block">
+                                    Articles Récents
+                                    <span class="absolute -bottom-2 left-0 w-12 h-1 bg-[#D4AF37] rounded-full"></span>
+                                </h3>
+                                
+                                <div class="space-y-2">
+                                    ${otherPostsHtml}
+                                </div>
+
+                                <a href="/actualites" class="mt-8 flex items-center justify-center gap-2 bg-black text-white py-4 rounded-2xl font-bold hover:bg-gray-900 transition-all shadow-lg text-sm group">
+                                    Voir toutes les actualités 
+                                    <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                            
+                            <!-- Newsletter CTA or similar (Optional Premium Addition) -->
+                            <div class="mt-8 bg-gradient-to-br from-[#D4AF37] to-[#FFD700] rounded-3xl p-8 text-black shadow-xl">
+                                <h4 class="text-xl font-bold mb-2">Restez informé</h4>
+                                <p class="text-sm opacity-90 mb-6">Ne manquez aucune de nos prochaines actualités et formations.</p>
+                                <a href="/#contact" class="inline-block bg-black text-white px-6 py-3 rounded-xl font-bold text-sm hover:scale-105 transition-transform">S'abonner</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

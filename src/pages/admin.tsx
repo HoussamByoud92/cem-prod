@@ -2279,6 +2279,14 @@ const formationsContent = `
                             <input type="text" x-model="bullet3" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37]">
                         </div>
                         <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Point 4</label>
+                            <input type="text" x-model="bullet4" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37]">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Point 5</label>
+                            <input type="text" x-model="bullet5" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37]">
+                        </div>
+                        <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Tags (séparés par virgule)</label>
                             <input type="text" x-model="form.tags" placeholder="E-Learning,Intra" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#D4AF37]">
                         </div>
@@ -2336,6 +2344,8 @@ const formationsScript = `
             bullet1: '',
             bullet2: '',
             bullet3: '',
+            bullet4: '',
+            bullet5: '',
             iconOptions: [
                 { value: 'fas fa-graduation-cap', label: 'Graduation' },
                 { value: 'fas fa-book', label: 'Livre' },
@@ -2411,6 +2421,8 @@ const formationsScript = `
                 this.bullet1 = '';
                 this.bullet2 = '';
                 this.bullet3 = '';
+                this.bullet4 = '';
+                this.bullet5 = '';
                 this.showModal = true;
             },
             openEdit(f) {
@@ -2421,6 +2433,8 @@ const formationsScript = `
                 this.bullet1 = bullets[0] || '';
                 this.bullet2 = bullets[1] || '';
                 this.bullet3 = bullets[2] || '';
+                this.bullet4 = bullets[3] || '';
+                this.bullet5 = bullets[4] || '';
                 this.showModal = true;
             },
             async uploadImage(e) {
@@ -2467,7 +2481,7 @@ const formationsScript = `
             },
             async saveFormation() {
                 this.saving = true;
-                this.form.bullets = [this.bullet1, this.bullet2, this.bullet3].filter(Boolean).join(',');
+                this.form.bullets = [this.bullet1, this.bullet2, this.bullet3, this.bullet4, this.bullet5].filter(Boolean).join(',');
                 const token = localStorage.getItem('admin_token');
                 try {
                     const url = this.isEditing ? '/api/admin/formations/' + this.editingId : '/api/admin/formations';
