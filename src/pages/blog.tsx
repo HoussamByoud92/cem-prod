@@ -493,74 +493,57 @@ blogApp.get('/:slug', async (c) => {
         </nav>
 
         <article>
-            <!-- Hero Image -->
-            <div class="w-full min-h-[70vh] relative flex flex-col justify-center">
-                <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" >
+            <!-- Hero Image Section -->
+            <div class="w-full min-h-screen relative flex flex-col justify-center overflow-hidden">
+                <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="w-full h-full object-cover" loading="lazy" >
                 <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
                     <div class="text-center px-4 max-w-4xl">
                         <span class="bg-[#D4AF37] text-white px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">${blog.category || 'Actualité'}</span>
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">${blog.title}</h1>
-                        <div class="flex items-center justify-center text-gray-300 text-lg gap-6">
-                            <span class="flex items-center"><i class="far fa-calendar-alt mr-2 text-[#D4AF37]"></i>${new Date(blog.publishedAt).toLocaleDateString('fr-FR')}</span>
-                            <span class="flex items-center"><i class="far fa-user mr-2 text-[#D4AF37]"></i>${blog.author}</span>
-                        </div>
+                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">${blog.title}</h1>
+                        <p class="text-gray-300 text-lg font-medium">Publié le ${new Date(blog.publishedAt).toLocaleDateString('fr-FR')} par ${blog.author}</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Content Container -->
+            <!-- Content Area with Sidebar Beside it -->
             <div class="max-w-7xl mx-auto px-4 py-20">
-                <div class="flex flex-col lg:flex-row gap-16">
-                    <!-- Main Content (Left) -->
+                <div class="flex flex-col lg:flex-row gap-16 items-start">
+                    <!-- Main Content (Left or Center) -->
                     <div class="lg:w-2/3">
-                        <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed">
-                            ${blog.content}
+                        <div class="prose prose-lg text-gray-800 max-w-none">
+                            ${blog.content} 
                         </div>
                         
-                        <!-- Tags After Content -->
-                        <div class="mt-16 pt-8 border-t border-gray-100">
-                            <div class="flex items-center gap-3 mb-4">
-                                <i class="fas fa-tags text-[#D4AF37]"></i>
-                                <h3 class="text-xl font-bold">Étiquettes</h3>
-                            </div>
+                        <div class="mt-12 pt-8 border-t border-gray-200">
+                            <h3 class="text-xl font-bold mb-4">Étiquettes</h3>
                             <div class="flex flex-wrap gap-2">
-                                ${blog.tags ? blog.tags.split(',').map(tag => `<span class="bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] transition cursor-default">#${tag.trim()}</span>`).join('') : '<span class="text-gray-400 italic">Aucun tag</span>'}
+                                ${blog.tags ? blog.tags.split(',').map(tag => `<span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-medium">#${tag.trim()}</span>`).join('') : ''}
                             </div>
                         </div>
                     </div>
 
-                    <!-- Sidebar (Right) -->
-                    <div class="lg:w-1/3">
-                        <div class="sticky top-32">
-                            <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 shadow-sm">
-                                <h3 class="text-2xl font-bold text-gray-900 mb-8 relative inline-block">
-                                    Articles Récents
-                                    <span class="absolute -bottom-2 left-0 w-12 h-1 bg-[#D4AF37] rounded-full"></span>
-                                </h3>
-                                
-                                <div class="space-y-2">
-                                    ${otherPostsHtml}
-                                </div>
-
-                                <a href="/actualites" class="mt-8 flex items-center justify-center gap-2 bg-black text-white py-4 rounded-2xl font-bold hover:bg-gray-900 transition-all shadow-lg text-sm group">
-                                    Voir toutes les actualités 
-                                    <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    <!-- Sidebar with Read More (Right) -->
+                    <aside class="lg:w-1/3 w-full">
+                        <div class="sticky top-32 p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm">
+                            <h3 class="text-2xl font-bold mb-6 relative inline-block">
+                                Articles Récents
+                                <span class="absolute -bottom-2 left-0 w-12 h-1 bg-[#D4AF37] rounded-full"></span>
+                            </h3>
+                            <div class="space-y-6">
+                                ${otherPostsHtml}
+                            </div>
+                            <div class="mt-8 pt-8 border-t border-gray-200">
+                                <a href="/actualites" class="block w-full text-center bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-900 transition no-underline">
+                                    Voir tout <i class="fas fa-arrow-right ml-2 text-xs"></i>
                                 </a>
                             </div>
-                            
-                            <!-- Newsletter CTA or similar (Optional Premium Addition) -->
-                            <div class="mt-8 bg-gradient-to-br from-[#D4AF37] to-[#FFD700] rounded-3xl p-8 text-black shadow-xl">
-                                <h4 class="text-xl font-bold mb-2">Restez informé</h4>
-                                <p class="text-sm opacity-90 mb-6">Ne manquez aucune de nos prochaines actualités et formations.</p>
-                                <a href="/#contact" class="inline-block bg-black text-white px-6 py-3 rounded-xl font-bold text-sm hover:scale-105 transition-transform">S'abonner</a>
-                            </div>
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </div>
         </article>
         
-                <!-- Footer -->
+        <!-- Footer -->
         <footer class="bg-black text-white py-12 border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-4 gap-8 mb-8">
