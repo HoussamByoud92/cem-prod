@@ -496,7 +496,7 @@ blogApp.get('/:slug', async (c) => {
             <!-- Hero Image Section -->
             <div class="w-full min-h-screen relative flex flex-col justify-center overflow-hidden">
                 <img src="${blog.coverImage || '/static/default-blog.webp'}" alt="${blog.title}" class="w-full h-full object-cover" loading="lazy" >
-                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
                     <div class="text-center px-4 max-w-4xl">
                         <span class="bg-[#D4AF37] text-white px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">${blog.category || 'Actualité'}</span>
                         <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">${blog.title}</h1>
