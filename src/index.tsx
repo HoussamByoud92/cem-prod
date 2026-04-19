@@ -362,7 +362,7 @@ app.get('/', async (c) => {
         </nav>
 
         <!-- Hero Section avec Mascottes -->
-        <section class="relative bg-black min-h-screen flex items-center justify-center pt-64 pb-20 px-4 overflow-hidden">
+        <section class="relative bg-black min-h-screen flex items-start md:items-center justify-center pt-64 pb-20 px-4 overflow-hidden">
             <!-- Animated Background Circles -->
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
                 <div class="absolute top-20 left-10 w-96 h-96 bg-[#D4AF37] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -2570,7 +2570,7 @@ app.get('/marketing', async (c) => {
         </nav>
 
         <!-- Hero Section : À Propos CEM MARKETING -->
-        <section class="relative bg-black min-h-screen flex items-center justify-center pt-64 px-4 pb-32 md:pb-40 overflow-hidden">
+        <section class="relative bg-black min-h-screen flex items-start md:items-center justify-center pt-64 px-4 pb-32 md:pb-40 overflow-hidden">
             <!-- Grille de points dorés en arrière-plan -->
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute inset-0" style="background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
@@ -4735,7 +4735,7 @@ app.get('/innovation', async (c) => {
         </nav>
 
         <!-- Hero Section : À Propos CEM INNOVATION -->
-        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center justify-center pt-64 md:pt-64 px-4 pb-32 md:pb-40 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-start md:items-center justify-center pt-64 md:pt-64 px-4 pb-32 md:pb-40 overflow-hidden">
             <!-- Grille de points dorés en arrière-plan -->
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute inset-0" style="background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
@@ -6256,7 +6256,7 @@ app.get('/', async (c) => {
         </nav>
 
         <!-- Hero Formation (FOND NOIR) -->
-        <section class="relative bg-black min-h-screen flex items-center justify-center pt-64 px-4 pb-32 md:pb-40 overflow-hidden">
+        <section class="relative bg-black min-h-screen flex items-start md:items-center justify-center pt-64 px-4 pb-32 md:pb-40 overflow-hidden">
             <!-- Blobs dorés animés en arrière-plan -->
             <div class="absolute inset-0 overflow-hidden">
                 <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full opacity-20 blur-3xl animate-blob"></div>
@@ -7969,7 +7969,7 @@ app.get('/actualites', (c) => {
         </nav>
 
         <!-- Hero Section -->
-        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-[60vh] flex items-center justify-center pt-64 pb-20 px-4 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-[60vh] flex items-start md:items-center justify-center pt-64 pb-20 px-4 overflow-hidden">
             <!-- Grille de points dorés en arrière-plan -->
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute inset-0" style="background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
